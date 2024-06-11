@@ -31,6 +31,16 @@ Mengdie Huang
 		}
 	</style>
 	<meta charset="UTF-8">
+
+	<script>
+	        document.addEventListener('DOMContentLoaded', (event) => {
+	            fetch('/update-view-count')
+	                .then(response => response.json())
+	                .then(data => {
+	                    document.getElementById('view-count').innerText = data.viewCount;
+	                });
+	        });
+    	</script>
 </head>
 
 
@@ -64,6 +74,7 @@ Mengdie Huang
 		<br>
 		Lawson Computer Science Building, West Lafayette, IN 47907, US
 	</address>
+	<p>View count: <span id="view-count">0</span></p>
 	
 </div>  
 <!-- <br> -->
