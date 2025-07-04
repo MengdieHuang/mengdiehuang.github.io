@@ -1,23 +1,28 @@
-<head><title>
-Mengdie Huang
-</title>
+<head>
+	<title>
+		<!-- Set the browser tab title to Mengdie Huang-->
+		Mengdie Huang
+	</title>
+
+	<!-- 引入字体：使用 Google Fonts 的 Open Sans -->
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
 
-<!-- Latest compiled and minified CSS -->
+	<!-- 引入 Bootstrap 4.1：提供响应式样式和交互组件 -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
-	<!-- jQuery library -->
+	
+	<!-- 引入 jQuery 和 Popper.js：配合 Bootstrap 用于弹出层和交互组件-->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT" crossorigin="anonymous"></script>
-	<!-- Popper JS -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
-	<!-- Latest compiled JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
 
-
-
+	<!-- 自定义样式（CSS） -->
+	<!-- 页面宽度限制为 900px，居中 -->
+	<!-- .nw 类禁止换行 -->
+	<!-- .mymail:after 用于拼接邮箱地址，起一定防爬虫作用 -->
 	<style type="text/css">
 		body{
 			font-family: 'Open Sans', sans-serif;
-			max-width: 900px;
+			max-width: 900px;			
 			margin: 25px auto;
 		}
 		.nw{
@@ -31,7 +36,7 @@ Mengdie Huang
 	<meta charset="UTF-8">
 </head>
 
-
+<!-- 顶部导航栏 -->
 <style>
     .hover-bg:hover {
         background-color: #cbba96; 
@@ -40,6 +45,7 @@ Mengdie Huang
     }
 </style>
 
+<!-- 一组超链接导航，点击后页面滚动跳转到对应的section -->
 <div style="display: inline-block; margin-right: 20px;">
     <a href="#home" class="scrolly hover-bg" style="color: #000000;">
         Home
@@ -88,12 +94,13 @@ Mengdie Huang
     </a>
 </div>
 
+<!-- 右侧有一个[CV]链接-->
 <div style="display: inline-block; float: right;">
-<!--     <a href="#others" class="scrolly hover-bg" style="color: #000000;"> -->
     <a href="cv/CV-MengdieHuang-20250603.pdf" style="color: #000000;">
 	    [CV]
     </a>
 </div>
+
 <br>
 <br>
 <section id="home" class>
