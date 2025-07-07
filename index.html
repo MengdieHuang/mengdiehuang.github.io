@@ -36,12 +36,26 @@
 </head>
 
 <!-- 顶部导航栏 -->
-<style>
+<!-- <style>
     .hover-bg:hover {
         background-color: #cbba96; 
         color: black; 
         text-decoration: none;
     }
+</style> -->
+<style>
+	.hover-bg {
+    display: inline-block;
+    padding: 10px 16px; /* 增大点击区域 */
+    border-radius: 6px;  /* 可选，加点圆角美化 */
+    transition: background-color 0.3s ease;
+	}
+
+	.hover-bg:hover {
+		background-color: #cbba96; 
+		color: black; 
+		text-decoration: none;
+	}
 </style>
 
 <!-- 一组超链接导航，点击后页面滚动跳转到对应的section -->
