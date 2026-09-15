@@ -1,829 +1,959 @@
+<!doctype html>
+<html lang="en">
 <head>
-	<title>
-		Mengdie Huang
-	</title>
-
-	<!-- introduce Google Fonts Open Sans -->
-	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
-
-	<!-- introduce Bootstrap 4.1 -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
-	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-
-	<!-- introduce jQuery and Popper.js -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT" crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
-
-	<!-- CSS -->
-	<!-- page width 900px -->
-	<!-- font-family: 'Open Sans', sans-serif; -->
-	<style type="text/css">
-		body{
-			font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
-
-			max-width: 900px;			
-			margin: 25px auto;
-		}
-		.nw{
-			white-space: nowrap;
-		}
-
-		.mymail:after {
-			content: attr(data-name) "@" attr(data-domain) "." attr(data-tld);
-		}
-	</style>
-	<meta charset="UTF-8">
-</head>
-
-<!-- Top Bar -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mengdie Huang (Maggie)</title>
+<meta name="description" content="Mengdie Huang (Maggie) - Postdoctoral Research Associate, Department of Computer Science, Purdue University. Research on security and robustness of machine learning models.">
+<meta name="author" content="Mengdie Huang">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,600&display=swap" rel="stylesheet">
 <style>
-	.hover-bg {
-    display: inline-block;
-    padding: 5px 8px;  
-    border-radius: 3px;  
-    transition: background-color 0.3s ease;
-	}
+/* ---------- Purdue palette ---------- */
+:root{
+  --gold:#CFB991;        /* Boilermaker Gold */
+  --rush:#DAAA00;        /* Rush */
+  --field:#DDB945;       /* Field */
+  --aged:#8E6F3E;        /* Aged - accessible gold for text */
+  --dust:#EBD99F;        /* Dust */
+  --steel:#555960;       /* Steel */
+  --cool:#6F727B;        /* Cool Gray */
+  --ink:#1c1c1e;
+  --bg:#ffffff;
+  --surface:#FCFAF4;
+  --surface2:#F6F0E1;
+  --border:#E8E0CD;
+  --nav-h:52px;
+  --maxw:920px;
+  color-scheme: light;
+}
 
-	.hover-bg:hover {
-		background-color: #cbba96; 
-		color: black; 
-		text-decoration: none;
-	}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',sans-serif;
+  font-size:15px;
+  line-height:1.62;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%}
+a{color:var(--aged);text-decoration:none}
+a:hover{text-decoration:underline}
+p{margin:0 0 .85em}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px}
 
-	section h3 {
-	position: relative;
-	padding-left: 18px;
-	}
+/* ---------- Sticky nav ---------- */
+.topnav{
+  position:sticky;
+  top:0;
+  z-index:50;
+  background:rgba(255,255,255,.90);
+  -webkit-backdrop-filter:saturate(180%) blur(12px);
+  backdrop-filter:saturate(180%) blur(12px);
+  border-bottom:1px solid var(--border);
+  transition:box-shadow .3s ease, border-color .3s ease;
+}
+.topnav.stuck{box-shadow:0 2px 16px rgba(28,28,30,.07);border-bottom-color:var(--gold)}
+.navwrap{
+  max-width:var(--maxw);margin:0 auto;padding:0 14px;
+  height:var(--nav-h);
+  display:flex;align-items:center;gap:1px;
+  overflow-x:auto;overscroll-behavior-x:contain;
+  scrollbar-width:none;-ms-overflow-style:none;
+}
+.navwrap::-webkit-scrollbar{display:none}
+.navwrap a{
+  position:relative;flex:0 0 auto;
+  padding:8px 11px;border-radius:5px;
+  color:var(--steel);font-size:13.5px;font-weight:500;white-space:nowrap;
+  transition:color .2s ease, background-color .2s ease;
+}
+.navwrap a:hover{color:var(--ink);background:var(--surface2);text-decoration:none}
+.navwrap a::after{
+  content:"";position:absolute;left:11px;right:11px;bottom:3px;height:2px;border-radius:2px;
+  background:var(--rush);transform:scaleX(0);transform-origin:left;
+  transition:transform .28s cubic-bezier(.4,0,.2,1);
+}
+.navwrap a:hover::after,.navwrap a.active::after{transform:scaleX(1)}
+.navwrap a.active{color:var(--aged);font-weight:600}
+.navwrap .nav-cv{
+  margin-left:auto;
+  border:1px solid var(--gold);background:var(--surface);color:var(--aged);font-weight:600;
+}
+.navwrap .nav-cv::after{display:none}
+.navwrap .nav-cv:hover{background:var(--gold);color:#fff}
+/* scroll progress, pinned to the nav's own baseline */
+#prog{
+  position:absolute;left:0;bottom:-1px;height:2px;width:0;
+  background:linear-gradient(90deg,var(--gold),var(--rush));
+  transition:width .08s linear;
+}
 
-	section h3::before {
-	content: "";
-	position: absolute;
-	left: 0;
-	top: 50%;
-	transform: translateY(-50%);
-	width: 3px;
-	height: 0.9em;
-	background-color: currentColor;
-	}
+/* ---------- Section frame ---------- */
+section{scroll-margin-top:calc(var(--nav-h) + 14px)}
+.sec{padding:34px 0 8px}
+.sec-title{
+  display:flex;align-items:center;gap:12px;
+  margin:0 0 18px;
+  font-family:'Source Serif 4',Georgia,serif;
+  font-size:21px;font-weight:600;letter-spacing:-.01em;color:var(--ink);
+}
+.sec-title::before{
+  content:"";flex:0 0 auto;width:4px;height:20px;border-radius:2px;
+  background:linear-gradient(var(--gold),var(--rush));
+}
+.sec-title::after{
+  content:"";flex:1 1 auto;height:1px;
+  background:linear-gradient(90deg,var(--border),transparent);
+}
 
+/* ---------- Reveal on scroll ---------- */
+html.js .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s cubic-bezier(.22,1,.36,1)}
+html.js .reveal.in{opacity:1;transform:none}
+
+/* ---------- Hero ---------- */
+.hero{
+  background:
+    radial-gradient(1000px 320px at 88% -30%, rgba(218,170,0,.13), transparent 62%),
+    linear-gradient(160deg, var(--surface2) 0%, var(--surface) 55%, #fff 100%);
+  border-bottom:1px solid var(--border);
+  position:relative;
+}
+.hero::after{
+  content:"";position:absolute;left:0;right:0;bottom:-1px;height:2px;
+  background:linear-gradient(90deg,var(--gold),var(--rush),var(--gold));
+  opacity:.65;
+}
+.hero-in{display:flex;gap:30px;align-items:flex-start;padding:34px 0 30px}
+.hero-txt{flex:1 1 auto;min-width:0}
+.hero-pic{flex:0 0 auto}
+.hero-pic img{
+  width:178px;height:222px;object-fit:cover;border-radius:10px;
+  border:3px solid #fff;
+  box-shadow:0 0 0 2px var(--gold), 0 12px 30px rgba(143,111,62,.20);
+  transition:transform .4s cubic-bezier(.22,1,.36,1), box-shadow .4s ease;
+}
+.hero-pic img:hover{transform:translateY(-4px) scale(1.015);box-shadow:0 0 0 2px var(--rush), 0 18px 40px rgba(143,111,62,.28)}
+.hero h1{
+  margin:0;font-family:'Source Serif 4',Georgia,serif;
+  font-size:33px;font-weight:600;letter-spacing:-.02em;line-height:1.2;
+}
+.hero h1 a{color:var(--ink)}
+.hero h1 a:hover{text-decoration:none}
+.name-zh{font-size:17px;color:var(--steel);margin:2px 0 0}
+.icon-btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:26px;height:26px;border-radius:50%;vertical-align:6px;margin-left:9px;
+  background:#fff;border:1px solid var(--border);
+  transition:border-color .2s, transform .2s, box-shadow .2s;
+}
+.icon-btn:hover{border-color:var(--rush);transform:scale(1.1);box-shadow:0 2px 8px rgba(218,170,0,.3)}
+.icon-btn img{height:14px;display:block}
+.flag{height:15px;vertical-align:5px;margin-left:6px;border-radius:2px}
+.meta{margin-top:14px;line-height:1.85;font-size:14.5px}
+.meta .row{display:flex;gap:8px;align-items:flex-start}
+.meta .row img{width:15px;margin-top:5px;flex:0 0 auto;opacity:.75}
+.meta a{color:var(--ink)}
+.meta a:hover{color:var(--aged)}
+.meta b{font-weight:600}
+
+/* ---------- Cards ---------- */
+.card{
+  position:relative;
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:8px;
+  padding:13px 16px 13px 18px;
+  margin-bottom:11px;
+  transition:transform .28s cubic-bezier(.22,1,.36,1), box-shadow .28s ease, border-color .28s ease;
+}
+.card::before{
+  content:"";position:absolute;left:-1px;top:-1px;bottom:-1px;width:3px;
+  border-radius:8px 0 0 8px;
+  background:linear-gradient(var(--gold),var(--rush));
+  transform:scaleY(0);transform-origin:top;
+  transition:transform .32s cubic-bezier(.22,1,.36,1);
+}
+.card:hover::before{transform:scaleY(1)}
+.card:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(143,111,62,.13);border-color:var(--gold)}
+.card .ttl{font-weight:600;color:var(--ink);display:block;margin-bottom:3px;line-height:1.45}
+.card .authors{font-size:14px;color:var(--steel);display:block;margin-bottom:3px}
+.card .authors a{color:var(--steel)}
+.card .authors a:hover{color:var(--aged)}
+.card .authors b{color:var(--ink);font-weight:600}
+.card .venue{font-size:13.5px;color:var(--cool);font-style:italic;display:block}
+.card .sub{font-size:14px;color:var(--steel);display:block}
+
+/* ---------- Badges & links ---------- */
+.badge{
+  display:inline-block;padding:1.5px 8px;border-radius:4px;
+  font-size:11.5px;font-weight:600;letter-spacing:.03em;
+  background:var(--dust);color:#6a5228;border:1px solid var(--gold);
+  vertical-align:2px;margin-left:7px;white-space:nowrap;
+}
+.badge.award{background:linear-gradient(135deg,var(--rush),var(--field));color:#3d2f00;border-color:var(--aged)}
+.links{margin-top:6px;display:flex;flex-wrap:wrap;gap:6px}
+.links a{
+  font-size:12.5px;padding:2.5px 9px;border-radius:4px;
+  border:1px solid var(--border);background:#fff;color:var(--aged);
+  transition:all .2s ease;
+}
+.links a:hover{background:var(--gold);color:#fff;border-color:var(--gold);text-decoration:none}
+
+/* ---------- Tabs & filters ---------- */
+.tabs{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 14px;border-bottom:1px solid var(--border);padding-bottom:10px}
+.tab{
+  padding:6px 14px;border-radius:999px;font-size:13.5px;font-weight:500;
+  border:1px solid var(--border);background:#fff;color:var(--steel);cursor:pointer;
+  font-family:inherit;transition:all .22s ease;
+}
+.tab:hover{border-color:var(--gold);color:var(--aged);background:var(--surface)}
+.tab[aria-selected="true"]{background:var(--gold);border-color:var(--gold);color:#fff;font-weight:600}
+.tab .n{opacity:.7;font-size:12px;margin-left:3px}
+.filters{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:0 0 14px;font-size:13px;color:var(--cool)}
+.filt{
+  padding:3px 11px;border-radius:999px;font-size:12.5px;
+  border:1px dashed var(--border);background:transparent;color:var(--steel);cursor:pointer;
+  font-family:inherit;transition:all .2s ease;
+}
+.filt:hover{border-color:var(--gold);border-style:solid;color:var(--aged)}
+.filt[aria-pressed="true"]{border-style:solid;border-color:var(--aged);background:var(--surface2);color:var(--aged);font-weight:600}
+.pane[hidden]{display:none}
+.card[data-hidden="1"]{display:none}
+
+/* ---------- News ---------- */
+.news-item{
+  position:relative;
+  background:linear-gradient(90deg,var(--surface2),var(--surface) 70%);
+  border:1px solid var(--border);border-left:3px solid var(--gold);
+  border-radius:0 7px 7px 0;padding:11px 15px;margin-bottom:10px;
+  transition:transform .25s ease, box-shadow .25s ease, border-left-color .25s ease;
+}
+.news-item:hover{transform:translateX(3px);box-shadow:0 6px 18px rgba(143,111,62,.12);border-left-color:var(--rush)}
+.news-date{
+  display:inline-block;min-width:78px;font-weight:600;font-size:13px;color:var(--aged);
+  letter-spacing:.01em;
+}
+.dot{
+  display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--rush);
+  margin-right:7px;vertical-align:1px;
+  animation:pulse 2.4s ease-in-out infinite;
+}
+@keyframes pulse{
+  0%,100%{box-shadow:0 0 0 0 rgba(218,170,0,.55)}
+  50%{box-shadow:0 0 0 6px rgba(218,170,0,0)}
+}
+
+/* ---------- Timeline ---------- */
+.tl{list-style:none;margin:0;padding:0 0 0 26px;position:relative}
+.tl::before{
+  content:"";position:absolute;left:5px;top:8px;bottom:12px;width:2px;border-radius:2px;
+  background:linear-gradient(var(--rush),var(--gold) 40%,var(--dust));
+}
+.tl>li{position:relative;margin-bottom:20px}
+.tl>li:last-child{margin-bottom:6px}
+.tl>li::before{
+  content:"";position:absolute;left:-26px;top:7px;width:12px;height:12px;border-radius:50%;
+  background:#fff;border:2.5px solid var(--gold);
+  transition:background-color .25s ease, border-color .25s ease, box-shadow .25s ease;
+}
+.tl>li:hover::before{background:var(--rush);border-color:var(--rush);box-shadow:0 0 0 5px rgba(218,170,0,.16)}
+.tl .hd{font-weight:600;color:var(--ink)}
+.tl .when{font-size:13px;color:var(--cool);font-weight:400;margin-left:4px}
+.tl .ln{font-size:14px;color:var(--steel);display:block}
+.tl .ln a{color:var(--steel)}
+.tl .ln a:hover{color:var(--aged)}
+.tl .ln img{width:17px;vertical-align:-3px;margin-right:3px}
+
+/* ---------- Service chips ---------- */
+.svc{margin-bottom:22px}
+.svc h4{
+  margin:0 0 9px;font-size:14px;font-weight:600;color:var(--ink);
+  display:flex;align-items:center;gap:8px;
+}
+.svc h4::after{content:"";flex:1;height:1px;background:var(--border)}
+.chips{display:flex;flex-wrap:wrap;gap:7px}
+.chip{
+  display:inline-flex;align-items:baseline;gap:6px;
+  padding:5px 12px;border-radius:999px;font-size:13px;
+  border:1px solid var(--border);background:#fff;color:var(--ink);
+  transition:transform .2s ease, border-color .2s ease, background-color .2s ease, box-shadow .2s ease;
+}
+.chip:hover{
+  transform:translateY(-2px);border-color:var(--gold);background:var(--surface);
+  box-shadow:0 4px 12px rgba(143,111,62,.14);text-decoration:none;color:var(--aged);
+}
+.chip .yr{font-size:11.5px;color:var(--cool);font-variant-numeric:tabular-nums}
+.chip .full{font-size:11.5px;color:var(--cool)}
+.chip.starred{border-color:var(--gold);background:linear-gradient(135deg,var(--dust),#fff)}
+.chip.starred::before{content:"\2605";color:var(--rush);font-size:12px}
+
+/* visually hidden, still read by search engines and screen readers */
+.sr-only{
+  position:absolute;width:1px;height:1px;padding:0;margin:-1px;
+  overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;
+}
+
+/* ---------- Others ---------- */
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:11px}
+
+/* ---------- Footer ---------- */
+.footer{
+  margin-top:46px;border-top:2px solid var(--gold);
+  background:linear-gradient(180deg,var(--surface),var(--surface2));
+}
+.footer-in{
+  display:flex;flex-wrap:wrap;gap:22px;align-items:center;justify-content:space-between;
+  padding:24px 0 18px;
+}
+.logos{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.logos img{height:50px;width:auto;opacity:.82;transition:opacity .25s ease, transform .25s ease}
+.logos a:hover img{opacity:1;transform:translateY(-2px)}
+.social{display:flex;align-items:center;gap:11px;flex-wrap:wrap}
+.social img{height:31px;width:auto;border-radius:5px;opacity:.85;transition:opacity .25s ease, transform .25s ease}
+.social a:hover img{opacity:1;transform:translateY(-3px) scale(1.06)}
+.copy{
+  text-align:center;padding:13px 20px 20px;
+  color:var(--cool);font-size:13px;border-top:1px solid var(--border);
+}
+
+/* ---------- Back to top ---------- */
+#totop{
+  position:fixed;right:20px;bottom:calc(20px + env(safe-area-inset-bottom,0px));z-index:45;
+  width:42px;height:42px;border-radius:50%;cursor:pointer;
+  border:1px solid var(--gold);background:rgba(255,255,255,.94);color:var(--aged);
+  font-size:17px;line-height:1;
+  box-shadow:0 4px 16px rgba(143,111,62,.20);
+  opacity:0;visibility:hidden;transform:translateY(10px);
+  transition:opacity .3s ease, transform .3s ease, visibility .3s, background-color .2s, color .2s;
+}
+#totop.show{opacity:1;visibility:visible;transform:none}
+#totop:hover{background:var(--gold);color:#fff}
+
+/* ---------- Responsive ---------- */
+@media (max-width:720px){
+  .hero-in{flex-direction:column-reverse;align-items:center;text-align:center;gap:18px;padding:26px 0}
+  .hero-txt{text-align:left;width:100%}
+  .hero-pic img{width:150px;height:188px}
+  .hero h1{font-size:27px}
+  .meta{font-size:14px}
+  .footer-in{flex-direction:column;align-items:flex-start;gap:16px}
+  .sec-title{font-size:19px}
+  body{font-size:14.5px}
+}
+@media (max-width:420px){
+  .wrap{padding:0 16px}
+  .navwrap{padding:0 10px}
+  .logos img{height:40px}
+  .news-date{display:block;min-width:0}
+}
+
+/* ---------- Motion preference ---------- */
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
+  html.js .reveal{opacity:1;transform:none}
+}
 </style>
+</head>
+<body>
 
+<script>document.documentElement.className='js';</script>
+<!-- ================= NAV ================= -->
+<header class="topnav" id="topnav">
+  <nav class="navwrap" aria-label="Section navigation">
+    <a href="#home">Home</a>
+    <a href="#aboutme">About me</a>
+    <a href="#news">News</a>
+    <a href="#publications">Publications</a>
+    <a href="#projects">Projects</a>
+    <a href="#employment">Employment</a>
+    <a href="#education">Education</a>
+    <a href="#services">Services</a>
+    <a href="#others">Others</a>
+    <a class="nav-cv" href="cv/PostDoc_Resume.pdf">Resume &#8595;</a>
+  </nav>
+  <div id="prog"></div>
+</header>
 
-<!-- section button -->
-<div style="display: inline-block; margin-right: 7px;">
-    <a href="#home" class="scrolly hover-bg" style="color: #000000;">
-        Home
-    </a>
-</div>
+<!-- ================= HOME ================= -->
+<section id="home" class="hero">
+  <div class="wrap hero-in">
+    <div class="hero-txt">
+      <h1>
+        <a href=".">Mengdie Huang (Maggie)</a>
+        <a class="icon-btn" href="audio/mengdie-huang-name-read.m4a" title="Pronounce my name" aria-label="Pronounce my name"><img src="image/speaker-icon.png" alt=""></a>
+        <img class="flag" src="image/China-flag.png" alt="China">
+      </h1>
+      <p class="name-zh">&#40644;&#26790;&#34678;</p>
 
-<div style="display: inline-block; margin-right: 7px;">
-    <a href="#aboutme" class="scrolly hover-bg" style="color: #000000;">
-        About me
-    </a>
-</div>
+      <div class="meta">
+        <div class="row">
+          <img src="image/position-icon.png" alt="">
+          <div><b>PostDoctoral Research Associate</b></div>
+        </div>
+        <div class="row">
+          <img src="image/institution-icon.png" alt="">
+          <div>
+            <a href="http://www.cs.purdue.edu/">Department of Computer Science</a>,
+            <a href="https://www.purdue.edu/science/">College of Science</a>,
+            <a href="http://www.purdue.edu/">Purdue University</a>
+          </div>
+        </div>
+        <div class="row">
+          <img src="image/email-icon.png" alt="">
+          <div>
+            <a href="mailto:huan1932@purdue.edu">huan1932@purdue.edu</a> &middot;
+            <a href="mailto:maggiehuang2310@gmail.com">maggiehuang2310@gmail.com</a>
+          </div>
+        </div>
+        <div class="row">
+          <img src="image/address-icon.png" alt="">
+          <div>2161R, Lawson Computer Science Building, West Lafayette, IN 47907, US</div>
+        </div>
+      </div>
+    </div>
 
-<div style="display: inline-block; margin-right: 7px;">
-    <a href="#news" class="scrolly hover-bg" style="color: #000000;">
-        News
-    </a>
-</div>
-
-<div style="display: inline-block; margin-right: 7px;">
-    <a href="#publications" class="scrolly hover-bg" style="color: #000000;">
-        Publications
-    </a>
-</div>
-
-<div style="display: inline-block; margin-right: 7px;">
-    <a href="#projects" class="scrolly hover-bg" style="color: #000000;">
-        Projects
-    </a>
-</div>
-
-<div style="display: inline-block; margin-right: 7px;">
-    <a href="#employment" class="scrolly hover-bg" style="color: #000000;">
-        Employment
-    </a>
-</div>
-
-<div style="display: inline-block; margin-right: 7px;">
-    <a href="#education" class="scrolly hover-bg" style="color: #000000;">
-        Education
-    </a>
-</div>
-
-<div style="display: inline-block; margin-right: 7px;">
-    <a href="#services" class="scrolly hover-bg" style="color: #000000;">
-        Services
-    </a>
-</div>
-
-<div style="display: inline-block; margin-right: 7px;">
-    <a href="#others" class="scrolly hover-bg" style="color: #000000;">
-        Others
-    </a>
-</div>
-
-<div style="display: inline-block; margin-right: 7px;">
-	<span style="margin-right: 5px;">
-	<a href="cv/PostDoc_Resume.pdf" class="scrolly hover-bg" style="color: #000000;">
-		Resume
-	</a>
-	</span>
-	<a href="cv/PostDoc_Resume.pdf"> <img src="image/resume-icon.jpg" height="30" alt="resume" style="vertical-align: middle; margin-top: -5px;">	
-</div>
-
-
-<br>
-<br>
-
-<!-- Section Home Start-->
-<!-- <section id="home" class> -->
-<section id="home" style="background-color: #f0e9d8; padding-top: 12px; padding-left: 8px; padding-right: 8px; padding-bottom: 7px; border-radius: 6px;">
-
-<div id="container">
-
-	<!-- Photo -->
-	<div style="float: right; margin-right: 8px;">
-		<img src="image/IMG_1194_2.jpg" height="200" class="profile_image">		
-	</div>
-
-	<div style="margin-left: 8px;">
-		<span style="font-size: 24pt;">
-			<!-- Name -->
-			<a href="." style="color: black; text-decoration: none; font-size: 32px;" >Mengdie Huang (Maggie)</a>
-			<!-- pronounce -->
-			<a href="audio/mengdie-huang-name-read.m4a"> <img src="image/speaker-icon.png" height="21" alt="speaker" style="margin-left: 16px;"></a>	
-			<!-- flag -->
-			<img src="image/China-flag.png" height="20" alt="Flag" style="margin-left: 4px;">
-		</span>
-	</div>
-	
-	<div style="margin-left: 8px;">
-		<span style="font-size: 16pt;">
-			<!-- Chinese Name -->
-			<a href="." style="color: black; text-decoration: none;">黄梦蝶</a>
-		</span>
-	</div>
-
-	<!-- Position -->
-	<div style="line-height: 1.5; padding-top: 15px;">
-		<img src="image/position-icon.png" width="15" alt="position" style="vertical-align: -2px; margin-left: 2px; margin-right: 2.3px;">
-		<b>PostDoctoral Research Associate</b>
-		<br>
-		<img src="image/institution-icon.png" width="17" alt="institution" style="vertical-align: -2px; margin-right: 2px;">
-		<a href="http://www.cs.purdue.edu/" style="color: black;">Department of Computer Science,</a>
-		<a href="https://www.purdue.edu/science/" style="color: black;">College of Science,</a>
-		<a href="http://www.purdue.edu/" style="color: black;">Purdue University</a>
-	</div>
-
-	<!-- Contact -->
-	<address>
-		<img src="image/email-icon.png" width="17" alt="email" style="vertical-align: -2px; margin-right: 2px;">
-		<a href="mailto:huan1932@purdue.edu" class="mymail1" data-name="huan1932" data-domain="purdue" data-tld="edu" onmouseover="this.href=this.href.replace('xyz','@');" style="color: #000000;">huan1932@purdue.edu,</a>
-		<a href="mailto:maggiehuang2310@gmail.com" class="mymail2" data-name="maggiehuang2310" data-domain="gmail" data-tld="com" onmouseover="this.href=this.href.replace('xyz','@');" style="color: #000000;">maggiehuang2310@gmail.com</a>		
-		<br>
-		<img src="image/address-icon.png" width="14" alt="address" style="margin-left: 1px; margin-right: 3px;">
-		2161R, Lawson Computer Science Building, West Lafayette, IN 47907, US
-	</address>
-
-</div>  
+    <div class="hero-pic">
+      <img src="image/IMG_1194_2.jpg" alt="Mengdie Huang">
+    </div>
+  </div>
 </section>
-<!-- Section Home End-->
 
-<br>
+<main>
 
-<!-- Section About Me Start-->
-<section id="aboutme" class>
-<div class="introduction">
-	<h3 style="color: #bca878;">About me</h3>
-	<span>
-		<p>
-			Welcome to my homepage.
-			<!-- I am a Postdoctoral Research Associate in the Department of Computer Science at Purdue University, advised by Professor <a href="https://www.cs.purdue.edu/homes/bertino/" style="color: #bca878;">Elisa Bertino</a> since July 2025. I also work closely with Professor <a href="https://www.cs.purdue.edu/homes/ninghui/" style="color: #bca878;">Ninghui Li</a>.
-			From September 2022 to June 2025, I was a visiting Ph.D. student advised by Professor Bertino in the same department. 
-			I received my Ph.D. degree in Cyberspace Security from the School of Cyber Engineering at Xidian University in 2025, advised by Professor <a href="https://web.xidian.edu.cn/xfchen/en/index.html" style="color: #bca878;">Xiaofeng Chen</a>, and earned my M.S. degree from the Communication University of China in 2019. -->
-			I am currently a Postdoctoral Research Associate at Purdue University, working under the advisement of Professor <a href="https://www.cs.purdue.edu/homes/bertino/" style="color: #bca878;">Elisa Bertino</a> and Professor <a href="https://www.cs.purdue.edu/homes/ninghui/" style="color: #bca878;">Ninghui Li</a>. I received my Ph.D. in Cyberspace Security from Xidian University in June 2025, advised by Professor <a href="https://web.xidian.edu.cn/xfchen/en/index.html" style="color: #bca878;">Xiaofeng Chen</a>, during which time I also conducted research as a Visiting Ph.D. student at Purdue University from 2022 to 2025. 
-			</p>
-		<p>
-			My research primarily focuses on the security and robustness of machine learning models in critical domains, with the overarching goal of building resilient and trustworthy AI architectures. Specifically, I advance core research in certified robustness, robust transfer learning, the security of multimodal foundation models, and adversarial robustness in distributed AI systems. I have published extensively in premier security journals and conferences, including IEEE TDSC, ACM TOPS, ACM TIOT, AsiaCCS, and ESORICS, and I was the recipient of the Best Paper Award at TrustCom 2024. Furthermore, I actively serve the academic community as a reviewer for prestigious journals such as IEEE TDSC, TIFS, and TNNLS, and act as an Artifact Evaluation Committee member for top-tier security conferences including ACM CCS and NDSS.
-		</p>
-		<!-- <p>
-		My research interests lie in security and privacy in machine learning, networking, and multimedia. My recent work focuses on the robustness of deep neural networks and large vision-language models.
-		</p> -->
-		<p>
-		If you are interested in my research or in need of any support, I am always open to discussion. You are welcome to reach out to me via email.
-		</p>
-	</span>
-</div>
+<!-- ================= ABOUT ================= -->
+<section id="aboutme" class="sec wrap reveal">
+  <h2 class="sec-title">About me</h2>
+  <p>
+    Welcome to my homepage.
+    I am currently a Postdoctoral Research Associate at Purdue University, working under the advisement of Professor <a href="https://www.cs.purdue.edu/homes/bertino/">Elisa Bertino</a> and Professor <a href="https://www.cs.purdue.edu/homes/ninghui/">Ninghui Li</a>. I received my Ph.D. in Cyberspace Security from Xidian University in June 2025, advised by Professor <a href="https://web.xidian.edu.cn/xfchen/en/index.html">Xiaofeng Chen</a>, during which time I also conducted research as a Visiting Ph.D. student at Purdue University from 2022 to 2025.
+  </p>
+  <p>
+    My research primarily focuses on the security and robustness of machine learning models in critical domains, with the overarching goal of building resilient and trustworthy AI architectures. Specifically, I advance core research in certified robustness, robust transfer learning, the security of multimodal foundation models, and adversarial robustness in distributed AI systems. I have published extensively in premier security journals and conferences, including IEEE TDSC, ACM TOPS, ACM TIOT, AsiaCCS, and ESORICS, and I was the recipient of the Best Paper Award at TrustCom 2024. Furthermore, I actively serve the academic community as a reviewer for prestigious journals such as IEEE TDSC, TIFS, and TNNLS, and act as an Artifact Evaluation Committee member for top-tier security conferences including ACM CCS and NDSS.
+  </p>
+  <p>
+    If you are interested in my research or in need of any support, I am always open to discussion. You are welcome to reach out to me via email.
+  </p>
 </section>
-<!-- Section About Me End-->
 
-<br>
-
-<!-- Section News Start-->
-<section id="news" class>
-<h3 style="color: #bca878;">News</h3>
-<ul style="list-style: none; padding-left: 0; margin-bottom: 0;">
-	<li style="padding: 9px 14px; margin-bottom: 9px; background-color: #f7f2e6; border-left: 3px solid #bca878; border-radius: 4px; line-height: 1.5;">
-		<span style="display: inline-block; min-width: 74px; color: #bca878; font-weight: 600;">Sep 2026</span>
-		Congratulations to <a href="https://scholar.google.com/citations?user=WjGhWAsAAAAJ&hl" style="color: #000000; font-weight: 600;">Yani Liu</a> on the acceptance of our paper <em>"EntroDelta: An Error-Bounded, Data-Free Compression Framework for Massive Model Storage"</em> to SIGMOD 2027!
-	</li>
-</ul>
+<!-- ================= NEWS ================= -->
+<section id="news" class="sec wrap reveal">
+  <h2 class="sec-title">News</h2>
+  <div class="news-item">
+    <span class="news-date"><span class="dot"></span>Sep 2026</span>
+    Congratulations to <a href="https://scholar.google.com/citations?user=WjGhWAsAAAAJ&amp;hl">Yani Liu</a> on the acceptance of our paper <em>"EntroDelta: An Error-Bounded, Data-Free Compression Framework for Massive Model Storage"</em> to SIGMOD 2027!
+  </div>
 </section>
-<!-- Section News End-->
 
-<br>
+<!-- ================= PUBLICATIONS ================= -->
+<section id="publications" class="sec wrap reveal">
+  <h2 class="sec-title">Publications</h2>
 
-<!-- Section Manuscripts-->
-<section id="manuscripts--" class>
-<h3 style="color: #bca878;">Manuscripts</h3>
-<ul>
-	<li>
-		<b> Robust Downstream Adaptation of Vision Foundation Models
-		</b>
-	</li>
-	<li>
-		<b> Membership Inference Attack against Large Vision Language Model
-		</b>
-	</li>
-	<li>
-		<b> Analysis of Adversarial Robustness in Graph Neural Networks
-		</b>
-	</li>
-	<li>
-		<b> Analysis of Adversarial Robustness in Multimodal Models
-		</b>
-	</li>
-	
-</ul>
+  <div class="tabs" role="tablist">
+    <button class="tab" role="tab" aria-selected="true"  aria-controls="pane-pub" id="tab-pub">Published <span class="n">13</span></button>
+    <button class="tab" role="tab" aria-selected="false" aria-controls="pane-rev" id="tab-rev">Under Review <span class="n">3</span></button>
+    <button class="tab" role="tab" aria-selected="false" aria-controls="pane-man" id="tab-man">Manuscripts <span class="n">4</span></button>
+  </div>
+
+  <!-- ---- Published ---- -->
+  <div class="pane" id="pane-pub" role="tabpanel" aria-labelledby="tab-pub">
+    <div class="filters">
+      <span>Filter:</span>
+      <button class="filt" aria-pressed="true"  data-f="all">All</button>
+      <button class="filt" aria-pressed="false" data-f="journal">Journal</button>
+      <button class="filt" aria-pressed="false" data-f="conf">Conference</button>
+      <button class="filt" aria-pressed="false" data-f="thesis">Thesis</button>
+    </div>
+
+    <article class="card" data-type="conf">
+      <span class="ttl">EntroDelta: An Error-Bounded, Data-Free Compression Framework for Massive Model Storage<span class="badge">SIGMOD 2027</span></span>
+      <span class="authors"><a href="https://scholar.google.com/citations?user=WjGhWAsAAAAJ&amp;hl">Yani Liu</a>, Feng Zhang, Yu Zhang, <b>Mengdie Huang</b>, <a href="https://www.cs.purdue.edu/homes/bertino/">Elisa Bertino</a>, Xiaoyong Du.</span>
+      <span class="venue">In ACM SIGMOD International Conference on Management of Data (SIGMOD), 2027.</span>
+      <div class="links">
+        <a href="https://scholar.google.com/citations?user=WjGhWAsAAAAJ&amp;hl">paper</a>
+        <a href="https://scholar.google.com/citations?user=WjGhWAsAAAAJ&amp;hl">slides</a>
+        <a href="https://scholar.google.com/citations?user=WjGhWAsAAAAJ&amp;hl">code</a>
+      </div>
+    </article>
+
+    <article class="card" data-type="journal">
+      <span class="ttl">TriXfer: Triple-Cross Transfer Attack on Vision Transformer&ndash;Adapted Downstream Classifiers<span class="badge">TDSC 2026</span></span>
+      <span class="authors"><b>Mengdie Huang</b>, <a href="https://linkthelord.github.io/">Yingjun Lin</a>, <a href="https://www.cs.purdue.edu/homes/ninghui/">Ninghui Li</a>, <a href="https://www.cs.purdue.edu/homes/bertino/">Elisa Bertino</a>.</span>
+      <span class="venue">In IEEE Transactions on Dependable and Secure Computing (TDSC), 2026</span>
+      <div class="links">
+        <a href="https://ieeexplore.ieee.org/document/11646465">paper</a>
+        <a href="https://ieeexplore.ieee.org/document/11646465">slides</a>
+        <a href="https://ieeexplore.ieee.org/document/11646465">code</a>
+      </div>
+    </article>
+
+    <article class="card" data-type="thesis">
+      <span class="ttl">Research on Key Techniques for Adversarial Robustness of Deep Neural Networks<span class="badge">Ph.D. 2025</span></span>
+      <span class="authors"><b>Mengdie Huang</b>.</span>
+      <span class="venue">Dissertation for the Degree of Doctor of Philosophy, 2025</span>
+      <div class="links">
+        <a href="papers/PhdDissertation.pdf">dissertation</a>
+        <a href="slides/PhD-Defense-Slides-20250514.pdf">slides</a>
+      </div>
+    </article>
+
+    <article class="card" data-type="journal">
+      <span class="ttl">CARD: Robustness-Preserving Transfer Learning for Network Intrusion Detection via Contrastive Adversarial Representation Distillation<span class="badge">TDSC 2025</span></span>
+      <span class="authors"><b>Mengdie Huang</b>, <a href="https://linkthelord.github.io/">Yingjun Lin</a>, <a href="https://www.cs.purdue.edu/homes/ninghui/">Ninghui Li</a>, <a href="https://web.xidian.edu.cn/xfchen/en/index.html">Xiaofeng Chen</a>, <a href="https://www.cs.purdue.edu/homes/bertino/">Elisa Bertino</a>.</span>
+      <span class="venue">In IEEE Transactions on Dependable and Secure Computing (TDSC), 2025</span>
+      <div class="links">
+        <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&amp;arnumber=10970424">paper</a>
+        <a href="https://ieeexplore.ieee.org/document/10970424">slides</a>
+        <a href="https://ieeexplore.ieee.org/document/10970424">code</a>
+      </div>
+    </article>
+
+    <article class="card" data-type="journal">
+      <span class="ttl">Dimensional Robustness Certification for Deep Neural Networks in Network Intrusion Detection Systems<span class="badge">TOPS 2025</span></span>
+      <span class="authors"><b>Mengdie Huang</b>, <a href="https://linkthelord.github.io/">Yingjun Lin</a>, <a href="https://web.xidian.edu.cn/xfchen/en/index.html">Xiaofeng Chen</a>, <a href="https://www.cs.purdue.edu/homes/bertino/">Elisa Bertino</a>.</span>
+      <span class="venue">In ACM Transactions on Privacy and Security (TOPS), 2025</span>
+      <div class="links">
+        <a href="https://dl.acm.org/doi/pdf/10.1145/3715121">paper</a>
+        <a href="https://dl.acm.org/doi/10.1145/3715121">slides</a>
+        <a href="https://dl.acm.org/doi/10.1145/3715121">code</a>
+      </div>
+    </article>
+
+    <article class="card" data-type="conf">
+      <span class="ttl">MARS: Robustness Certification for Deep Network Intrusion Detectors via Multi-Order Adaptive Randomized Smoothing<span class="badge">TrustCom 2024</span><span class="badge award">&#127942; Best Paper</span></span>
+      <span class="authors"><b>Mengdie Huang</b>, <a href="https://linkthelord.github.io/">Yingjun Lin</a>, <a href="https://web.xidian.edu.cn/xfchen/en/index.html">Xiaofeng Chen</a>, <a href="https://www.cs.purdue.edu/homes/bertino/">Elisa Bertino</a>.</span>
+      <span class="venue">In Proceedings of the 23rd IEEE International Conference on Trust, Security and Privacy in Computing and Communications (TrustCom), 2024</span>
+      <div class="links">
+        <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&amp;arnumber=10945243">paper</a>
+        <a href="slides/TrustCom2024-MARS-15min-Presentation-Slides-20241218.pdf">slides</a>
+        <a href="https://ieeexplore.ieee.org/abstract/document/10945243">code</a>
+      </div>
+    </article>
+
+    <article class="card" data-type="journal">
+      <span class="ttl">ARIoTEDef: Adversarially Robust IoT Early Defense System based on Self-Evolution against Multi-step Attacks<span class="badge">TIOT 2024</span></span>
+      <span class="authors"><b>Mengdie Huang</b>, <a href="https://hw5773.github.io">Hyunwoo Lee</a>, <a href="https://sites.google.com/view/ashishkundu/home">Ashish Kundu</a>, <a href="https://web.xidian.edu.cn/xfchen/en/index.html">Xiaofeng Chen</a>, <a href="https://anandmudgerikar.github.io">Anand Mudgerikar</a>, <a href="https://www.cs.purdue.edu/homes/ninghui/">Ninghui Li</a>, <a href="https://www.cs.purdue.edu/homes/bertino/">Elisa Bertino</a>.</span>
+      <span class="venue">In ACM Transactions on Internet of Things (TIOT), 2024</span>
+      <div class="links">
+        <a href="https://dl.acm.org/doi/pdf/10.1145/3660646">paper</a>
+        <a href="https://dl.acm.org/doi/10.1145/3660646">slides</a>
+        <a href="https://dl.acm.org/doi/10.1145/3660646">code</a>
+      </div>
+    </article>
+
+    <article class="card" data-type="conf">
+      <span class="ttl">A Pro-Active Defense Framework for IoT Systems<span class="badge">CIC 2023</span></span>
+      <span class="authors"><a href="https://www.cs.purdue.edu/homes/bertino/">Elisa Bertino</a>, <a href="https://hw5773.github.io">Hyunwoo Lee</a>, <b>Mengdie Huang</b>, Charalampos Katsis, Zilin Shen, <a href="https://www.cs.purdue.edu/homes/ribeirob/">Bruno Ribeiro</a>, Daniel De Mello, <a href="https://sites.google.com/view/ashishkundu/home">Ashish Kundu</a>.</span>
+      <span class="venue">In Proceedings of the 9th IEEE International Conference on Collaboration and Internet Computing (CIC), 2023</span>
+      <div class="links">
+        <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&amp;arnumber=10429939">paper</a>
+        <a href="https://ieeexplore.ieee.org/abstract/document/10429939">slides</a>
+        <a href="https://ieeexplore.ieee.org/abstract/document/10429939">code</a>
+      </div>
+    </article>
+
+    <article class="card" data-type="conf">
+      <span class="ttl">Boost Off/On-Manifold Adversarial Robustness for Deep Learning with Latent Representation Mixup<span class="badge">AsiaCCS 2023</span></span>
+      <span class="authors"><b>Mengdie Huang</b>, <a href="https://xieyi.site/">Yi Xie</a>, <a href="https://web.xidian.edu.cn/xfchen/en/index.html">Xiaofeng Chen</a>, Jin Li, <a href="https://changyudong.site">Changyu Dong</a>, Zheli Liu, <a href="https://scholars.uow.edu.au/willy-susilo">Willy Susilo</a>.</span>
+      <span class="venue">In Proceedings of the 18th ACM Asia Conference on Computer and Communications Security (AsiaCCS), 2023</span>
+      <div class="links">
+        <a href="https://dl.acm.org/doi/pdf/10.1145/3579856.3595786">paper</a>
+        <a href="slides/AsiaCCS2023-LarepMix-64-20230713.pdf">slides</a>
+        <a href="https://dl.acm.org/doi/10.1145/3579856.3595786">code</a>
+      </div>
+    </article>
+
+    <article class="card" data-type="conf">
+      <span class="ttl">GAME: Generative-based Adaptive Model Extraction Attack<span class="badge">ESORICS 2022</span></span>
+      <span class="authors"><a href="https://xieyi.site/">Yi Xie</a>, <b>Mengdie Huang</b>, Xiaoyu Zhang, <a href="https://changyudong.site">Changyu Dong</a>, <a href="https://scholars.uow.edu.au/willy-susilo">Willy Susilo</a>, <a href="https://web.xidian.edu.cn/xfchen/en/index.html">Xiaofeng Chen</a>.</span>
+      <span class="venue">In Proceedings of the 27th European Symposium on Research in Computer Security (ESORICS), 2022</span>
+      <div class="links">
+        <a href="https://link.springer.com/chapter/10.1007/978-3-031-17140-6_28">paper</a>
+        <a href="https://link.springer.com/chapter/10.1007/978-3-031-17140-6_28">slides</a>
+        <a href="https://link.springer.com/chapter/10.1007/978-3-031-17140-6_28">code</a>
+      </div>
+    </article>
+
+    <article class="card" data-type="journal">
+      <span class="ttl">Sparse Selective Encryption for HEVC 4K Video Using Spatial Error Spread<span class="badge">JIT 2019</span></span>
+      <span class="authors"><b>Mengdie Huang</b>, Cheng Yang, Hao Li, Jian Shen.</span>
+      <span class="venue">In Journal of Internet Technology (JIT), 2019</span>
+      <div class="links">
+        <a href="https://jit.ndhu.edu.tw/article/viewFile/2140/2153">paper</a>
+        <a href="https://jit.ndhu.edu.tw/article/viewFile/2140/2153">slides</a>
+        <a href="https://jit.ndhu.edu.tw/article/viewFile/2140/2153">code</a>
+      </div>
+    </article>
+
+    <article class="card" data-type="conf">
+      <span class="ttl">Selective Encryption of H.264/AVC based on Block Weight Model<span class="badge">ICCT 2018</span></span>
+      <span class="authors"><b>Mengdie Huang</b>, Cheng Yang, Yuan Zhang.</span>
+      <span class="venue">In Proceedings of the 18th IEEE International Conference on Communication Technology (ICCT), 2018</span>
+      <div class="links">
+        <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&amp;arnumber=8599959">paper</a>
+        <a href="slides/基于块参考比重模型的H.264视频加密.pdf">paper (Chinese)</a>
+        <a href="slides/ICCT-249-Presentation.pdf">slides</a>
+        <a href="https://ieeexplore.ieee.org/document/8599959">code</a>
+      </div>
+    </article>
+
+    <article class="card" data-type="conf">
+      <span class="ttl">An Effective Scheme for Provable Data Possession<span class="badge">ICCA 2016</span></span>
+      <span class="authors">Shanyue Bu, <b>Mengdie Huang</b>, Kun Yu.</span>
+      <span class="venue">In Proceedings of the International Conference on Intelligent Control and Computer Application (ICCA), 2016</span>
+      <div class="links">
+        <a href="https://www.atlantis-press.com/proceedings/icca-16/25847740">paper</a>
+        <a href="https://www.atlantis-press.com/proceedings/icca-16/25847740">slides</a>
+        <a href="https://www.atlantis-press.com/proceedings/icca-16/25847740">code</a>
+      </div>
+    </article>
+  </div>
+
+  <!-- ---- Under Review ---- -->
+  <div class="pane" id="pane-rev" role="tabpanel" aria-labelledby="tab-rev" hidden>
+    <article class="card"><span class="ttl">Local Knowledge for Global Impact: Targeted Evasion Attack Against Vertical Federated Learning</span></article>
+    <article class="card"><span class="ttl">CARE: Robust Transformer-based Network Intrusion Detection via Consistency-aware Attention-Representation Enhancement</span></article>
+    <article class="card"><span class="ttl">GRAFT: Adversarially Robust Transfer Learning for Graphs Under Structural Data Scarcity</span></article>
+  </div>
+
+  <!-- ---- Manuscripts ---- -->
+  <div class="pane" id="pane-man" role="tabpanel" aria-labelledby="tab-man" hidden>
+    <article class="card"><span class="ttl">Robust Downstream Adaptation of Vision Foundation Models</span></article>
+    <article class="card"><span class="ttl">Membership Inference Attack against Large Vision Language Model</span></article>
+    <article class="card"><span class="ttl">Analysis of Adversarial Robustness in Graph Neural Networks</span></article>
+    <article class="card"><span class="ttl">Analysis of Adversarial Robustness in Multimodal Models</span></article>
+  </div>
 </section>
-<!-- Section Manuscripts End-->
 
-<br>
+<!-- ================= PROJECTS ================= -->
+<section id="projects" class="sec wrap reveal">
+  <h2 class="sec-title">Projects</h2>
 
-<!-- Section Under Review-->
-<section id="underreview" class>
-<h3 style="color: #bca878;">Under Review</h3>
-<ul>
-	<li>
-		<b> Local Knowledge for Global Impact: Targeted Evasion Attack Against Vertical Federated Learning
-		</b>
-	</li>
-	<li>
-		<b>CARE: Robust Transformer-based Network Intrusion Detection via Consistency-aware Attention-Representation Enhancement
-		</b>
-	</li>
-	<li>
-		<b>GRAFT: Adversarially Robust Transfer Learning for Graphs Under Structural Data Scarcity
-		</b>
-	</li>
-	<!-- <li>
-		<b>EntroDelta: An Error-Bounded, Data-Free Compression Framework for Massive Model Storage
-		</b>
-	</li>
-	<li>
-		<b>Local Nonlinear Substitution for Bounding Activation Functions
-		</b>
-	</li> -->
-</ul>
+  <article class="card">
+    <span class="ttl">Detection of GenAI Generated Malware Variants and Sandbox Evasion using GenAI</span>
+    <span class="sub">March 2023 &ndash; March 2024 &middot; Member &middot; Purdue University</span>
+    <span class="venue">Sponsor: Cisco Systems, Inc.</span>
+  </article>
+
+  <article class="card">
+    <span class="ttl">Pro-Active Attack Management for Edge Computing Security</span>
+    <span class="sub">Nov 2022 &ndash; Dec 2023 &middot; Member &middot; Purdue University</span>
+    <span class="venue">Sponsor: Cisco Systems, Inc.</span>
+  </article>
+
+  <article class="card">
+    <span class="ttl">Development and Application Demonstration of Cloud Aggregation System based on Streaming Media Technology</span>
+    <span class="sub">Sep 2017 &ndash; July 2018 &middot; Member &middot; Communication University of China</span>
+    <span class="venue">Sponsor: National Science and Technology Support Program</span>
+  </article>
+
+  <article class="card">
+    <span class="ttl">Universal and Efficient 4K Video Protection Technology Supporting Coding Standard Extension</span>
+    <span class="sub">Jun 2018 &ndash; Jun 2019 &middot; <b>Leader</b> &middot; Communication University of China</span>
+    <span class="venue">Sponsor: National College Students Innovation and Entrepreneurship Training Program</span>
+  </article>
+
+  <article class="card">
+    <span class="ttl">Data Possession Proof in Cloud Computing Environment</span>
+    <span class="sub">Jun 2014 &ndash; Jun 2016 &middot; <b>Leader</b> &middot; Huai'an University</span>
+    <span class="venue">Sponsor: Jiangsu College Students Innovation and Entrepreneurship Training Program</span>
+  </article>
 </section>
-<!-- Section Under Review End-->
 
-<br>
-
-<!-- Section Publication Start-->
-<section id="publications" class>
-<h3 style="color: #bca878;">Publications</h3>
-<ul>
-	<li>
-		<b>EntroDelta: An Error-Bounded, Data-Free Compression Framework for Massive Model Storage</b>
-		<br>
-		<a href="https://scholar.google.com/citations?user=WjGhWAsAAAAJ&hl" style="color: #000000;">Yani Liu</a>, Feng Zhang, Yu Zhang, <b>Mengdie Huang</b>, <a href="https://www.cs.purdue.edu/homes/bertino/" style="color: #000000;">Elisa Bertino</a>, Xiaoyong Du.
-		<br>
-		<em>In ACM SIGMOD International Conference on Management of Data (SIGMOD), 2027.</em>
-		<br>
-		<a href="https://scholar.google.com/citations?user=WjGhWAsAAAAJ&hl" style="color: #bca878;">[paper]</a> 
-		<a href="https://scholar.google.com/citations?user=WjGhWAsAAAAJ&hl" style="color: #bca878;">[slides]</a> 
-		<a href="https://scholar.google.com/citations?user=WjGhWAsAAAAJ&hl" style="color: #bca878;">[code]</a>
-		<br>
-		<br>
-	</li>
-	
-	<li>
-		<b>TriXfer: Triple-Cross Transfer Attack on Vision Transformer–Adapted Downstream Classifiers</b>
-		<br>
-		<b>Mengdie Huang</b>, <a href="https://linkthelord.github.io/" style="color: #000000;">Yingjun Lin</a>, <a href="https://www.cs.purdue.edu/homes/ninghui/" style="color: #000000;">Ninghui Li</a>, <a href="https://www.cs.purdue.edu/homes/bertino/" style="color: #000000;">Elisa Bertino</a>.
-		<br>
-		<em>In IEEE Transactions on Dependable and Secure Computing (TDSC), 2026</em>
-		<br>
-		<a href="https://ieeexplore.ieee.org/document/11646465" style="color: #bca878;">[paper]</a> 
-		<a href="https://ieeexplore.ieee.org/document/11646465" style="color: #bca878;">[slides]</a> 
-		<a href="https://ieeexplore.ieee.org/document/11646465" style="color: #bca878;">[code]</a>
-		<br>
-		<br>
-	</li>
-	
-	<li>
-		<b>Research on Key Techniques for Adversarial Robustness of Deep Neural Networks</b>
-		<br>
-		<b>Mengdie Huang</b>.
-		<br>
-		<!-- <em>Dissertation for the Degree of Doctor of Philosophy in Cyber Security, 2025</em> -->
-		<em>Dissertation for the Degree of Doctor of Philosophy, 2025</em>
-		<br>
-		<!-- <a style="color: #bca878;">[dissertation]</a>  -->
-		<a href="papers/PhdDissertation.pdf" style="color: #bca878;">[dissertation]</a> 
-		
-		<a href="slides/PhD-Defense-Slides-20250514.pdf" style="color: #bca878;">[slides]</a> 
-		<!-- <a href="https://ieeexplore.ieee.org/document/10970424" style="color: #bca878;">[code]</a> -->
-		<br>
-		<br>
-	</li>
-	
-	<li>
-		<b>CARD: Robustness-Preserving Transfer Learning for Network Intrusion Detection via Contrastive Adversarial Representation Distillation</b>
-		<br>
-		<b>Mengdie Huang</b>, <a href="https://linkthelord.github.io/" style="color: #000000;">Yingjun Lin</a>, <a href="https://www.cs.purdue.edu/homes/ninghui/" style="color: #000000;">Ninghui Li</a>, <a href="https://web.xidian.edu.cn/xfchen/en/index.html" style="color: #000000;">Xiaofeng Chen</a>, <a href="https://www.cs.purdue.edu/homes/bertino/" style="color: #000000;">Elisa Bertino</a>.
-		<br>
-		<em>In IEEE Transactions on Dependable and Secure Computing (TDSC), 2025</em>
-		<br>
-		<a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=10970424" style="color: #bca878;">[paper]</a> 
-		<a href="https://ieeexplore.ieee.org/document/10970424" style="color: #bca878;">[slides]</a> 
-		<a href="https://ieeexplore.ieee.org/document/10970424" style="color: #bca878;">[code]</a>
-		<br>
-		<br>
-	</li>
-	<li>
-		<b>Dimensional Robustness Certification for Deep Neural Networks in Network Intrusion Detection Systems</b>
-		<br>
-		<b>Mengdie Huang</b>, <a href="https://linkthelord.github.io/" style="color: #000000;">Yingjun Lin</a>, <a href="https://web.xidian.edu.cn/xfchen/en/index.html" style="color: #000000;">Xiaofeng Chen</a>, <a href="https://www.cs.purdue.edu/homes/bertino/" style="color: #000000;">Elisa Bertino</a>.
-		<br>
-		<em>In ACM Transactions on Privacy and Security (TOPS), 2025</em>
-		<br>
-		<a href="https://dl.acm.org/doi/pdf/10.1145/3715121" style="color: #bca878;">[paper]</a> 		
-		<a href="https://dl.acm.org/doi/10.1145/3715121" style="color: #bca878;">[slides]</a> 		
-		<a href="https://dl.acm.org/doi/10.1145/3715121" style="color: #bca878;">[code]</a>		
-		<br>
-		<br>
-	</li>
-	<li>
-		<b>MARS: Robustness Certification for Deep Network Intrusion Detectors via Multi-Order Adaptive Randomized Smoothing</b>
-		<br>
-		<b>Mengdie Huang</b>, <a href="https://linkthelord.github.io/" style="color: #000000;">Yingjun Lin</a>, <a href="https://web.xidian.edu.cn/xfchen/en/index.html" style="color: #000000;">Xiaofeng Chen</a>, <a href="https://www.cs.purdue.edu/homes/bertino/" style="color: #000000;">Elisa Bertino</a>.
-		<br>
-		<em>In Proceedings of the 23rd IEEE International Conference on Trust, Security and Privacy in Computing and Communications (TrustCom), 2024</em>
-		<br>
-		<img src="image/award-icon.png" width="20" alt="bachelordiplomaB" style="margin-right: 2px;">Best Paper Award
-		<br>
-		<a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=10945243" style="color: #bca878;">[paper]</a> 
-		<a href="slides/TrustCom2024-MARS-15min-Presentation-Slides-20241218.pdf" style="color: #bca878;">[slides]</a> 
-		<a href="https://ieeexplore.ieee.org/abstract/document/10945243?casa_token=17EFA7WJaO4AAAAA:8f9kXRlINJdCwpGK_Q7td9XAIwsqzbx_R_r7wi9cC76-mav43qu3YV3XmuRIIeoLllvKpGFyizg" style="color: #bca878;">[code]</a>
-		<br>
-		<br>
-	</li>
-	<li>
-		<b>ARIoTEDef: Adversarially Robust IoT Early Defense System based on Self-Evolution against Multi-step Attacks</b>
-		<br>
-		<b>Mengdie Huang</b>, <a href="https://hw5773.github.io" style="color: #000000;">Hyunwoo Lee</a>, <a href="https://sites.google.com/view/ashishkundu/home" style="color: #000000;">Ashish Kundu</a>, <a href="https://web.xidian.edu.cn/xfchen/en/index.html" style="color: #000000;">Xiaofeng Chen</a>, <a href="https://anandmudgerikar.github.io" style="color: #000000;">Anand Mudgerikar</a>, <a href="https://www.cs.purdue.edu/homes/ninghui/" style="color: #000000;">Ninghui Li</a>, <a href="https://www.cs.purdue.edu/homes/bertino/" style="color: #000000;">Elisa Bertino</a>.
-		<br>
-		<em>In ACM Transactions on Internet of Things (TIOT), 2024</em>
-		<br>
-		<a href="https://dl.acm.org/doi/pdf/10.1145/3660646" style="color: #bca878;">[paper]</a> 
-		<a href="https://dl.acm.org/doi/10.1145/3660646" style="color: #bca878;">[slides]</a> 
-		<a href="https://dl.acm.org/doi/10.1145/3660646" style="color: #bca878;">[code]</a>
-		<br>
-		<br>
-	</li>
-	
-	<li>
-		<b>A Pro-Active Defense Framework for IoT Systems</b>
-		<br>
-		<a href="https://www.cs.purdue.edu/homes/bertino/" style="color: #000000;">Elisa Bertino</a>, <a href="https://hw5773.github.io" style="color: #000000;">Hyunwoo Lee</a>, <b>Mengdie Huang</b>, Charalampos Katsis, Zilin Shen, <a href="https://www.cs.purdue.edu/homes/ribeirob/" style="color: #000000;">Bruno Ribeiro</a>, Daniel De Mello, <a href="https://sites.google.com/view/ashishkundu/home" style="color: #000000;">Ashish Kundu</a> 
-		<br>
-		<em>In Proceedings of the 9th IEEE International Conference on Collaboration and Internet Computing (CIC), 2023</em>
-		<br>
-		<a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=10429939" style="color: #bca878;">[paper]</a> 
-		<a href="https://ieeexplore.ieee.org/abstract/document/10429939" style="color: #bca878;">[slides]</a> 
-		<a href="https://ieeexplore.ieee.org/abstract/document/10429939" style="color: #bca878;">[code]</a>
-		<br>
-		<br>
-        </li>
-	
-	<li>
-		<b>Boost Off/On-Manifold Adversarial Robustness for Deep Learning with Latent Representation Mixup</b>
-		<br>
-		<b>Mengdie Huang</b>, <a href="https://xieyi.site/" style="color: #000000;">Yi Xie</a>, <a href="https://web.xidian.edu.cn/xfchen/en/index.html" style="color: #000000;">Xiaofeng Chen</a>, Jin Li, <a href="https://changyudong.site" style="color: #000000;">Changyu Dong</a>, Zheli Liu, <a href="https://scholars.uow.edu.au/willy-susilo" style="color: #000000;">Willy Susilo</a>.
-		<br>
-		<em>In Proceedings of the 18th ACM Asia Conference on Computer and Communications Security (AsiaCCS), 2023</em>
-		<br>
-		<a href="https://dl.acm.org/doi/pdf/10.1145/3579856.3595786" style="color: #bca878;">[paper]</a> 
-		<a href="slides/AsiaCCS2023-LarepMix-64-20230713.pdf" style="color: #bca878;">[slides]</a> 
-		<a href="https://dl.acm.org/doi/10.1145/3579856.3595786" style="color: #bca878;">[code]</a>
-		<br>
-		<br>
-        </li>
-	
-	<li>
-		<b>GAME: Generative-based Adaptive Model Extraction Attack</b>
-		<br>
-		<a href="https://xieyi.site/" style="color: #000000;">Yi Xie</a>, <b>Mengdie Huang</b>, Xiaoyu Zhang, <a href="https://changyudong.site" style="color: #000000;">Changyu Dong</a>, <a href="https://scholars.uow.edu.au/willy-susilo" style="color: #000000;">Willy Susilo</a>, <a href="https://web.xidian.edu.cn/xfchen/en/index.html" style="color: #000000;">Xiaofeng Chen</a>.
-		<br>
-		<em>In Proceedings of the 27th European Symposium on Research in Computer Security (ESORICS), 2022</em>
-		<br>
-		<a href="https://link.springer.com/chapter/10.1007/978-3-031-17140-6_28" style="color: #bca878;">[paper]</a> 
-		<a href="https://link.springer.com/chapter/10.1007/978-3-031-17140-6_28" style="color: #bca878;">[slides]</a> 
-		<a href="https://link.springer.com/chapter/10.1007/978-3-031-17140-6_28" style="color: #bca878;">[code]</a>
-		<br>
-		<br>
-	</li>
-
-	<li>
-		<b>Sparse Selective Encryption for HEVC 4K Video Using Spatial Error Spread</b>
-		<br>
-		<b>Mengdie Huang</b>, Cheng Yang, Hao Li, Jian Shen.
-		<br>
-		<em>In Journal of Internet Technology (JIT), 2019</em>
-		<br>
-		<a href="https://jit.ndhu.edu.tw/article/viewFile/2140/2153" style="color: #bca878;">[paper]</a> 
-		<a href="https://jit.ndhu.edu.tw/article/viewFile/2140/2153" style="color: #bca878;">[slides]</a> 
-		<a href="https://jit.ndhu.edu.tw/article/viewFile/2140/2153" style="color: #bca878;">[code]</a>
-		<br>
-		<br>
-	</li>
-	<li>
-		<b>Selective Encryption of H.264/AVC based on Block Weight Model</b>
-		<br>
-		<b>Mengdie Huang</b>, Cheng Yang, Yuan Zhang.
-		<br>
-		<em>In Proceedings of the 18th IEEE International Conference on Communication Technology (ICCT), 2018</em>
-		<br>
-		<a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=8599959" style="color: #bca878;">[paper]</a> 
-		<a href="slides/基于块参考比重模型的H.264视频加密.pdf" style="color: #bca878;">[paper-ChineseVersion]</a> 
-		<a href="slides/ICCT-249-Presentation.pdf" style="color: #bca878;">[slides]</a> 
-		<a href="https://ieeexplore.ieee.org/document/8599959" style="color: #bca878;">[code]</a>
-		<br>
-		<br>
-	</li>	
-	<li>
-		<b>An Effective Scheme for Provable Data Possessionl</b>
-		<br>
-		Shanyue Bu, <b>Mengdie Huang</b>, Kun Yu.
-		<br>
-		<em>In Proceedings of the International Conference on Intelligent Control and Computer Application (ICCA), 2016</em>
-		<br>
-		<a href="https://www.atlantis-press.com/proceedings/icca-16/25847740" style="color: #bca878;">[paper]</a>
-		<a href="https://www.atlantis-press.com/proceedings/icca-16/25847740" style="color: #bca878;">[slides]</a>
-		<a href="https://www.atlantis-press.com/proceedings/icca-16/25847740" style="color: #bca878;">[code]</a>
-	</li>		
-	
-</ul>
+<!-- ================= EMPLOYMENT ================= -->
+<section id="employment" class="sec wrap reveal">
+  <h2 class="sec-title">Employment</h2>
+  <ul class="tl">
+    <li>
+      <span class="hd">PostDoctoral Research Associate<span class="when">&middot; West Lafayette, US &middot; July 2025 &ndash; Present</span></span>
+      <span class="ln">Advised by Professor <a href="https://www.cs.purdue.edu/homes/bertino/">Elisa Bertino</a> and Professor <a href="https://www.cs.purdue.edu/homes/ninghui/">Ninghui Li</a></span>
+      <span class="ln">Department of Computer Science, Purdue University</span>
+    </li>
+    <li>
+      <span class="hd">Visiting Scholar<span class="when">&middot; West Lafayette, US &middot; Sep 2022 &ndash; June 2025</span></span>
+      <span class="ln">Advised by Professor <a href="https://www.cs.purdue.edu/homes/bertino/">Elisa Bertino</a></span>
+      <span class="ln">Department of Computer Science, Purdue University</span>
+    </li>
+    <li>
+      <span class="hd">Research Assistant<span class="when">&middot; Xi'an, China &middot; Sep 2019 &ndash; Aug 2022</span></span>
+      <span class="ln">For Professor <a href="https://web.xidian.edu.cn/xfchen/en/index.html">Xiaofeng Chen</a></span>
+      <span class="ln">School of Cyber Engineering, Xidian University</span>
+    </li>
+    <li>
+      <span class="hd">Teaching Assistant<span class="when">&middot; Xi'an, China &middot; Jul 2021 &ndash; Jul 2022</span></span>
+      <span class="ln">For Professor <a href="https://kutylowski.im.pwr.wroc.pl/">Miroslaw Kutylowski</a> &middot; <em>Distributed Computing</em></span>
+      <span class="ln">School of Cyber Engineering, Xidian University</span>
+      <span class="ln">Department of Foundations of Computer Science, Wroclaw University of Technology</span>
+    </li>
+    <li>
+      <span class="hd">Teaching Assistant<span class="when">&middot; Xi'an, China &middot; Sep 2020 &ndash; Jan 2021</span></span>
+      <span class="ln">For Professor <a href="https://web.xidian.edu.cn/jfwang/en/index.html">Jianfeng Wang</a> &middot; <em>Probability Theory and Mathematical Statistics</em></span>
+      <span class="ln">School of Cyber Engineering, Xidian University</span>
+    </li>
+    <li>
+      <span class="hd">Internship<span class="when">&middot; Beijing, China &middot; May 2019 &ndash; Jul 2019</span></span>
+      <span class="ln"><a href="http://www.abs.ac.cn">Academy of Broadcasting Science</a>, <a href="https://en.wikipedia.org/wiki/National_Radio_and_Television_Administration">National Radio and Television Administration</a></span>
+    </li>
+    <li>
+      <span class="hd">Internship<span class="when">&middot; Beijing, China &middot; Aug 2018 &ndash; Sep 2018</span></span>
+      <span class="ln">Commercialization Department, <a href="https://en.wikipedia.org/wiki/ByteDance">ByteDance Ltd</a></span>
+    </li>
+  </ul>
 </section>
-<!-- Section Publication End-->
 
-<br>
-
-<!-- Section Project Start-->
-<section id="projects" class>
-<h3 style="color: #bca878;">Projects</h3>
-<ul>
-	<li>
-		<b>Detection of GenAI Generated Malware Variants and Sandbox Evasion using GenAI</b>
-		<br>
-		March 2023 - March 2024, Member, Purdue University
-		<br>
-		Sponsor: Cisco Systems, Inc.
-		<br>
-        </li>	
-	
-	<li>
-		<b>Pro-Active Attack Management for Edge Computing Security</b>
-		<br>
-		Nov 2022 - Dec 2023, Member, Purdue University
-		<br>
-		Sponsor: Cisco Systems, Inc.
-		<br>
-        </li>			
-	<li>
-		<b>Development and Application Demonstration of Cloud Aggregation System based on Streaming Media Technology</b>
-		<br>
-		Sep 2017 - July 2018, Member, Communication University of China
-		<br>
-		Sponsor: National Science and Technology Support Program
-		<br>
-        </li>	
-	<li>
-		<b>Universal and Efficient 4K Video Protection Technology Supporting Coding Standard Extension</b>
-		<br>
-		Jun 2018 - Jun 2019, Leader, Communication University of China
-		<br>
-		Sponsor: National College Students Innovation and Entrepreneurship Training Program
-		<br>
-        </li>		
-	<li>
-		<b> Data Possession Proof in Cloud Computing Environment</b>
-		<br>
-		Jun 2014 - Jun 2016, Leader, Huai'an University
-		<br>
-		Sponsor: Jiangsu College Students Innovation and Entrepreneurship Training Program
-        </li>		
-	
-</ul>
+<!-- ================= EDUCATION ================= -->
+<section id="education" class="sec wrap reveal">
+  <h2 class="sec-title">Education</h2>
+  <ul class="tl">
+    <li>
+      <span class="hd">Purdue University<span class="when">&middot; West Lafayette, US &middot; Sep 2022 &ndash; June 2025</span></span>
+      <span class="ln">Visiting Ph.D. student in Computer Science</span>
+      <span class="ln">Advisor: Professor <a href="https://www.cs.purdue.edu/homes/bertino/">Elisa Bertino</a></span>
+    </li>
+    <li>
+      <span class="hd">Xidian University<span class="when">&middot; Xi'an, China &middot; Sep 2019 &ndash; June 2025</span></span>
+      <span class="ln"><img src="image/diploma-icon.png" alt="">Ph.D. in Cyberspace Security</span>
+      <span class="ln">Advisor: Professor <a href="https://web.xidian.edu.cn/xfchen/en/index.html">Xiaofeng Chen</a></span>
+    </li>
+    <li>
+      <span class="hd">Communication University of China<span class="when">&middot; Beijing, China &middot; Sep 2017 &ndash; June 2019</span></span>
+      <span class="ln"><img src="image/diploma-icon.png" alt="">Master in Electronics and Communication Engineering</span>
+      <span class="ln">Advisor: Professor <a href="https://ices.cuc.edu.cn/2019/0918/c5332a135657/pagem.htm">Cheng Yang</a></span>
+      <span class="ln"><img src="image/diploma-icon.png" alt="">Bachelor in Radio and Television Editing</span>
+    </li>
+    <li>
+      <span class="hd">Huai'an University<span class="when">&middot; Huai'an, China &middot; Sep 2013 &ndash; June 2017</span></span>
+      <span class="ln"><img src="image/diploma-icon.png" alt="">Bachelor in Communication Engineering</span>
+      <span class="ln">Advisor: Professor <a href="https://gd.hyit.edu.cn/zszq/dsjj/dzxx_jsjxy_/hrl.htm">Ronglin Hu</a></span>
+    </li>
+  </ul>
 </section>
-<!-- Section Project End-->
 
-<br>
+<!-- ================= SERVICES ================= -->
+<section id="services" class="sec wrap reveal">
+  <h2 class="sec-title">Services</h2>
 
-<!-- Section Employment Start-->
-<section id="employment" class>
-<h3 style="color: #bca878;">Employment</h3>
-		<ul>
-			<li>
-				<b>PostDoctoral Research Associate</b>, West Lafayette, US, July 2025 - Present
-				<br>
-				Advised by Professor <a href="https://www.cs.purdue.edu/homes/bertino/" style="color: #000000;">Elisa Bertino</a> and Professor <a href="https://www.cs.purdue.edu/homes/ninghui/" style="color: #000000;">Ninghui Li</a>
-				<br>
-				Department of Computer Science, Purdue University
-			</li>
+  <div class="svc">
+    <h4>Journal Reviewer</h4>
+    <div class="chips">
+      <a class="chip starred" href="https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=8858" title="IEEE Transactions on Dependable and Secure Computing &mdash; 2025 Awarded Peer Reviewer">TDSC <span class="yr">2025&ndash;</span><span class="sr-only"> (IEEE Transactions on Dependable and Secure Computing)</span></a>
+      <a class="chip" href="https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=90" title="IEEE Transactions on Networking">TNET <span class="yr">2025&ndash;</span><span class="sr-only"> (IEEE Transactions on Networking)</span></a>
+      <a class="chip" href="https://dl.acm.org/journal/tpds" title="IEEE Transactions on Parallel and Distributed Systems">TPDS <span class="yr">2025&ndash;</span><span class="sr-only"> (IEEE Transactions on Parallel and Distributed Systems)</span></a>
+      <a class="chip" href="https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=10206" title="IEEE Transactions on Information Forensics &amp; Security">TIFS <span class="yr">2024&ndash;</span><span class="sr-only"> (IEEE Transactions on Information Forensics &amp; Security)</span></a>
+      <a class="chip" href="https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=5962385" title="IEEE Transactions on Neural Networks and Learning Systems">TNNLS <span class="yr">2024&ndash;</span><span class="sr-only"> (IEEE Transactions on Neural Networks and Learning Systems)</span></a>
+      <a class="chip" href="https://dl.acm.org/journal/tomm" title="ACM Transactions on Multimedia Computing, Communications, and Applications">TOMM <span class="yr">2024&ndash;</span><span class="sr-only"> (ACM Transactions on Multimedia Computing, Communications, and Applications)</span></a>
+      <a class="chip" href="https://www.sciencedirect.com/journal/computers-and-electrical-engineering">Computers and Electrical Engineering <span class="yr">2024&ndash;</span></a>
+      <a class="chip" href="https://www.cai.sk/ojs/index.php/cai" title="Computing and Informatics">CAI <span class="yr">2024&ndash;2027</span><span class="sr-only"> (Computing and Informatics)</span></a>
+      <a class="chip" href="http://www.ajoai.org/reviewers" title="American Journal of Artificial Intelligence">AJAI <span class="yr">2024&ndash;</span><span class="sr-only"> (American Journal of Artificial Intelligence)</span></a>
+      <a class="chip" href="https://dl.acm.org/journal/csur">ACM Computing Surveys <span class="yr">2023&ndash;</span></a>
+      <a class="chip starred" href="https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=69" title="IEEE Transactions on Knowledge and Data Engineering &mdash; 2025 Awarded Peer Reviewer">TKDE <span class="yr">2022&ndash;</span><span class="sr-only"> (IEEE Transactions on Knowledge and Data Engineering)</span></a>
+      <a class="chip" href="https://link.springer.com/journal/11235" title="Telecommunication Systems">TELS <span class="yr">2021&ndash;</span><span class="sr-only"> (Telecommunication Systems)</span></a>
+      <a class="chip" href="https://www.sciencedirect.com/journal/computer-standards-and-interfaces" title="Computer Standards &amp; Interfaces">CSI <span class="yr">2021&ndash;</span><span class="sr-only"> (Computer Standards &amp; Interfaces)</span></a>
+      <a class="chip" href="https://www.tandfonline.com/journals/ccos20">Connection Science <span class="yr">2020&ndash;</span></a>
+      <a class="chip" href="https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=76" title="IEEE Transactions on Circuits and Systems for Video Technology">TCSVT <span class="yr">2019&ndash;</span><span class="sr-only"> (IEEE Transactions on Circuits and Systems for Video Technology)</span></a>
+    </div>
+    <p style="margin-top:9px;font-size:12.5px;color:var(--cool)">&#9733; Awarded Peer Reviewer (2025)</p>
+  </div>
 
-			<li>
-				<b>Visiting Scholar</b>, West Lafayette, US, Sep 2022 - June 2025
-				<br>
-				Advised by Professor <a href="https://www.cs.purdue.edu/homes/bertino/" style="color: #000000;">Elisa Bertino</a>
-				<br>
-				Department of Computer Science, Purdue University
-				<br>	
-			</li>
-			<li>
-				<b>Research Assistant</b>, Xi'an, China, Sep 2019 - Aug 2022
-				<br>
-				For Professor <a href="https://web.xidian.edu.cn/xfchen/en/index.html" style="color: #000000;">Xiaofeng Chen</a>
-				<br>
-				School of Cyber Engineering, Xidian University
-				<br>	
-			</li>
-			<li>
-				<b>Teaching Assistant </b>, Xi'an, China, Jul 2021 - Jul 2022
-				<br>
-				For Professor <a href="https://kutylowski.im.pwr.wroc.pl/" style="color: #000000;">Miroslaw Kutylowski</a>
-				<br>
-				<em>Distributed Computing</em>
-				<br>
-				School of Cyber Engineering, Xidian University
-				<br>
-				Department of Foundations of Computer Science, Wroclaw University of Technology
-				<br>
-			</li>
-			<li>
-				<b>Teaching Assistant </b>, Xi'an, China, Sep 2020 - Jan 2021
-				<br>
-				For Professor <a href="https://web.xidian.edu.cn/jfwang/en/index.html" style="color: #000000;">Jianfeng Wang</a>
-				<br>
-				<em>Probability Theory and Mathematical Statistics</em>
-				<br>
-				School of Cyber Engineering, Xidian University
-				<br>
-				</li>
-			<li>
-				<b>Internship</b>, Beijing, China, May 2019 - Jul 2019
-				<br>
-				<a href="http://www.abs.ac.cn" style="color: #000000;">Academy of Broadcasting Science</a>, <a href="https://en.wikipedia.org/wiki/National_Radio_and_Television_Administration" style="color: #000000;">National Radio and Television Administration</a>
-				<br>
-			</li>	
-			<li>
-				<b>Internship</b>, Beijing, China, Aug 2018 - Sep 2018 
-				<br>
-				Commercialization Department, <a href="https://en.wikipedia.org/wiki/ByteDance" style="color: #000000;">ByteDance Ltd</a>
-			</li>
-		</ul>
-	<!-- </div> -->
+  <div class="svc">
+    <h4>Conference PC Member</h4>
+    <div class="chips">
+      <a class="chip" href="https://www.cloud-conf.net/icpads2026/index.html" title="IEEE International Conference on Parallel and Distributed Systems">ICPADS <span class="yr">2026</span><span class="sr-only"> (IEEE International Conference on Parallel and Distributed Systems)</span></a>
+    </div>
+  </div>
+
+  <div class="svc">
+    <h4>Artifact Evaluation Committee Member</h4>
+    <div class="chips">
+      <a class="chip" href="https://www.ndss-symposium.org/ndss2026/" title="Network and Distributed System Security Symposium">NDSS <span class="yr">2026</span><span class="sr-only"> (Network and Distributed System Security Symposium)</span></a>
+      <a class="chip" href="https://www.sigsac.org/ccs/CCS2025/" title="ACM Conference on Computer and Communications Security">CCS <span class="yr">2025</span><span class="sr-only"> (ACM Conference on Computer and Communications Security)</span></a>
+    </div>
+  </div>
+
+  <div class="svc">
+    <h4>Conference Sub-Reviewer</h4>
+    <div class="chips">
+      <a class="chip" href="https://www.usenix.org/conference/usenixsecurity26" title="USENIX Security Symposium">USENIX Security <span class="yr">2026</span><span class="sr-only"> (USENIX Security Symposium)</span></a>
+      <a class="chip" href="https://sp2026.ieee-security.org/" title="IEEE Symposium on Security and Privacy">IEEE S&amp;P <span class="yr">2025, 2026</span><span class="sr-only"> (IEEE Symposium on Security and Privacy)</span></a>
+      <a class="chip" href="https://www.sigsac.org/ccs/CCS2025/" title="ACM Conference on Computer and Communications Security">CCS <span class="yr">2025</span><span class="sr-only"> (ACM Conference on Computer and Communications Security)</span></a>
+    </div>
+  </div>
+
+  <div class="svc">
+    <h4>Conference Reviewer</h4>
+    <div class="chips">
+      <a class="chip" href="https://www.acsac.org" title="Annual Computer Security Applications Conference">ACSAC <span class="yr">2024</span><span class="sr-only"> (Annual Computer Security Applications Conference)</span></a>
+      <a class="chip" href="https://esorics2025.sciencesconf.org/" title="European Symposium on Research in Computer Security">ESORICS <span class="yr">2021, 2024, 2025</span><span class="sr-only"> (European Symposium on Research in Computer Security)</span></a>
+      <a class="chip" href="https://www.codaspy.org/2025/" title="ACM Conference on Data and Application Security and Privacy">CODASPY <span class="yr">2023, 2024, 2025</span><span class="sr-only"> (ACM Conference on Data and Application Security and Privacy)</span></a>
+      <a class="chip" href="https://dspp2025.xidian.edu.cn/" title="International Conference on Data Security and Privacy Protection">DSPP <span class="yr">2024, 2025</span><span class="sr-only"> (International Conference on Data Security and Privacy Protection)</span></a>
+      <a class="chip" href="https://link.springer.com/book/10.1007/978-3-031-20096-0" title="International Conference on Machine Learning for Cyber Security">ML4CS <span class="yr">2022</span><span class="sr-only"> (International Conference on Machine Learning for Cyber Security)</span></a>
+      <a class="chip" href="https://isc2022.petra.ac.id" title="Information Security Conference">ISC <span class="yr">2022</span><span class="sr-only"> (Information Security Conference)</span></a>
+      <a class="chip" href="https://link.springer.com/book/10.1007/978-3-030-88052-1" title="International Conference on Information and Communications Security">ICICS <span class="yr">2021</span><span class="sr-only"> (International Conference on Information and Communications Security)</span></a>
+    </div>
+  </div>
 </section>
-<!-- Section Employment End-->
 
-<br>
-
-<!-- Section Education Start-->
-<section id="education" class>
-<h3 style="color: #bca878;">Education</h3>
-<ul>
-	<li>
-		<b>Purdue University</b>, West Lafayette, US, Sep 2022 - June 2025
-		<br>
-		Visiting Ph.D student in Computer Science
-		<br>
-		Advisor: Professor <a href="https://www.cs.purdue.edu/homes/bertino/" style="color: #000000;">Elisa Bertino</a>  
-		<br>
-        </li>
-
-	<li>
-		<b>Xidian University</b>, Xi'an, China, Sep 2019 - June 2025
-		<br>
-		<img src="image/diploma-icon.png" width="20" alt="phddiploma" style="margin-right: 2px;">Ph.D student in Cyberspace Security 
-		<br>
-		Advisor: Professor <a href="https://web.xidian.edu.cn/xfchen/en/index.html" style="color: #000000;">Xiaofeng Chen</a>  
-		<br>
-	</li>
-	<li>
-		<b>Communication University of China</b>, Beijing, China, Sep 2017 - June 2019
-		<br>
-		<img src="image/diploma-icon.png" width="20" alt="masterdiploma" style="margin-right: 2px;">Master in Electronics and Communication Engineering
-		<br>
-		Advisor: Professor <a href="https://ices.cuc.edu.cn/2019/0918/c5332a135657/pagem.htm" style="color: #000000;">Cheng Yang</a>
-		<br>
-		<img src="image/diploma-icon.png" width="20" alt="bachelordiplomaA" style="margin-right: 2px;">Bachelor in Radio and Television Editing
-		<br>	
-	</li>	
-	<li>
-		<b>Huai'an University</b>, Huai'an, China, Sep 2013 - June 2017
-		<br>
-		<img src="image/diploma-icon.png" width="20" alt="bachelordiplomaB" style="margin-right: 2px;">Bachelor in Communication Engineering
-		<br>
-		Advisor: Professor <a href="https://gd.hyit.edu.cn/zszq/dsjj/dzxx_jsjxy_/hrl.htm" style="color: #000000;">Ronglin Hu</a>
-	</li>		
-	
-</ul>
+<!-- ================= OTHERS ================= -->
+<section id="others" class="sec wrap reveal">
+  <h2 class="sec-title">Others</h2>
+  <div class="grid2">
+    <article class="card">
+      <span class="ttl">Hometown</span>
+      <span class="sub">I am from <a href="https://en.wikipedia.org/wiki/Nanjing">Nanjing</a>, Jiangsu Province, which is a city in eastern China and the ancient capital of six dynasties.</span>
+    </article>
+    <article class="card">
+      <span class="ttl">Sport</span>
+      <span class="sub">My favorite sport at the moment is swimming. I am familiar with the breaststroke and am learning freestyle. I also practiced badminton, aerobics and Latin dance.</span>
+    </article>
+    <article class="card">
+      <span class="ttl">Music</span>
+      <span class="sub">I like R&amp;B music. The artists I often listen to are David Tao, Jay Chou, and Leehom Wang.</span>
+    </article>
+    <article class="card">
+      <span class="ttl">Food</span>
+      <span class="sub">My favorite food is taro and coconut.</span>
+    </article>
+  </div>
 </section>
-<!-- Section Education End-->
 
-<br>
+</main>
 
-<!-- Section Services Start-->
-<section id="services" class>
-<h3 style="color: #bca878;">Services</h3>
-
-<ul>
-	<li>
-		<b>Journal Reviewer</b>  
-		<br>
-		<a href="https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=8858" style="color: #000000;">TDSC</a> (IEEE Transactions on Dependable and Secure Computing): 2025-Present
-		<br>
-		<img src="image/award-icon.png" width="20" alt="bachelordiplomaB" style="margin-right: 2px;">2025 Awarded Peer Reviewer
-        <br>
-		<a href="https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=90" style="color: #000000;">TNET</a> (IEEE Transactions on Networking): 2025-Present
-		<br>
-		<a href="https://dl.acm.org/journal/tpds" style="color: #000000;">TPDS</a> (IEEE Transactions on Parallel and Distributed Systems): 2025-Present
-		<br>
-		<a href="https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=10206" style="color: #000000;">TIFS</a> (IEEE Transactions on Information Forensics & Security): 2024-Present
- 		<br>
-		<a href="https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=5962385" style="color: #000000;">TNNLS</a> (IEEE Transactions on Neural Networks and Learning Systems): 2024-Present
-		<br>
-		<a href="https://dl.acm.org/journal/tomm" style="color: #000000;">TOMM</a> (ACM Transactions on Multimedia Computing, Communications, and Applications): 2024-Present
-		<br>
-		<a href="https://www.sciencedirect.com/journal/computers-and-electrical-engineering" style="color: #000000;">Computers and Electrical Engineering</a>: 2024-Present
-		<br>
-		<a href="https://www.cai.sk/ojs/index.php/cai" style="color: #000000;">CAI</a> (Computing and Informatics): 2024.11.20-2027.11.20
-		<br>
-		<a href="http://www.ajoai.org/reviewers" style="color: #000000;">AJAI</a> (American Journal of Artificial Intelligence): 2024-Present
-		<br>
-		<a href="https://dl.acm.org/journal/csur" style="color: #000000;">ACM Computing Surveys</a>: 2023-Present
-		<br>
-		<a href="https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=69" style="color: #000000;">TKDE</a> (IEEE Transactions on Knowledge and Data Engineering): 2022-Present
-		<br>
-		<img src="image/award-icon.png" width="20" alt="bachelordiplomaB" style="margin-right: 2px;">2025 Awarded Peer Reviewer
-		<br>
-		<a href="https://link.springer.com/journal/11235" style="color: #000000;">TELS</a> (Telecommunication Systems): 2021-Present 
-		<br>
-		<a href="https://www.sciencedirect.com/journal/computer-standards-and-interfaces" style="color: #000000;">CSI</a> (Computer Standards & Interfaces): 2021-Present
-		<br>
-		<a href="https://www.tandfonline.com/journals/ccos20" style="color: #000000;">Connection Science</a>: 2020-Present
-		<br>
-		<a href="https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=76" style="color: #000000;">TCSVT</a> (IEEE Transactions on Circuits and Systems for Video Technology): 2019-Present
-	</li>
-</ul>
-
-<ul>
-	<li>
-		<b>Conference PC</b>  
-		<br>
-		ICPADS (IEEE International Conference on Parallel and Distributed Systems): <a href="https://www.cloud-conf.net/icpads2026/index.html" style="color: #000000;">2026</a> 
- 		<br>
-	</li>
-</ul>
-	
-<ul>
-	<li>
-		<b>Conference Reviewer</b>  
-		<br>
-		ACSAC (Annual Computer Security Applications Conference): <a href="https://www.acsac.org" style="color: #000000;">2024</a> 
- 		<br>
-		ESORICS (European Symposium on Research in Computer Security): <a href="https://esorics2025.sciencesconf.org/" style="color: #000000;">2025</a>, <a href="https://esorics2024.org" style="color: #000000;">2024</a>, <a href="https://esorics2021.athene-center.de/index.php" style="color: #000000;">2021</a>
-		<br>
-		CODASPY (ACM Conference on Data and Application Security and Privacy): <a href="https://www.codaspy.org/2025/" style="color: #000000;">2024</a>, <a href="https://www.codaspy.org/2024/" style="color: #000000;">2024</a>, <a href="https://www.codaspy.org/2023" style="color: #000000;">2023</a>
-		<br>
-		ML4CS (International Conference on Machine Learning for Cyber Security): <a href="https://link.springer.com/book/10.1007/978-3-031-20096-0" style="color: #000000;">2022</a>
-		<br>
-		ISC (Information Security Conference): <a href="https://isc2022.petra.ac.id" style="color: #000000;">2022</a>
-		<br>	
-		ICICS (International Conference on Information and Communications Security): <a href="https://link.springer.com/book/10.1007/978-3-030-88052-1" style="color: #000000;">2021</a>
-		<br>
-		DSPP (International Conference on Data Security and Privacy Protection):<a href="https://dspp2025.xidian.edu.cn/" style="color: #000000;">2025</a>, <a href="https://dspp2024.xidian.edu.cn/" style="color: #000000;">2024</a>
-		<br>
-	</li>
-</ul>
-
-<ul>
-	<li>
-		<b>Conference SubReviewer</b>  
-		<br>
-		USENIX Security (USENIX Security Symposium): <a href="https://www.usenix.org/conference/usenixsecurity26" style="color: #000000;">2026</a> 
-		<br>
-		SP (IEEE Symposium on Security and Privacy): <a href="https://sp2025.ieee-security.org/" style="color: #000000;">2025</a>, <a href="https://sp2026.ieee-security.org/" style="color: #000000;">2026</a>
-		<br>
-		CCS (ACM Conference on Computer and Communications Security): <a href="https://www.sigsac.org/ccs/CCS2025/" style="color: #000000;">2025</a> 
-		<br>
-	</li>
-</ul>
-
-<ul>
-	<li>
-		<b>Artifact Evaluation Committee Member</b> 
-		<br> 
-		NDSS (Network and Distributed System Security Symposium): <a href="https://www.ndss-symposium.org/ndss2026/" style="color: #000000;">2026</a> 
-		<br> 
-		CCS (ACM Conference on Computer and Communications Security): <a href="https://www.sigsac.org/ccs/CCS2025/" style="color: #000000;">2025</a> 
-	</li>
-	
-</ul>
-</section>
-<!-- Section End Start-->
-
-<br>
-
-<!-- Section Others Start-->
-<section id="others" class>
-<h3 style="color: #bca878;">Others</h3>
-<ul>
-	<li>
-		<b>Hometown</b>  
- 		<br>
-		I am from <a href="https://en.wikipedia.org/wiki/Nanjing" style="color: #000000;">Nanjing</a>, Jiangsu Province, which is a city in eastern China and the ancient capital of six dynasties. 
-		<br>
-	</li>
-	<li>
-		<b>Sport</b>  
-		<br>
-		My favorite sport at the moment is swimming. I am familiar with the breaststroke and am learning freestyle. I also practiced badminton, aerobics and Latin dance.
- 		<br>
-	</li>
-	<li>
-		<b>Music</b>  
-		<br>
-		I like R&B music. The artists I often listen to are David Tao, Jay Chou, and Leehom Wang.
-		<!-- I'm listening to KPOP (GD) music recently. -->
- 		<br>
-	</li>
-	<li>
-		<b>Food</b>  
-		<br>
-		My favorite food is taro and coconut.
-	</li>
-</ul>
-</section>
-<!-- Section Others End-->
-
-<br>
-
-<table align="right">
-	<tbody>	
-		<tr>	
-<!-- 			<td width="40px" align="left"> -->
-			<td align="left">
-				<a href="https://scholar.google.com/citations?user=4wBuoQUAAAAJ" target="_blank"> <img src="image/googlescholar-icon.png" height="40" alt="GoogleScholar"></a>
-				<a href="https://github.com/MengdieHuang" target="_blank"> <img src="image/github-icon.png" height="40" alt="Github"></a>
-				<a href="https://www.linkedin.com/in/mengdie-huang-a6011ba2/" target="_blank"> <img src="image/LinkeIn-icon.jpg" height="40" alt="LinkedIn"></a>
-				<a href="https://www.facebook.com/profile.php?id=100087042442560" target="_blank"> <img src="image/facebook-icon.jpg" height="40" alt="Facebook"></a>
-<!-- 				<a href="https://www.instagram.com/maggiehmd/" target="_blank"> <img src="image/ins-icon.jpg" height="40" alt="Instagram"></a> -->
-				<a href="https://x.com/MaggieHuang2" target="_blank"> <img src="image/twitter-icon.jpg" height="38" alt="Twitter"></a>				
-			</td>
-		</tr>
-	</tbody>
-</table>
-
-<table align="left">
-	<tbody>	
-		<tr>	
-			<td align="left">
-				<a href="https://www.purdue.edu" target="_blank"> <img src="image/Purdue-logo.png" height="60" alt="Purdue" style="margin-right: 10px";></a>		
-				<a href="https://en.xidian.edu.cn/" target="_blank"> <img src="image/Xidian-logo.png" height="60" alt="Xidian" style="margin-right: 10px";></a>		
-				<a href="https://www.cuc.edu.cn/" target="_blank"> <img src="image/CUC-logo.png" height="60" alt="CUC"></a>		
-			</td>
-		</tr>
-	</tbody>
-</table>
-
-<br>
-<br>
-<br>
-<br>
-<footer style="background-color: #f0e9d8; padding: 12px 8px; text-align: center; color: gray; font-size: 14px; margin-top: 40px;">
-    © 2025 Mengdie Huang (Maggie). Last updated: Aug, 2026
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+  <div class="wrap footer-in">
+    <div class="logos">
+      <a href="https://www.purdue.edu" target="_blank" rel="noopener"><img src="image/Purdue-logo.png" alt="Purdue University"></a>
+      <a href="https://en.xidian.edu.cn/" target="_blank" rel="noopener"><img src="image/Xidian-logo.png" alt="Xidian University"></a>
+      <a href="https://www.cuc.edu.cn/" target="_blank" rel="noopener"><img src="image/CUC-logo.png" alt="Communication University of China"></a>
+    </div>
+    <div class="social">
+      <a href="https://scholar.google.com/citations?user=4wBuoQUAAAAJ" target="_blank" rel="noopener" title="Google Scholar"><img src="image/googlescholar-icon.png" alt="Google Scholar"></a>
+      <a href="https://github.com/MengdieHuang" target="_blank" rel="noopener" title="GitHub"><img src="image/github-icon.png" alt="GitHub"></a>
+      <a href="https://www.linkedin.com/in/mengdie-huang-a6011ba2/" target="_blank" rel="noopener" title="LinkedIn"><img src="image/LinkeIn-icon.jpg" alt="LinkedIn"></a>
+      <a href="https://www.facebook.com/profile.php?id=100087042442560" target="_blank" rel="noopener" title="Facebook"><img src="image/facebook-icon.jpg" alt="Facebook"></a>
+      <a href="https://x.com/MaggieHuang2" target="_blank" rel="noopener" title="X"><img src="image/twitter-icon.jpg" alt="X"></a>
+    </div>
+  </div>
+  <div class="copy">&copy; 2026 Mengdie Huang (Maggie). Last updated: Sep 2026.</div>
 </footer>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+
+<button id="totop" title="Back to top" aria-label="Back to top">&#8593;</button>
+
+<script>
+(function(){
+  "use strict";
+  var nav      = document.getElementById('topnav');
+  var navwrap  = nav.querySelector('.navwrap');
+  var prog     = document.getElementById('prog');
+  var totop    = document.getElementById('totop');
+  var navLinks = Array.prototype.slice.call(navwrap.querySelectorAll('a[href^="#"]'));
+  var sections = navLinks.map(function(a){ return document.getElementById(a.getAttribute('href').slice(1)); })
+                         .filter(Boolean);
+  var navH     = nav.offsetHeight;
+  var current  = null;
+
+  /* ---- scroll progress + sticky shadow + back-to-top + scrollspy ---- */
+  function onScroll(){
+    var y   = window.pageYOffset || document.documentElement.scrollTop;
+    var max = document.documentElement.scrollHeight - window.innerHeight;
+    prog.style.width = (max > 0 ? Math.min(y / max, 1) * 100 : 0) + '%';
+
+    nav.classList.toggle('stuck', y > 4);
+    totop.classList.toggle('show', y > 520);
+
+    /* the active section is the last one whose top has passed the nav baseline */
+    var line = y + navH + 40;
+    var active = sections[0];
+    for (var i = 0; i < sections.length; i++){
+      if (sections[i].offsetTop <= line) active = sections[i];
+    }
+    /* pin the last section once the page is scrolled to the very bottom */
+    if (max - y < 4) active = sections[sections.length - 1];
+
+    if (active !== current){
+      current = active;
+      navLinks.forEach(function(a){
+        var on = a.getAttribute('href') === '#' + active.id;
+        a.classList.toggle('active', on);
+        if (on && navwrap.scrollWidth > navwrap.clientWidth){
+          /* keep the active item visible in the horizontally scrolling nav */
+          var l = a.offsetLeft, r = l + a.offsetWidth;
+          if (l < navwrap.scrollLeft + 12) navwrap.scrollTo({left: l - 12, behavior: 'smooth'});
+          else if (r > navwrap.scrollLeft + navwrap.clientWidth - 12)
+            navwrap.scrollTo({left: r - navwrap.clientWidth + 12, behavior: 'smooth'});
+        }
+      });
+    }
+  }
+
+  var ticking = false;
+  function schedule(){
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(function(){ ticking = false; onScroll(); });
+  }
+  window.addEventListener('scroll', schedule, {passive:true});
+  window.addEventListener('resize', function(){ navH = nav.offsetHeight; schedule(); });
+
+  totop.addEventListener('click', function(){
+    window.scrollTo({top:0, behavior:'smooth'});
+    history.replaceState(null, '', location.pathname + location.search);
+  });
+
+  /* ---- reveal sections on first entry ---- */
+  var revealables = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, {rootMargin: '0px 0px -8% 0px', threshold: 0.04});
+    revealables.forEach(function(el){ io.observe(el); });
+  } else {
+    revealables.forEach(function(el){ el.classList.add('in'); });
+  }
+
+  /* ---- publication tabs ---- */
+  var tabs  = Array.prototype.slice.call(document.querySelectorAll('.tab'));
+  var panes = tabs.map(function(t){ return document.getElementById(t.getAttribute('aria-controls')); });
+  tabs.forEach(function(tab, i){
+    tab.addEventListener('click', function(){
+      tabs.forEach(function(t, j){
+        var on = (j === i);
+        t.setAttribute('aria-selected', on ? 'true' : 'false');
+        panes[j].hidden = !on;
+      });
+      schedule();
+    });
+  });
+
+  /* ---- journal / conference / thesis filter ---- */
+  var filts = Array.prototype.slice.call(document.querySelectorAll('.filt'));
+  var pubCards = Array.prototype.slice.call(document.querySelectorAll('#pane-pub .card'));
+  filts.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var f = btn.dataset.f;
+      filts.forEach(function(b){ b.setAttribute('aria-pressed', b === btn ? 'true' : 'false'); });
+      pubCards.forEach(function(c){
+        var show = (f === 'all') || (c.dataset.type === f);
+        c.dataset.hidden = show ? '0' : '1';
+      });
+      schedule();
+    });
+  });
+
+  /* ---- land on the right section when arriving with a #hash ---- */
+  if (location.hash){
+    var t = document.getElementById(location.hash.slice(1));
+    if (t) setTimeout(function(){ t.scrollIntoView(); schedule(); }, 0);
+  }
+  onScroll();
+})();
+</script>
+</body>
+</html>
