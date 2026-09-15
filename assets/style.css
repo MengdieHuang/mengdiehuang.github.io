@@ -11,6 +11,7 @@
   --bg:#ffffff;
   --surface:#FCFAF4;
   --surface2:#F6F0E1;
+  --card-bg:#FFFDF8;
   --border:#E8E0CD;
   --nav-h:52px;
   --maxw:920px;
@@ -152,7 +153,7 @@ html.js .reveal.in{opacity:1;transform:none}
 /* ---------- Cards ---------- */
 .card{
   position:relative;
-  background:var(--surface);
+  background:var(--card-bg);
   border:1px solid var(--border);
   border-radius:8px;
   padding:13px 16px 13px 18px;
@@ -175,6 +176,15 @@ html.js .reveal.in{opacity:1;transform:none}
 .card .authors b{color:var(--ink);font-weight:600}
 .card .venue{font-size:13.5px;color:var(--cool);font-style:italic;display:block}
 .card .sub{font-size:14px;color:var(--steel);display:block}
+
+/* ---------- Entry numbering ---------- */
+.card .idx{
+  display:inline-block;min-width:26px;margin-right:2px;
+  color:var(--gold);font-weight:700;
+  font-variant-numeric:tabular-nums;
+  transition:color .25s ease;
+}
+.card:hover .idx{color:var(--rush)}
 
 /* ---------- Badges & links ---------- */
 .badge{
@@ -537,7 +547,7 @@ html.js .reveal.in{opacity:1;transform:none}
 
 /* ---------- Author-mark legend ---------- */
 .legend{
-  margin-top:16px;padding:10px 14px;border-radius:7px;
+  margin:0 0 18px;padding:10px 14px;border-radius:7px;
   background:var(--surface);border:1px dashed var(--border);
   font-size:12.5px;color:var(--cool);line-height:1.75;
 }
