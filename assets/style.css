@@ -78,10 +78,11 @@ p{margin:0 0 .85em}
 .navwrap a.active{color:var(--aged);font-weight:600}
 .navwrap .nav-cv{
   margin-left:auto;
-  border:1px solid var(--gold);background:var(--surface);color:var(--aged);font-weight:600;
+  border:0;background:var(--ink);color:var(--gold);
+  font-weight:600;letter-spacing:.03em;padding:7px 15px;
 }
 .navwrap .nav-cv::after{display:none}
-.navwrap .nav-cv:hover{background:var(--gold);color:var(--on-gold)}
+.navwrap .nav-cv:hover{background:#000;color:var(--dust)}
 /* scroll progress, pinned to the nav's own baseline */
 #prog{
   position:absolute;left:0;bottom:-1px;height:2px;width:0;
