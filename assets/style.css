@@ -167,8 +167,8 @@ html.js .reveal.in{opacity:1;transform:none}
 .card .authors a{color:var(--ink)}
 .card .authors a:hover{color:var(--aged)}
 .card .authors b{color:var(--ink);font-weight:600}
-.card .venue{font-size:13.5px;color:var(--steel);font-style:italic;display:block}
-.card .sub{font-size:14px;color:var(--steel);display:block}
+.card .venue{font-size:13.5px;color:var(--ink);font-style:italic;display:block}
+.card .sub{font-size:14px;color:var(--ink);display:block}
 
 /* ---------- Buttons & embedded PDF (CV page) ---------- */
 .pdf-actions{display:flex;flex-wrap:wrap;gap:9px;margin:0 0 16px}
@@ -308,8 +308,8 @@ html.js .reveal.in{opacity:1;transform:none}
 .tl>li:hover::before{background:var(--rush);border-color:var(--rush);box-shadow:0 0 0 5px rgba(218,170,0,.16)}
 .tl .hd{font-weight:600;color:var(--ink)}
 .tl .when{font-size:13px;color:var(--ink);font-weight:400;margin-left:4px}
-.tl .ln{font-size:14px;color:var(--steel);display:block}
-.tl .ln a{color:var(--steel)}
+.tl .ln{font-size:14px;color:var(--ink);display:block}
+.tl .ln a{color:var(--ink)}
 .tl .ln a:hover{color:var(--aged)}
 .tl .ln img{width:17px;vertical-align:-3px;margin-right:3px}
 
@@ -416,15 +416,6 @@ html.js .reveal.in{opacity:1;transform:none}
    Multi-page additions
    ================================================================== */
 
-/* ---------- Brand in nav (sub-pages) ---------- */
-.navwrap .brand{
-  font-size:15px;font-weight:400;color:var(--ink);
-  padding:8px 12px 8px 2px;margin-right:6px;
-  border-right:1px solid var(--border);border-radius:0;
-}
-.navwrap .brand::after{display:none}
-.navwrap .brand:hover{background:transparent;color:var(--aged)}
-
 /* ---------- Sub-page header ---------- */
 .pagehead{padding:18px 20px 0}
 .pagehead-in{
@@ -475,7 +466,7 @@ html.js .reveal.in{opacity:1;transform:none}
 }
 .qcard .arrow{color:var(--gold);transition:transform .26s ease}
 .qcard:hover .arrow{transform:translateX(4px)}
-.qcard .qd{font-size:13px;color:var(--steel);line-height:1.5}
+.qcard .qd{font-size:13px;color:var(--ink);line-height:1.5}
 
 /* ---------- Research thrusts ---------- */
 .thrusts{display:grid;grid-template-columns:repeat(auto-fit,minmax(285px,1fr));gap:12px}
@@ -492,7 +483,7 @@ html.js .reveal.in{opacity:1;transform:none}
   color:var(--on-gold);font-size:12.5px;font-weight:700;
 }
 .thrust h3{margin:0 0 6px;font-size:15px;font-weight:600;line-height:1.4}
-.thrust p{margin:0;font-size:13.5px;color:var(--steel);line-height:1.58}
+.thrust p{margin:0;font-size:13.5px;color:var(--ink);line-height:1.58}
 
 /* ---------- Mentoring ---------- */
 .mentee{
@@ -511,8 +502,8 @@ html.js .reveal.in{opacity:1;transform:none}
 }
 .mentee .mbody{flex:1 1 auto;min-width:0}
 .mentee .mname{font-weight:600;font-size:15px;color:var(--ink)}
-.mentee .mrole{font-size:13px;color:var(--steel);display:block;margin:1px 0 4px}
-.mentee .mres{font-size:13.5px;color:var(--steel)}
+.mentee .mrole{font-size:13px;color:var(--ink);display:block;margin:1px 0 4px}
+.mentee .mres{font-size:13.5px;color:var(--ink)}
 .mentee .mout{margin-top:7px;display:flex;flex-wrap:wrap;gap:6px}
 .mentee .mout a{
   font-size:12px;padding:2.5px 9px;border-radius:4px;
@@ -535,8 +526,8 @@ html.js .reveal.in{opacity:1;transform:none}
 }
 .talk:hover{transform:translateX(3px);box-shadow:0 7px 20px rgba(143,111,62,.12);border-left-color:var(--rush)}
 .talk .tt{display:block;font-weight:600;margin-bottom:3px;line-height:1.45}
-.talk .tv{display:block;font-size:13.5px;color:var(--steel)}
-.talk .td{display:block;font-size:12.5px;color:var(--steel);margin-top:2px;font-variant-numeric:tabular-nums}
+.talk .tv{display:block;font-size:13.5px;color:var(--ink)}
+.talk .td{display:block;font-size:12.5px;color:var(--ink);margin-top:2px;font-variant-numeric:tabular-nums}
 
 /* ---------- Grants ---------- */
 .grant{
@@ -557,7 +548,7 @@ html.js .reveal.in{opacity:1;transform:none}
   background:var(--surface2);color:var(--aged-deep);border:1px solid var(--gold);
 }
 .grant .gt{display:block;font-weight:600;font-size:15px;line-height:1.45;margin-bottom:4px}
-.grant .gm{display:block;font-size:13.5px;color:var(--steel)}
+.grant .gm{display:block;font-size:13.5px;color:var(--ink)}
 .amount{
   display:inline-flex;align-items:center;gap:5px;margin-top:9px;
   padding:4px 12px;border-radius:999px;
