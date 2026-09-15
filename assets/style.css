@@ -397,7 +397,7 @@ html.js .reveal.in{opacity:1;transform:none}
   .wrap{padding:0 16px}
   .hero,.pagehead,.footer{padding-left:16px;padding-right:16px}
   .hero-in{padding:20px 16px 18px}
-  .pagehead-in{padding:18px 16px 16px}
+  .pagehead-in{padding:13px 14px 12px}
   .footer-in{padding:18px 0 14px}
   .copy{padding:12px 16px 15px}
   .navwrap{padding:0 10px}
@@ -430,21 +430,21 @@ html.js .reveal.in{opacity:1;transform:none}
 .pagehead-in{
   position:relative;overflow:hidden;
   max-width:var(--content);margin:0 auto;
-  padding:26px 24px 24px;
+  padding:18px 20px 16px;
   background:
     radial-gradient(760px 240px at 84% -40%, rgba(218,170,0,.12), transparent 60%),
     linear-gradient(160deg, var(--dust) 0%, var(--surface) 58%, #fff 100%);
 }
 .pagehead h1{
-  margin:0 0 6px;
-  font-size:29px;font-weight:700;letter-spacing:-.025em;line-height:1.2;
+  margin:0 0 5px;
+  font-size:29px;font-weight:700;letter-spacing:-.025em;line-height:1.25;
 }
 .pagehead p{margin:0;color:var(--steel);font-size:15px}
 
 /* ---------- In-page sub-navigation ---------- */
 .subnav{
   display:flex;flex-wrap:wrap;gap:7px;
-  padding:14px 0 0;
+  padding:11px 0 0;
 }
 .subnav a{
   font-size:13px;padding:5px 12px;border-radius:999px;
@@ -583,7 +583,7 @@ sup.mk{color:var(--aged);font-weight:700;font-size:.78em;letter-spacing:.02em}
 
 @media (max-width:720px){
   .pagehead h1{font-size:24px}
-  .pagehead-in{padding:22px 20px 20px}
+  .pagehead-in{padding:15px 18px 14px}
   .mentee{gap:11px}
   .ava{width:36px;height:36px;font-size:12.5px}
 }
