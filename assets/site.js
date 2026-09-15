@@ -108,6 +108,29 @@
     });
   }
 
+  /* ---- fullscreen toggle for the embedded CV ---- */
+  var fullBtn = document.getElementById('pdf-full');
+  var frame   = document.getElementById('pdf-frame');
+  if (fullBtn && frame){
+    var req  = frame.requestFullscreen || frame.webkitRequestFullscreen || frame.msRequestFullscreen;
+    var exit = document.exitFullscreen || document.webkitExitFullscreen || document.msExitFullscreen;
+    if (!req){
+      fullBtn.hidden = true;               /* browser cannot do it - do not offer it */
+    } else {
+      fullBtn.addEventListener('click', function(){
+        var on = document.fullscreenElement || document.webkitFullscreenElement;
+        if (on) exit.call(document); else req.call(frame);
+      });
+      ['fullscreenchange','webkitfullscreenchange'].forEach(function(ev){
+        document.addEventListener(ev, function(){
+          var on = document.fullscreenElement || document.webkitFullscreenElement;
+          var lbl = fullBtn.querySelector('.lbl');
+          if (lbl) lbl.textContent = on ? 'Exit fullscreen' : 'Fullscreen';
+        });
+      });
+    }
+  }
+
   /* ---- land on the right section when arriving with a #hash ---- */
   if (location.hash){
     var t = document.getElementById(location.hash.slice(1));
