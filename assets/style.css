@@ -3,7 +3,8 @@
   --gold:#CFB991;        /* Boilermaker Gold */
   --rush:#DAAA00;        /* Rush */
   --field:#DDB945;       /* Field */
-  --aged:#8E6F3E;        /* Aged - accessible gold for text */
+  --aged:#8E6F3E;        /* Aged - gold for text on white */
+  --aged-deep:#7A5E2F;   /* deeper Aged, for gold text on a tinted ground */
   --dust:#EBD99F;        /* Dust */
   --steel:#555960;       /* Steel */
   --cool:#6F727B;        /* Cool Gray */
@@ -112,7 +113,7 @@ html.js .reveal.in{opacity:1;transform:none}
   padding:30px 24px 28px;
   background:
     radial-gradient(1000px 320px at 88% -30%, rgba(218,170,0,.13), transparent 62%),
-    linear-gradient(160deg, var(--surface2) 0%, var(--surface) 55%, #fff 100%);
+    linear-gradient(160deg, var(--dust) 0%, var(--surface) 55%, #fff 100%);
 }
 .hero-txt{flex:1 1 auto;min-width:0}
 .hero-pic{flex:0 0 auto}
@@ -220,7 +221,7 @@ html.js .reveal.in{opacity:1;transform:none}
 }
 .news-item:hover{transform:translateX(3px);box-shadow:0 6px 18px rgba(143,111,62,.12);border-left-color:var(--rush)}
 .news-date{
-  display:inline-block;min-width:78px;font-weight:600;font-size:13px;color:var(--aged);
+  display:inline-block;min-width:78px;font-weight:600;font-size:13px;color:var(--aged-deep);
   letter-spacing:.01em;
 }
 .dot{
@@ -289,7 +290,7 @@ html.js .reveal.in{opacity:1;transform:none}
 .fpanel{
   position:relative;overflow:hidden;
   max-width:var(--content);margin:0 auto;
-  background:linear-gradient(180deg,var(--surface),var(--surface2));
+  background:linear-gradient(180deg,var(--surface),var(--dust));
 }
 .footer-in{
   display:flex;flex-wrap:wrap;gap:22px;align-items:center;justify-content:space-between;
@@ -303,7 +304,7 @@ html.js .reveal.in{opacity:1;transform:none}
 .social a:hover img{opacity:1;transform:translateY(-3px) scale(1.06)}
 .copy{
   text-align:center;padding:13px 24px 17px;
-  color:var(--cool);font-size:13px;border-top:1px solid var(--border);
+  color:var(--steel);font-size:13px;border-top:1px solid var(--border);
 }
 
 /* ---------- Back to top ---------- */
@@ -371,7 +372,7 @@ html.js .reveal.in{opacity:1;transform:none}
   padding:26px 24px 24px;
   background:
     radial-gradient(760px 240px at 84% -40%, rgba(218,170,0,.12), transparent 60%),
-    linear-gradient(160deg, var(--surface2) 0%, var(--surface) 58%, #fff 100%);
+    linear-gradient(160deg, var(--dust) 0%, var(--surface) 58%, #fff 100%);
 }
 .pagehead h1{
   margin:0 0 6px;font-family:'Source Serif 4',Georgia,serif;
@@ -379,10 +380,10 @@ html.js .reveal.in{opacity:1;transform:none}
 }
 .pagehead p{margin:0;color:var(--steel);font-size:15px}
 .crumb{
-  font-size:12.5px;color:var(--cool);margin:0 0 10px;
+  font-size:12.5px;color:var(--steel);margin:0 0 10px;
   display:flex;align-items:center;gap:6px;
 }
-.crumb a{color:var(--cool)}
+.crumb a{color:var(--steel)}
 .crumb a:hover{color:var(--aged)}
 
 /* ---------- In-page sub-navigation ---------- */
@@ -396,7 +397,7 @@ html.js .reveal.in{opacity:1;transform:none}
   transition:all .2s ease;
 }
 .subnav a:hover{border-color:var(--gold);color:var(--aged);background:#fff;text-decoration:none}
-.subnav a.active{border-color:var(--aged);background:var(--surface2);color:var(--aged);font-weight:600}
+.subnav a.active{border-color:var(--aged);background:var(--surface2);color:var(--aged-deep);font-weight:600}
 
 /* ---------- Home: stat tiles ---------- */
 .stats{
@@ -522,7 +523,7 @@ html.js .reveal.in{opacity:1;transform:none}
 .grant .role{
   display:inline-block;padding:2px 9px;border-radius:4px;margin-bottom:7px;
   font-size:11.5px;font-weight:600;letter-spacing:.03em;text-transform:uppercase;
-  background:var(--surface2);color:var(--aged);border:1px solid var(--gold);
+  background:var(--surface2);color:var(--aged-deep);border:1px solid var(--gold);
 }
 .grant .gt{display:block;font-weight:600;font-size:15px;line-height:1.45;margin-bottom:4px}
 .grant .gm{display:block;font-size:13.5px;color:var(--steel)}
