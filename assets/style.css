@@ -219,6 +219,13 @@ html.js .reveal.in{opacity:1;transform:none}
   gap:6px;margin:1px 0 3px 14px;max-width:58%;
 }
 .card .badges .badge{margin-left:0;vertical-align:baseline}
+/* variant: badges share the author line, pushed to the right edge */
+.authors-row{
+  display:flex;align-items:center;justify-content:space-between;
+  gap:6px 16px;flex-wrap:wrap;margin-bottom:3px;
+}
+.authors-row .authors{flex:1 1 auto;min-width:0;margin-bottom:0}
+.authors-row .badges{float:none;flex:0 0 auto;margin:0;max-width:none}
 
 .badge{
   display:inline-block;padding:2.5px 9px;border-radius:4px;
