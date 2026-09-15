@@ -307,7 +307,7 @@ html.js .reveal.in{opacity:1;transform:none}
 }
 .tl>li:hover::before{background:var(--rush);border-color:var(--rush);box-shadow:0 0 0 5px rgba(218,170,0,.16)}
 .tl .hd{font-weight:600;color:var(--ink)}
-.tl .when{font-size:13px;color:var(--cool);font-weight:400;margin-left:4px}
+.tl .when{font-size:13px;color:var(--ink);font-weight:400;margin-left:4px}
 .tl .ln{font-size:14px;color:var(--steel);display:block}
 .tl .ln a{color:var(--steel)}
 .tl .ln a:hover{color:var(--aged)}
