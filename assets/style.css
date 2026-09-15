@@ -190,12 +190,12 @@ html.js .reveal.in{opacity:1;transform:none}
 
 /* ---------- Badges & links ---------- */
 .badge{
-  display:inline-block;padding:1.5px 8px;border-radius:4px;
+  display:inline-block;padding:2.5px 9px;border-radius:4px;
   font-size:11.5px;font-weight:600;letter-spacing:.03em;
-  background:var(--dust);color:#6a5228;border:1px solid var(--gold);
+  background:var(--dust);color:#6a5228;border:0;
   vertical-align:2px;margin-left:7px;white-space:nowrap;
 }
-.badge.award{background:linear-gradient(135deg,var(--rush),var(--field));color:#3d2f00;border-color:var(--aged)}
+.badge.award{background:linear-gradient(135deg,var(--rush),var(--field));color:#3d2f00}
 .links{margin-top:6px;display:flex;flex-wrap:wrap;gap:6px}
 .links a{
   font-size:12.5px;padding:2.5px 9px;border-radius:4px;
@@ -302,13 +302,11 @@ html.js .reveal.in{opacity:1;transform:none}
 /* ---------- Footer ---------- */
 .footer{margin-top:46px;padding:0 20px}
 .fpanel{
-  position:relative;overflow:hidden;
   max-width:var(--content);margin:0 auto;
-  background:linear-gradient(180deg,var(--surface),var(--dust));
 }
 .footer-in{
   display:flex;flex-wrap:wrap;gap:22px;align-items:center;justify-content:space-between;
-  padding:22px 24px 18px;
+  padding:22px 0 20px;
 }
 .logos{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
 .logos img{height:50px;width:auto;opacity:.82;transition:opacity .25s ease, transform .25s ease}
@@ -317,8 +315,9 @@ html.js .reveal.in{opacity:1;transform:none}
 .social img{height:31px;width:auto;border-radius:5px;opacity:.85;transition:opacity .25s ease, transform .25s ease}
 .social a:hover img{opacity:1;transform:translateY(-3px) scale(1.06)}
 .copy{
-  text-align:center;padding:13px 24px 17px;
-  color:var(--steel);font-size:13px;border-top:1px solid var(--border);
+  text-align:center;padding:14px 24px 15px;
+  color:var(--steel);font-size:13px;
+  background:linear-gradient(180deg,var(--surface),var(--dust));
 }
 
 /* ---------- Back to top ---------- */
@@ -350,7 +349,7 @@ html.js .reveal.in{opacity:1;transform:none}
   .hero,.pagehead,.footer{padding-left:16px;padding-right:16px}
   .hero-in{padding:20px 16px 18px}
   .pagehead-in{padding:18px 16px 16px}
-  .footer-in{padding:18px 16px 14px}
+  .footer-in{padding:18px 0 14px}
   .copy{padding:12px 16px 15px}
   .navwrap{padding:0 10px}
   .logos img{height:40px}
