@@ -15,6 +15,8 @@
   --border:#E8E0CD;
   --nav-h:52px;
   --maxw:920px;
+  /* width of the body text column; every panel matches the cards */
+  --content:calc(var(--maxw) - 40px);
   color-scheme: light;
 }
 
@@ -108,7 +110,7 @@ html.js .reveal.in{opacity:1;transform:none}
 .hero{padding:18px 20px 0}
 .hero-in{
   position:relative;overflow:hidden;
-  max-width:calc(var(--maxw) - 40px);margin:0 auto;
+  max-width:var(--content);margin:0 auto;
   display:flex;gap:30px;align-items:flex-start;
   padding:30px 26px 28px;
   background:
@@ -179,23 +181,6 @@ html.js .reveal.in{opacity:1;transform:none}
 .card .authors b{color:var(--ink);font-weight:600}
 .card .venue{font-size:13.5px;color:var(--cool);font-style:italic;display:block}
 .card .sub{font-size:14px;color:var(--steel);display:block}
-
-/* ---------- Entry numbering ----------
-   Numbered cards lay the index out as a hanging marker so the title,
-   authors, venue and link row all share one left edge. */
-.card.num{
-  display:flex;align-items:flex-start;gap:9px;
-  padding-left:12px;
-}
-.card .cbody{flex:1 1 auto;min-width:0}
-.card .idx{
-  flex:0 0 auto;min-width:22px;
-  color:var(--gold);font-weight:700;
-  font-variant-numeric:tabular-nums;
-  line-height:1.45;
-  transition:color .25s ease;
-}
-.card:hover .idx{color:var(--rush)}
 
 /* ---------- Badges & links ---------- */
 .badge{
@@ -313,7 +298,7 @@ html.js .reveal.in{opacity:1;transform:none}
 /* ---------- Footer ---------- */
 .footer{margin-top:46px;padding:0 20px}
 .fpanel{
-  max-width:calc(var(--maxw) - 40px);margin:0 auto;
+  max-width:var(--content);margin:0 auto;
   background:linear-gradient(180deg,var(--surface),var(--surface2));
   border:1px solid var(--border);border-top:2px solid var(--gold);
   border-radius:12px;overflow:hidden;
@@ -364,8 +349,6 @@ html.js .reveal.in{opacity:1;transform:none}
   .pagehead-in{padding:18px 16px 16px}
   .footer-in{padding:18px 16px 14px}
   .copy{padding:12px 16px 15px}
-  .card.num{gap:6px;padding-left:10px}
-  .card .idx{min-width:19px}
   .navwrap{padding:0 10px}
   .logos img{height:40px}
   .news-date{display:block;min-width:0}
@@ -396,7 +379,7 @@ html.js .reveal.in{opacity:1;transform:none}
 .pagehead{padding:18px 20px 0}
 .pagehead-in{
   position:relative;overflow:hidden;
-  max-width:calc(var(--maxw) - 40px);margin:0 auto;
+  max-width:var(--content);margin:0 auto;
   padding:26px 26px 24px;
   background:
     radial-gradient(760px 240px at 84% -40%, rgba(218,170,0,.12), transparent 60%),
@@ -411,7 +394,7 @@ html.js .reveal.in{opacity:1;transform:none}
   margin:0 0 6px;font-family:'Source Serif 4',Georgia,serif;
   font-size:29px;font-weight:600;letter-spacing:-.02em;line-height:1.2;
 }
-.pagehead p{margin:0;color:var(--steel);font-size:15px;max-width:66ch}
+.pagehead p{margin:0;color:var(--steel);font-size:15px}
 .crumb{
   font-size:12.5px;color:var(--cool);margin:0 0 10px;
   display:flex;align-items:center;gap:6px;
