@@ -306,7 +306,7 @@ html.js .reveal.in{opacity:1;transform:none}
   transition:background-color .25s ease, border-color .25s ease, box-shadow .25s ease;
 }
 .tl>li:hover::before{background:var(--rush);border-color:var(--rush);box-shadow:0 0 0 5px rgba(218,170,0,.16)}
-.tl .hd{font-weight:600;color:var(--ink)}
+.tl .hd{font-weight:600;color:var(--ink);line-height:1.45}
 .tl .when{font-size:13px;color:var(--ink);font-weight:400;margin-left:4px}
 .tl .ln{font-size:14px;color:var(--ink);display:block}
 .tl .ln a{color:var(--ink)}
