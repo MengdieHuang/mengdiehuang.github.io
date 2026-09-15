@@ -96,8 +96,7 @@ section{scroll-margin-top:calc(var(--nav-h) + 14px)}
 .sec-title{
   display:flex;align-items:center;gap:12px;
   margin:0 0 18px;
-  font-family:'Source Serif 4',Georgia,serif;
-  font-size:21px;font-weight:600;letter-spacing:-.01em;color:var(--ink);
+  font-size:21px;font-weight:700;letter-spacing:-.015em;color:var(--ink);
 }
 .sec-title::before{
   content:"";flex:0 0 auto;width:4px;height:20px;border-radius:2px;
@@ -129,8 +128,8 @@ html.js .reveal.in{opacity:1;transform:none}
 }
 .hero-pic img:hover{transform:translateY(-4px) scale(1.015);box-shadow:0 0 0 2px var(--rush), 0 18px 40px rgba(143,111,62,.28)}
 .hero h1{
-  margin:0;font-family:'Source Serif 4',Georgia,serif;
-  font-size:33px;font-weight:600;letter-spacing:-.02em;line-height:1.2;
+  margin:0;
+  font-size:33px;font-weight:700;letter-spacing:-.03em;line-height:1.2;
 }
 .hero h1 a{color:var(--ink)}
 .hero h1 a:hover{text-decoration:none}
@@ -369,8 +368,7 @@ html.js .reveal.in{opacity:1;transform:none}
 
 /* ---------- Brand in nav (sub-pages) ---------- */
 .navwrap .brand{
-  font-family:'Source Serif 4',Georgia,serif;
-  font-size:15px;font-weight:600;color:var(--ink);
+  font-size:15px;font-weight:700;letter-spacing:-.01em;color:var(--ink);
   padding:8px 12px 8px 2px;margin-right:6px;
   border-right:1px solid var(--border);border-radius:0;
 }
@@ -388,8 +386,8 @@ html.js .reveal.in{opacity:1;transform:none}
     linear-gradient(160deg, var(--dust) 0%, var(--surface) 58%, #fff 100%);
 }
 .pagehead h1{
-  margin:0 0 6px;font-family:'Source Serif 4',Georgia,serif;
-  font-size:29px;font-weight:600;letter-spacing:-.02em;line-height:1.2;
+  margin:0 0 6px;
+  font-size:29px;font-weight:700;letter-spacing:-.025em;line-height:1.2;
 }
 .pagehead p{margin:0;color:var(--steel);font-size:15px}
 .crumb{
@@ -411,30 +409,6 @@ html.js .reveal.in{opacity:1;transform:none}
 }
 .subnav a:hover{border-color:var(--gold);color:var(--aged);background:#fff;text-decoration:none}
 .subnav a.active{border-color:var(--aged);background:var(--surface2);color:var(--aged-deep);font-weight:600}
-
-/* ---------- Home: stat tiles ---------- */
-.stats{
-  display:grid;grid-template-columns:repeat(auto-fit,minmax(118px,1fr));gap:10px;
-  margin:20px 0 4px;
-}
-.stat{
-  background:var(--surface);border:1px solid var(--border);border-radius:8px;
-  padding:13px 14px;text-align:center;position:relative;overflow:hidden;
-  transition:transform .25s cubic-bezier(.22,1,.36,1), box-shadow .25s ease, border-color .25s ease;
-}
-.stat::after{
-  content:"";position:absolute;left:0;right:0;top:0;height:2px;
-  background:linear-gradient(90deg,var(--gold),var(--rush));
-  transform:scaleX(0);transform-origin:left;transition:transform .3s ease;
-}
-.stat:hover{transform:translateY(-3px);box-shadow:0 8px 20px rgba(143,111,62,.13);border-color:var(--gold)}
-.stat:hover::after{transform:scaleX(1)}
-.stat .num{
-  display:block;font-family:'Source Serif 4',Georgia,serif;
-  font-size:26px;font-weight:600;line-height:1.1;color:var(--aged);
-  font-variant-numeric:tabular-nums;
-}
-.stat .lab{display:block;font-size:12px;color:var(--cool);margin-top:3px;letter-spacing:.02em}
 
 /* ---------- Home: quick-link cards to sub-pages ---------- */
 .quick{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:11px}
@@ -563,26 +537,9 @@ html.js .reveal.in{opacity:1;transform:none}
 .legend b{color:var(--aged);font-weight:600}
 sup.mk{color:var(--aged);font-weight:700;font-size:.78em;letter-spacing:.02em}
 
-/* ---------- Bottom page navigation ---------- */
-.pagenav{
-  display:flex;flex-wrap:wrap;gap:11px;justify-content:space-between;
-  margin:38px 0 0;padding-top:20px;border-top:1px solid var(--border);
-}
-.pagenav a{
-  flex:1 1 220px;padding:12px 15px;border-radius:8px;
-  border:1px solid var(--border);background:var(--surface);color:var(--ink);
-  transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
-}
-.pagenav a:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(143,111,62,.12);border-color:var(--gold);text-decoration:none}
-.pagenav .dir{display:block;font-size:11.5px;color:var(--cool);letter-spacing:.04em;text-transform:uppercase;margin-bottom:2px}
-.pagenav .to{font-weight:600;font-size:14.5px;color:var(--aged)}
-.pagenav .nxt{text-align:right}
-
 @media (max-width:720px){
   .pagehead h1{font-size:24px}
   .pagehead-in{padding:22px 20px 20px}
-  .stat .num{font-size:22px}
   .mentee{gap:11px}
   .ava{width:36px;height:36px;font-size:12.5px}
-  .pagenav .nxt{text-align:left}
 }
