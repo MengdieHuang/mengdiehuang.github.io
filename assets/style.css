@@ -1,19 +1,22 @@
 /* ---------- Purdue palette ---------- */
 :root{
-  --gold:#CFB991;        /* Boilermaker Gold */
-  --rush:#DAAA00;        /* Rush */
-  --field:#DDB945;       /* Field */
-  --aged:#8E6F3E;        /* Aged - gold for text on white */
-  --aged-deep:#7A5E2F;   /* deeper Aged, for gold text on a tinted ground */
-  --dust:#EBD99F;        /* Dust */
+  /* One tonal family, all on hue 41 deg, derived from the theme gold #CBBA96.
+     Softer and less brassy than Purdue's #CFB991 (34% vs 39% saturation). */
+  --gold:#CBBA96;        /* theme gold - strokes, markers, badge outlines */
+  --rush:#C2983D;        /* richer gold - hover / active accents */
+  --field:#C5A663;       /* mid gold - gradient partner */
+  --aged:#846B33;        /* gold text on white          (5.08:1) */
+  --aged-deep:#6C5628;   /* gold text on a tinted ground (6.33:1) */
+  --dust:#EBDEC2;        /* panel gold */
+  --on-gold:#2E240E;     /* text sitting on a gold fill  (8.00:1) */
   --steel:#555960;       /* Steel */
   --cool:#6F727B;        /* Cool Gray */
   --ink:#1c1c1e;
   --bg:#ffffff;
-  --surface:#FCFAF4;
-  --surface2:#F6F0E1;
+  --surface:#FDFCFA;
+  --surface2:#F7F3EB;
   --card-bg:#FFFFFF;
-  --border:#E8E0CD;
+  --border:#E9E2D3;
   --nav-h:52px;
   /* --content is THE column everything aligns to: cards, panels, nav.
      --maxw is that column plus the 20px side gutters. */
@@ -78,7 +81,7 @@ p{margin:0 0 .85em}
   border:1px solid var(--gold);background:var(--surface);color:var(--aged);font-weight:600;
 }
 .navwrap .nav-cv::after{display:none}
-.navwrap .nav-cv:hover{background:var(--gold);color:#fff}
+.navwrap .nav-cv:hover{background:var(--gold);color:var(--on-gold)}
 /* scroll progress, pinned to the nav's own baseline */
 #prog{
   position:absolute;left:0;bottom:-1px;height:2px;width:0;
@@ -199,7 +202,7 @@ html.js .reveal.in{opacity:1;transform:none}
   border:1px solid var(--border);background:#fff;color:var(--aged);
   transition:all .2s ease;
 }
-.links a:hover{background:var(--gold);color:#fff;border-color:var(--gold);text-decoration:none}
+.links a:hover{background:var(--gold);color:var(--on-gold);border-color:var(--gold);text-decoration:none}
 
 /* ---------- Tabs & filters ---------- */
 .tabs{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 14px;border-bottom:1px solid var(--border);padding-bottom:10px}
@@ -209,7 +212,7 @@ html.js .reveal.in{opacity:1;transform:none}
   font-family:inherit;transition:all .22s ease;
 }
 .tab:hover{border-color:var(--gold);color:var(--aged);background:var(--surface)}
-.tab[aria-selected="true"]{background:var(--gold);border-color:var(--gold);color:#fff;font-weight:600}
+.tab[aria-selected="true"]{background:var(--gold);border-color:var(--gold);color:var(--on-gold);font-weight:600}
 .tab .n{opacity:.7;font-size:12px;margin-left:3px}
 .filters{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:0 0 14px;font-size:13px;color:var(--cool)}
 .filt{
@@ -329,7 +332,7 @@ html.js .reveal.in{opacity:1;transform:none}
   transition:opacity .3s ease, transform .3s ease, visibility .3s, background-color .2s, color .2s;
 }
 #totop.show{opacity:1;visibility:visible;transform:none}
-#totop:hover{background:var(--gold);color:#fff}
+#totop:hover{background:var(--gold);color:var(--on-gold)}
 
 /* ---------- Responsive ---------- */
 @media (max-width:720px){
@@ -469,7 +472,7 @@ html.js .reveal.in{opacity:1;transform:none}
   display:inline-flex;align-items:center;justify-content:center;
   width:25px;height:25px;border-radius:50%;margin-bottom:9px;
   background:linear-gradient(135deg,var(--gold),var(--field));
-  color:#fff;font-size:12.5px;font-weight:700;
+  color:var(--on-gold);font-size:12.5px;font-weight:700;
 }
 .thrust h3{margin:0 0 6px;font-size:15px;font-weight:600;line-height:1.4}
 .thrust p{margin:0;font-size:13.5px;color:var(--steel);line-height:1.58}
@@ -499,7 +502,7 @@ html.js .reveal.in{opacity:1;transform:none}
   border:1px solid var(--gold);background:var(--dust);color:#6a5228;font-weight:500;
   transition:all .2s ease;
 }
-.mentee .mout a:hover{background:var(--gold);color:#fff;text-decoration:none}
+.mentee .mout a:hover{background:var(--gold);color:var(--on-gold);text-decoration:none}
 .now{
   display:inline-block;margin-left:7px;padding:1px 8px;border-radius:999px;
   font-size:11px;font-weight:600;letter-spacing:.02em;
