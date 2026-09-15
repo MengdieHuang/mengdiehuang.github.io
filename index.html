@@ -4,383 +4,30 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Mengdie Huang (Maggie)</title>
-<meta name="description" content="Mengdie Huang (Maggie) - Postdoctoral Research Associate, Department of Computer Science, Purdue University. Research on security and robustness of machine learning models.">
+<meta name="description" content="Mengdie Huang (Maggie), Postdoctoral Research Associate at Purdue University. Research on the security and robustness of machine learning models.">
 <meta name="author" content="Mengdie Huang">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,600&display=swap" rel="stylesheet">
-<style>
-/* ---------- Purdue palette ---------- */
-:root{
-  --gold:#CFB991;        /* Boilermaker Gold */
-  --rush:#DAAA00;        /* Rush */
-  --field:#DDB945;       /* Field */
-  --aged:#8E6F3E;        /* Aged - accessible gold for text */
-  --dust:#EBD99F;        /* Dust */
-  --steel:#555960;       /* Steel */
-  --cool:#6F727B;        /* Cool Gray */
-  --ink:#1c1c1e;
-  --bg:#ffffff;
-  --surface:#FCFAF4;
-  --surface2:#F6F0E1;
-  --border:#E8E0CD;
-  --nav-h:52px;
-  --maxw:920px;
-  color-scheme: light;
-}
-
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{
-  margin:0;
-  background:var(--bg);
-  color:var(--ink);
-  font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',sans-serif;
-  font-size:15px;
-  line-height:1.62;
-  -webkit-font-smoothing:antialiased;
-}
-img{max-width:100%}
-a{color:var(--aged);text-decoration:none}
-a:hover{text-decoration:underline}
-p{margin:0 0 .85em}
-.wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px}
-
-/* ---------- Sticky nav ---------- */
-.topnav{
-  position:sticky;
-  top:0;
-  z-index:50;
-  background:rgba(255,255,255,.90);
-  -webkit-backdrop-filter:saturate(180%) blur(12px);
-  backdrop-filter:saturate(180%) blur(12px);
-  border-bottom:1px solid var(--border);
-  transition:box-shadow .3s ease, border-color .3s ease;
-}
-.topnav.stuck{box-shadow:0 2px 16px rgba(28,28,30,.07);border-bottom-color:var(--gold)}
-.navwrap{
-  max-width:var(--maxw);margin:0 auto;padding:0 14px;
-  height:var(--nav-h);
-  display:flex;align-items:center;gap:1px;
-  overflow-x:auto;overscroll-behavior-x:contain;
-  scrollbar-width:none;-ms-overflow-style:none;
-}
-.navwrap::-webkit-scrollbar{display:none}
-.navwrap a{
-  position:relative;flex:0 0 auto;
-  padding:8px 11px;border-radius:5px;
-  color:var(--steel);font-size:13.5px;font-weight:500;white-space:nowrap;
-  transition:color .2s ease, background-color .2s ease;
-}
-.navwrap a:hover{color:var(--ink);background:var(--surface2);text-decoration:none}
-.navwrap a::after{
-  content:"";position:absolute;left:11px;right:11px;bottom:3px;height:2px;border-radius:2px;
-  background:var(--rush);transform:scaleX(0);transform-origin:left;
-  transition:transform .28s cubic-bezier(.4,0,.2,1);
-}
-.navwrap a:hover::after,.navwrap a.active::after{transform:scaleX(1)}
-.navwrap a.active{color:var(--aged);font-weight:600}
-.navwrap .nav-cv{
-  margin-left:auto;
-  border:1px solid var(--gold);background:var(--surface);color:var(--aged);font-weight:600;
-}
-.navwrap .nav-cv::after{display:none}
-.navwrap .nav-cv:hover{background:var(--gold);color:#fff}
-/* scroll progress, pinned to the nav's own baseline */
-#prog{
-  position:absolute;left:0;bottom:-1px;height:2px;width:0;
-  background:linear-gradient(90deg,var(--gold),var(--rush));
-  transition:width .08s linear;
-}
-
-/* ---------- Section frame ---------- */
-section{scroll-margin-top:calc(var(--nav-h) + 14px)}
-.sec{padding:34px 0 8px}
-.sec-title{
-  display:flex;align-items:center;gap:12px;
-  margin:0 0 18px;
-  font-family:'Source Serif 4',Georgia,serif;
-  font-size:21px;font-weight:600;letter-spacing:-.01em;color:var(--ink);
-}
-.sec-title::before{
-  content:"";flex:0 0 auto;width:4px;height:20px;border-radius:2px;
-  background:linear-gradient(var(--gold),var(--rush));
-}
-.sec-title::after{
-  content:"";flex:1 1 auto;height:1px;
-  background:linear-gradient(90deg,var(--border),transparent);
-}
-
-/* ---------- Reveal on scroll ---------- */
-html.js .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s cubic-bezier(.22,1,.36,1)}
-html.js .reveal.in{opacity:1;transform:none}
-
-/* ---------- Hero ---------- */
-.hero{
-  background:
-    radial-gradient(1000px 320px at 88% -30%, rgba(218,170,0,.13), transparent 62%),
-    linear-gradient(160deg, var(--surface2) 0%, var(--surface) 55%, #fff 100%);
-  border-bottom:1px solid var(--border);
-  position:relative;
-}
-.hero::after{
-  content:"";position:absolute;left:0;right:0;bottom:-1px;height:2px;
-  background:linear-gradient(90deg,var(--gold),var(--rush),var(--gold));
-  opacity:.65;
-}
-.hero-in{display:flex;gap:30px;align-items:flex-start;padding:34px 0 30px}
-.hero-txt{flex:1 1 auto;min-width:0}
-.hero-pic{flex:0 0 auto}
-.hero-pic img{
-  width:178px;height:222px;object-fit:cover;border-radius:10px;
-  border:3px solid #fff;
-  box-shadow:0 0 0 2px var(--gold), 0 12px 30px rgba(143,111,62,.20);
-  transition:transform .4s cubic-bezier(.22,1,.36,1), box-shadow .4s ease;
-}
-.hero-pic img:hover{transform:translateY(-4px) scale(1.015);box-shadow:0 0 0 2px var(--rush), 0 18px 40px rgba(143,111,62,.28)}
-.hero h1{
-  margin:0;font-family:'Source Serif 4',Georgia,serif;
-  font-size:33px;font-weight:600;letter-spacing:-.02em;line-height:1.2;
-}
-.hero h1 a{color:var(--ink)}
-.hero h1 a:hover{text-decoration:none}
-.name-zh{font-size:17px;color:var(--steel);margin:2px 0 0}
-.icon-btn{
-  display:inline-flex;align-items:center;justify-content:center;
-  width:26px;height:26px;border-radius:50%;vertical-align:6px;margin-left:9px;
-  background:#fff;border:1px solid var(--border);
-  transition:border-color .2s, transform .2s, box-shadow .2s;
-}
-.icon-btn:hover{border-color:var(--rush);transform:scale(1.1);box-shadow:0 2px 8px rgba(218,170,0,.3)}
-.icon-btn img{height:14px;display:block}
-.flag{height:15px;vertical-align:5px;margin-left:6px;border-radius:2px}
-.meta{margin-top:14px;line-height:1.85;font-size:14.5px}
-.meta .row{display:flex;gap:8px;align-items:flex-start}
-.meta .row img{width:15px;margin-top:5px;flex:0 0 auto;opacity:.75}
-.meta a{color:var(--ink)}
-.meta a:hover{color:var(--aged)}
-.meta b{font-weight:600}
-
-/* ---------- Cards ---------- */
-.card{
-  position:relative;
-  background:var(--surface);
-  border:1px solid var(--border);
-  border-radius:8px;
-  padding:13px 16px 13px 18px;
-  margin-bottom:11px;
-  transition:transform .28s cubic-bezier(.22,1,.36,1), box-shadow .28s ease, border-color .28s ease;
-}
-.card::before{
-  content:"";position:absolute;left:-1px;top:-1px;bottom:-1px;width:3px;
-  border-radius:8px 0 0 8px;
-  background:linear-gradient(var(--gold),var(--rush));
-  transform:scaleY(0);transform-origin:top;
-  transition:transform .32s cubic-bezier(.22,1,.36,1);
-}
-.card:hover::before{transform:scaleY(1)}
-.card:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(143,111,62,.13);border-color:var(--gold)}
-.card .ttl{font-weight:600;color:var(--ink);display:block;margin-bottom:3px;line-height:1.45}
-.card .authors{font-size:14px;color:var(--steel);display:block;margin-bottom:3px}
-.card .authors a{color:var(--steel)}
-.card .authors a:hover{color:var(--aged)}
-.card .authors b{color:var(--ink);font-weight:600}
-.card .venue{font-size:13.5px;color:var(--cool);font-style:italic;display:block}
-.card .sub{font-size:14px;color:var(--steel);display:block}
-
-/* ---------- Badges & links ---------- */
-.badge{
-  display:inline-block;padding:1.5px 8px;border-radius:4px;
-  font-size:11.5px;font-weight:600;letter-spacing:.03em;
-  background:var(--dust);color:#6a5228;border:1px solid var(--gold);
-  vertical-align:2px;margin-left:7px;white-space:nowrap;
-}
-.badge.award{background:linear-gradient(135deg,var(--rush),var(--field));color:#3d2f00;border-color:var(--aged)}
-.links{margin-top:6px;display:flex;flex-wrap:wrap;gap:6px}
-.links a{
-  font-size:12.5px;padding:2.5px 9px;border-radius:4px;
-  border:1px solid var(--border);background:#fff;color:var(--aged);
-  transition:all .2s ease;
-}
-.links a:hover{background:var(--gold);color:#fff;border-color:var(--gold);text-decoration:none}
-
-/* ---------- Tabs & filters ---------- */
-.tabs{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 14px;border-bottom:1px solid var(--border);padding-bottom:10px}
-.tab{
-  padding:6px 14px;border-radius:999px;font-size:13.5px;font-weight:500;
-  border:1px solid var(--border);background:#fff;color:var(--steel);cursor:pointer;
-  font-family:inherit;transition:all .22s ease;
-}
-.tab:hover{border-color:var(--gold);color:var(--aged);background:var(--surface)}
-.tab[aria-selected="true"]{background:var(--gold);border-color:var(--gold);color:#fff;font-weight:600}
-.tab .n{opacity:.7;font-size:12px;margin-left:3px}
-.filters{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:0 0 14px;font-size:13px;color:var(--cool)}
-.filt{
-  padding:3px 11px;border-radius:999px;font-size:12.5px;
-  border:1px dashed var(--border);background:transparent;color:var(--steel);cursor:pointer;
-  font-family:inherit;transition:all .2s ease;
-}
-.filt:hover{border-color:var(--gold);border-style:solid;color:var(--aged)}
-.filt[aria-pressed="true"]{border-style:solid;border-color:var(--aged);background:var(--surface2);color:var(--aged);font-weight:600}
-.pane[hidden]{display:none}
-.card[data-hidden="1"]{display:none}
-
-/* ---------- News ---------- */
-.news-item{
-  position:relative;
-  background:linear-gradient(90deg,var(--surface2),var(--surface) 70%);
-  border:1px solid var(--border);border-left:3px solid var(--gold);
-  border-radius:0 7px 7px 0;padding:11px 15px;margin-bottom:10px;
-  transition:transform .25s ease, box-shadow .25s ease, border-left-color .25s ease;
-}
-.news-item:hover{transform:translateX(3px);box-shadow:0 6px 18px rgba(143,111,62,.12);border-left-color:var(--rush)}
-.news-date{
-  display:inline-block;min-width:78px;font-weight:600;font-size:13px;color:var(--aged);
-  letter-spacing:.01em;
-}
-.dot{
-  display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--rush);
-  margin-right:7px;vertical-align:1px;
-  animation:pulse 2.4s ease-in-out infinite;
-}
-@keyframes pulse{
-  0%,100%{box-shadow:0 0 0 0 rgba(218,170,0,.55)}
-  50%{box-shadow:0 0 0 6px rgba(218,170,0,0)}
-}
-
-/* ---------- Timeline ---------- */
-.tl{list-style:none;margin:0;padding:0 0 0 26px;position:relative}
-.tl::before{
-  content:"";position:absolute;left:5px;top:8px;bottom:12px;width:2px;border-radius:2px;
-  background:linear-gradient(var(--rush),var(--gold) 40%,var(--dust));
-}
-.tl>li{position:relative;margin-bottom:20px}
-.tl>li:last-child{margin-bottom:6px}
-.tl>li::before{
-  content:"";position:absolute;left:-26px;top:7px;width:12px;height:12px;border-radius:50%;
-  background:#fff;border:2.5px solid var(--gold);
-  transition:background-color .25s ease, border-color .25s ease, box-shadow .25s ease;
-}
-.tl>li:hover::before{background:var(--rush);border-color:var(--rush);box-shadow:0 0 0 5px rgba(218,170,0,.16)}
-.tl .hd{font-weight:600;color:var(--ink)}
-.tl .when{font-size:13px;color:var(--cool);font-weight:400;margin-left:4px}
-.tl .ln{font-size:14px;color:var(--steel);display:block}
-.tl .ln a{color:var(--steel)}
-.tl .ln a:hover{color:var(--aged)}
-.tl .ln img{width:17px;vertical-align:-3px;margin-right:3px}
-
-/* ---------- Service chips ---------- */
-.svc{margin-bottom:22px}
-.svc h4{
-  margin:0 0 9px;font-size:14px;font-weight:600;color:var(--ink);
-  display:flex;align-items:center;gap:8px;
-}
-.svc h4::after{content:"";flex:1;height:1px;background:var(--border)}
-.chips{display:flex;flex-wrap:wrap;gap:7px}
-.chip{
-  display:inline-flex;align-items:baseline;gap:6px;
-  padding:5px 12px;border-radius:999px;font-size:13px;
-  border:1px solid var(--border);background:#fff;color:var(--ink);
-  transition:transform .2s ease, border-color .2s ease, background-color .2s ease, box-shadow .2s ease;
-}
-.chip:hover{
-  transform:translateY(-2px);border-color:var(--gold);background:var(--surface);
-  box-shadow:0 4px 12px rgba(143,111,62,.14);text-decoration:none;color:var(--aged);
-}
-.chip .yr{font-size:11.5px;color:var(--cool);font-variant-numeric:tabular-nums}
-.chip .full{font-size:11.5px;color:var(--cool)}
-.chip.starred{border-color:var(--gold);background:linear-gradient(135deg,var(--dust),#fff)}
-.chip.starred::before{content:"\2605";color:var(--rush);font-size:12px}
-
-/* visually hidden, still read by search engines and screen readers */
-.sr-only{
-  position:absolute;width:1px;height:1px;padding:0;margin:-1px;
-  overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;
-}
-
-/* ---------- Others ---------- */
-.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:11px}
-
-/* ---------- Footer ---------- */
-.footer{
-  margin-top:46px;border-top:2px solid var(--gold);
-  background:linear-gradient(180deg,var(--surface),var(--surface2));
-}
-.footer-in{
-  display:flex;flex-wrap:wrap;gap:22px;align-items:center;justify-content:space-between;
-  padding:24px 0 18px;
-}
-.logos{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
-.logos img{height:50px;width:auto;opacity:.82;transition:opacity .25s ease, transform .25s ease}
-.logos a:hover img{opacity:1;transform:translateY(-2px)}
-.social{display:flex;align-items:center;gap:11px;flex-wrap:wrap}
-.social img{height:31px;width:auto;border-radius:5px;opacity:.85;transition:opacity .25s ease, transform .25s ease}
-.social a:hover img{opacity:1;transform:translateY(-3px) scale(1.06)}
-.copy{
-  text-align:center;padding:13px 20px 20px;
-  color:var(--cool);font-size:13px;border-top:1px solid var(--border);
-}
-
-/* ---------- Back to top ---------- */
-#totop{
-  position:fixed;right:20px;bottom:calc(20px + env(safe-area-inset-bottom,0px));z-index:45;
-  width:42px;height:42px;border-radius:50%;cursor:pointer;
-  border:1px solid var(--gold);background:rgba(255,255,255,.94);color:var(--aged);
-  font-size:17px;line-height:1;
-  box-shadow:0 4px 16px rgba(143,111,62,.20);
-  opacity:0;visibility:hidden;transform:translateY(10px);
-  transition:opacity .3s ease, transform .3s ease, visibility .3s, background-color .2s, color .2s;
-}
-#totop.show{opacity:1;visibility:visible;transform:none}
-#totop:hover{background:var(--gold);color:#fff}
-
-/* ---------- Responsive ---------- */
-@media (max-width:720px){
-  .hero-in{flex-direction:column-reverse;align-items:center;text-align:center;gap:18px;padding:26px 0}
-  .hero-txt{text-align:left;width:100%}
-  .hero-pic img{width:150px;height:188px}
-  .hero h1{font-size:27px}
-  .meta{font-size:14px}
-  .footer-in{flex-direction:column;align-items:flex-start;gap:16px}
-  .sec-title{font-size:19px}
-  body{font-size:14.5px}
-}
-@media (max-width:420px){
-  .wrap{padding:0 16px}
-  .navwrap{padding:0 10px}
-  .logos img{height:40px}
-  .news-date{display:block;min-width:0}
-}
-
-/* ---------- Motion preference ---------- */
-@media (prefers-reduced-motion: reduce){
-  html{scroll-behavior:auto}
-  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
-  html.js .reveal{opacity:1;transform:none}
-}
-</style>
+<link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
-
 <script>document.documentElement.className='js';</script>
-<!-- ================= NAV ================= -->
+
 <header class="topnav" id="topnav">
-  <nav class="navwrap" aria-label="Section navigation">
-    <a href="#home">Home</a>
-    <a href="#aboutme">About me</a>
-    <a href="#news">News</a>
-    <a href="#publications">Publications</a>
-    <a href="#projects">Projects</a>
-    <a href="#employment">Employment</a>
-    <a href="#education">Education</a>
-    <a href="#services">Services</a>
-    <a href="#others">Others</a>
-    <a class="nav-cv" href="cv/PostDoc_Resume.pdf">Resume &#8595;</a>
+  <nav class="navwrap" aria-label="Main navigation">
+    <a href="index.html" data-page="index.html">Home</a>
+    <a href="publications.html" data-page="publications.html">Publications</a>
+    <a href="mentoring.html" data-page="mentoring.html">Mentoring</a>
+    <a href="teaching.html" data-page="teaching.html">Teaching &amp; Talks</a>
+    <a href="research.html" data-page="research.html">Research</a>
+    <a href="experience.html" data-page="experience.html">Experience</a>
+    <a href="service.html" data-page="service.html">Service</a>
+    <a href="about.html" data-page="about.html">About</a>
+    <a class="nav-cv" href="cv/PostDoc_Resume.pdf">CV &#8595;</a>
   </nav>
   <div id="prog"></div>
 </header>
-
-<!-- ================= HOME ================= -->
 <section id="home" class="hero">
   <div class="wrap hero-in">
     <div class="hero-txt">
@@ -426,404 +73,84 @@ html.js .reveal.in{opacity:1;transform:none}
 
 <main>
 
-<!-- ================= ABOUT ================= -->
-<section id="aboutme" class="sec wrap reveal">
-  <h2 class="sec-title">About me</h2>
+<section class="sec wrap reveal">
   <p>
-    Welcome to my homepage.
-    I am currently a Postdoctoral Research Associate at Purdue University, working under the advisement of Professor <a href="https://www.cs.purdue.edu/homes/bertino/">Elisa Bertino</a> and Professor <a href="https://www.cs.purdue.edu/homes/ninghui/">Ninghui Li</a>. I received my Ph.D. in Cyberspace Security from Xidian University in June 2025, advised by Professor <a href="https://web.xidian.edu.cn/xfchen/en/index.html">Xiaofeng Chen</a>, during which time I also conducted research as a Visiting Ph.D. student at Purdue University from 2022 to 2025.
+    I am a Postdoctoral Research Associate at Purdue University, advised by Professor
+    <a href="https://www.cs.purdue.edu/homes/bertino/">Elisa Bertino</a> and Professor
+    <a href="https://www.cs.purdue.edu/homes/ninghui/">Ninghui Li</a>. My research builds
+    <b>resilient, trustworthy AI architectures</b> &mdash; certified robustness, robust transfer
+    learning, security of multimodal foundation models, and adversarial robustness in
+    distributed AI. I received my Ph.D. in Cyberspace Security from Xidian University in
+    June 2025, advised by Professor <a href="https://web.xidian.edu.cn/xfchen/en/index.html">Xiaofeng Chen</a>.
+    I am always open to discussion &mdash; feel free to reach out by email.
+    <a href="about.html">More about me &#8594;</a>
   </p>
-  <p>
-    My research primarily focuses on the security and robustness of machine learning models in critical domains, with the overarching goal of building resilient and trustworthy AI architectures. Specifically, I advance core research in certified robustness, robust transfer learning, the security of multimodal foundation models, and adversarial robustness in distributed AI systems. I have published extensively in premier security journals and conferences, including IEEE TDSC, ACM TOPS, ACM TIOT, AsiaCCS, and ESORICS, and I was the recipient of the Best Paper Award at TrustCom 2024. Furthermore, I actively serve the academic community as a reviewer for prestigious journals such as IEEE TDSC, TIFS, and TNNLS, and act as an Artifact Evaluation Committee member for top-tier security conferences including ACM CCS and NDSS.
-  </p>
-  <p>
-    If you are interested in my research or in need of any support, I am always open to discussion. You are welcome to reach out to me via email.
-  </p>
+
+  <div class="stats">
+    <a class="stat" href="publications.html#journal"><span class="num">12</span><span class="lab">Papers</span></a>
+    <a class="stat" href="publications.html#books"><span class="num">2</span><span class="lab">Books</span></a>
+    <a class="stat" href="mentoring.html"><span class="num">7</span><span class="lab">Students Mentored</span></a>
+    <a class="stat" href="teaching.html#talks"><span class="num">3</span><span class="lab">Invited Talks</span></a>
+    <a class="stat" href="research.html#grants"><span class="num">$150K</span><span class="lab">Grant Awarded</span></a>
+  </div>
 </section>
 
-<!-- ================= NEWS ================= -->
 <section id="news" class="sec wrap reveal">
   <h2 class="sec-title">News</h2>
   <div class="news-item">
     <span class="news-date"><span class="dot"></span>Sep 2026</span>
-    Congratulations to <a href="https://scholar.google.com/citations?user=WjGhWAsAAAAJ&amp;hl">Yani Liu</a> on the acceptance of our paper <em>"EntroDelta: An Error-Bounded, Data-Free Compression Framework for Massive Model Storage"</em> to SIGMOD 2027!
+    Congratulations to <a href="mentoring.html">Yani Liu</a> on the acceptance of our paper
+    <em>"EntroDelta: An Error-Bounded, Data-Free Compression Framework for Massive Model Storage"</em>
+    to SIGMOD 2027!
+  </div>
+  <div class="news-item">
+    <span class="news-date">Feb 2026</span>
+    I gave a guest lecture on <em>Robustness in Machine Learning &mdash; From Adversarial Robustness
+    to LLM Safety</em> in <a href="teaching.html#talks">CS 59200-AAS</a> at Purdue.
+  </div>
+  <div class="news-item">
+    <span class="news-date">Dec 2025</span>
+    I spoke at the <a href="teaching.html#talks">SPARKS Seminar</a> of the NSF AI-EDGE Institute
+    on robustness certification for network intrusion detection.
   </div>
 </section>
 
-<!-- ================= PUBLICATIONS ================= -->
-<section id="publications" class="sec wrap reveal">
-  <h2 class="sec-title">Publications</h2>
-
-  <div class="tabs" role="tablist">
-    <button class="tab" role="tab" aria-selected="true"  aria-controls="pane-pub" id="tab-pub">Published <span class="n">13</span></button>
-    <button class="tab" role="tab" aria-selected="false" aria-controls="pane-rev" id="tab-rev">Under Review <span class="n">3</span></button>
-    <button class="tab" role="tab" aria-selected="false" aria-controls="pane-man" id="tab-man">Manuscripts <span class="n">4</span></button>
-  </div>
-
-  <!-- ---- Published ---- -->
-  <div class="pane" id="pane-pub" role="tabpanel" aria-labelledby="tab-pub">
-    <div class="filters">
-      <span>Filter:</span>
-      <button class="filt" aria-pressed="true"  data-f="all">All</button>
-      <button class="filt" aria-pressed="false" data-f="journal">Journal</button>
-      <button class="filt" aria-pressed="false" data-f="conf">Conference</button>
-      <button class="filt" aria-pressed="false" data-f="thesis">Thesis</button>
-    </div>
-
-    <article class="card" data-type="conf">
-      <span class="ttl">EntroDelta: An Error-Bounded, Data-Free Compression Framework for Massive Model Storage<span class="badge">SIGMOD 2027</span></span>
-      <span class="authors"><a href="https://scholar.google.com/citations?user=WjGhWAsAAAAJ&amp;hl">Yani Liu</a>, Feng Zhang, Yu Zhang, <b>Mengdie Huang</b>, <a href="https://www.cs.purdue.edu/homes/bertino/">Elisa Bertino</a>, Xiaoyong Du.</span>
-      <span class="venue">In ACM SIGMOD International Conference on Management of Data (SIGMOD), 2027.</span>
-      <div class="links">
-        <a href="https://scholar.google.com/citations?user=WjGhWAsAAAAJ&amp;hl">paper</a>
-        <a href="https://scholar.google.com/citations?user=WjGhWAsAAAAJ&amp;hl">slides</a>
-        <a href="https://scholar.google.com/citations?user=WjGhWAsAAAAJ&amp;hl">code</a>
-      </div>
-    </article>
-
-    <article class="card" data-type="journal">
-      <span class="ttl">TriXfer: Triple-Cross Transfer Attack on Vision Transformer&ndash;Adapted Downstream Classifiers<span class="badge">TDSC 2026</span></span>
-      <span class="authors"><b>Mengdie Huang</b>, <a href="https://linkthelord.github.io/">Yingjun Lin</a>, <a href="https://www.cs.purdue.edu/homes/ninghui/">Ninghui Li</a>, <a href="https://www.cs.purdue.edu/homes/bertino/">Elisa Bertino</a>.</span>
-      <span class="venue">In IEEE Transactions on Dependable and Secure Computing (TDSC), 2026</span>
-      <div class="links">
-        <a href="https://ieeexplore.ieee.org/document/11646465">paper</a>
-        <a href="https://ieeexplore.ieee.org/document/11646465">slides</a>
-        <a href="https://ieeexplore.ieee.org/document/11646465">code</a>
-      </div>
-    </article>
-
-    <article class="card" data-type="thesis">
-      <span class="ttl">Research on Key Techniques for Adversarial Robustness of Deep Neural Networks<span class="badge">Ph.D. 2025</span></span>
-      <span class="authors"><b>Mengdie Huang</b>.</span>
-      <span class="venue">Dissertation for the Degree of Doctor of Philosophy, 2025</span>
-      <div class="links">
-        <a href="papers/PhdDissertation.pdf">dissertation</a>
-        <a href="slides/PhD-Defense-Slides-20250514.pdf">slides</a>
-      </div>
-    </article>
-
-    <article class="card" data-type="journal">
-      <span class="ttl">CARD: Robustness-Preserving Transfer Learning for Network Intrusion Detection via Contrastive Adversarial Representation Distillation<span class="badge">TDSC 2025</span></span>
-      <span class="authors"><b>Mengdie Huang</b>, <a href="https://linkthelord.github.io/">Yingjun Lin</a>, <a href="https://www.cs.purdue.edu/homes/ninghui/">Ninghui Li</a>, <a href="https://web.xidian.edu.cn/xfchen/en/index.html">Xiaofeng Chen</a>, <a href="https://www.cs.purdue.edu/homes/bertino/">Elisa Bertino</a>.</span>
-      <span class="venue">In IEEE Transactions on Dependable and Secure Computing (TDSC), 2025</span>
-      <div class="links">
-        <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&amp;arnumber=10970424">paper</a>
-        <a href="https://ieeexplore.ieee.org/document/10970424">slides</a>
-        <a href="https://ieeexplore.ieee.org/document/10970424">code</a>
-      </div>
-    </article>
-
-    <article class="card" data-type="journal">
-      <span class="ttl">Dimensional Robustness Certification for Deep Neural Networks in Network Intrusion Detection Systems<span class="badge">TOPS 2025</span></span>
-      <span class="authors"><b>Mengdie Huang</b>, <a href="https://linkthelord.github.io/">Yingjun Lin</a>, <a href="https://web.xidian.edu.cn/xfchen/en/index.html">Xiaofeng Chen</a>, <a href="https://www.cs.purdue.edu/homes/bertino/">Elisa Bertino</a>.</span>
-      <span class="venue">In ACM Transactions on Privacy and Security (TOPS), 2025</span>
-      <div class="links">
-        <a href="https://dl.acm.org/doi/pdf/10.1145/3715121">paper</a>
-        <a href="https://dl.acm.org/doi/10.1145/3715121">slides</a>
-        <a href="https://dl.acm.org/doi/10.1145/3715121">code</a>
-      </div>
-    </article>
-
-    <article class="card" data-type="conf">
-      <span class="ttl">MARS: Robustness Certification for Deep Network Intrusion Detectors via Multi-Order Adaptive Randomized Smoothing<span class="badge">TrustCom 2024</span><span class="badge award">&#127942; Best Paper</span></span>
-      <span class="authors"><b>Mengdie Huang</b>, <a href="https://linkthelord.github.io/">Yingjun Lin</a>, <a href="https://web.xidian.edu.cn/xfchen/en/index.html">Xiaofeng Chen</a>, <a href="https://www.cs.purdue.edu/homes/bertino/">Elisa Bertino</a>.</span>
-      <span class="venue">In Proceedings of the 23rd IEEE International Conference on Trust, Security and Privacy in Computing and Communications (TrustCom), 2024</span>
-      <div class="links">
-        <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&amp;arnumber=10945243">paper</a>
-        <a href="slides/TrustCom2024-MARS-15min-Presentation-Slides-20241218.pdf">slides</a>
-        <a href="https://ieeexplore.ieee.org/abstract/document/10945243">code</a>
-      </div>
-    </article>
-
-    <article class="card" data-type="journal">
-      <span class="ttl">ARIoTEDef: Adversarially Robust IoT Early Defense System based on Self-Evolution against Multi-step Attacks<span class="badge">TIOT 2024</span></span>
-      <span class="authors"><b>Mengdie Huang</b>, <a href="https://hw5773.github.io">Hyunwoo Lee</a>, <a href="https://sites.google.com/view/ashishkundu/home">Ashish Kundu</a>, <a href="https://web.xidian.edu.cn/xfchen/en/index.html">Xiaofeng Chen</a>, <a href="https://anandmudgerikar.github.io">Anand Mudgerikar</a>, <a href="https://www.cs.purdue.edu/homes/ninghui/">Ninghui Li</a>, <a href="https://www.cs.purdue.edu/homes/bertino/">Elisa Bertino</a>.</span>
-      <span class="venue">In ACM Transactions on Internet of Things (TIOT), 2024</span>
-      <div class="links">
-        <a href="https://dl.acm.org/doi/pdf/10.1145/3660646">paper</a>
-        <a href="https://dl.acm.org/doi/10.1145/3660646">slides</a>
-        <a href="https://dl.acm.org/doi/10.1145/3660646">code</a>
-      </div>
-    </article>
-
-    <article class="card" data-type="conf">
-      <span class="ttl">A Pro-Active Defense Framework for IoT Systems<span class="badge">CIC 2023</span></span>
-      <span class="authors"><a href="https://www.cs.purdue.edu/homes/bertino/">Elisa Bertino</a>, <a href="https://hw5773.github.io">Hyunwoo Lee</a>, <b>Mengdie Huang</b>, Charalampos Katsis, Zilin Shen, <a href="https://www.cs.purdue.edu/homes/ribeirob/">Bruno Ribeiro</a>, Daniel De Mello, <a href="https://sites.google.com/view/ashishkundu/home">Ashish Kundu</a>.</span>
-      <span class="venue">In Proceedings of the 9th IEEE International Conference on Collaboration and Internet Computing (CIC), 2023</span>
-      <div class="links">
-        <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&amp;arnumber=10429939">paper</a>
-        <a href="https://ieeexplore.ieee.org/abstract/document/10429939">slides</a>
-        <a href="https://ieeexplore.ieee.org/abstract/document/10429939">code</a>
-      </div>
-    </article>
-
-    <article class="card" data-type="conf">
-      <span class="ttl">Boost Off/On-Manifold Adversarial Robustness for Deep Learning with Latent Representation Mixup<span class="badge">AsiaCCS 2023</span></span>
-      <span class="authors"><b>Mengdie Huang</b>, <a href="https://xieyi.site/">Yi Xie</a>, <a href="https://web.xidian.edu.cn/xfchen/en/index.html">Xiaofeng Chen</a>, Jin Li, <a href="https://changyudong.site">Changyu Dong</a>, Zheli Liu, <a href="https://scholars.uow.edu.au/willy-susilo">Willy Susilo</a>.</span>
-      <span class="venue">In Proceedings of the 18th ACM Asia Conference on Computer and Communications Security (AsiaCCS), 2023</span>
-      <div class="links">
-        <a href="https://dl.acm.org/doi/pdf/10.1145/3579856.3595786">paper</a>
-        <a href="slides/AsiaCCS2023-LarepMix-64-20230713.pdf">slides</a>
-        <a href="https://dl.acm.org/doi/10.1145/3579856.3595786">code</a>
-      </div>
-    </article>
-
-    <article class="card" data-type="conf">
-      <span class="ttl">GAME: Generative-based Adaptive Model Extraction Attack<span class="badge">ESORICS 2022</span></span>
-      <span class="authors"><a href="https://xieyi.site/">Yi Xie</a>, <b>Mengdie Huang</b>, Xiaoyu Zhang, <a href="https://changyudong.site">Changyu Dong</a>, <a href="https://scholars.uow.edu.au/willy-susilo">Willy Susilo</a>, <a href="https://web.xidian.edu.cn/xfchen/en/index.html">Xiaofeng Chen</a>.</span>
-      <span class="venue">In Proceedings of the 27th European Symposium on Research in Computer Security (ESORICS), 2022</span>
-      <div class="links">
-        <a href="https://link.springer.com/chapter/10.1007/978-3-031-17140-6_28">paper</a>
-        <a href="https://link.springer.com/chapter/10.1007/978-3-031-17140-6_28">slides</a>
-        <a href="https://link.springer.com/chapter/10.1007/978-3-031-17140-6_28">code</a>
-      </div>
-    </article>
-
-    <article class="card" data-type="journal">
-      <span class="ttl">Sparse Selective Encryption for HEVC 4K Video Using Spatial Error Spread<span class="badge">JIT 2019</span></span>
-      <span class="authors"><b>Mengdie Huang</b>, Cheng Yang, Hao Li, Jian Shen.</span>
-      <span class="venue">In Journal of Internet Technology (JIT), 2019</span>
-      <div class="links">
-        <a href="https://jit.ndhu.edu.tw/article/viewFile/2140/2153">paper</a>
-        <a href="https://jit.ndhu.edu.tw/article/viewFile/2140/2153">slides</a>
-        <a href="https://jit.ndhu.edu.tw/article/viewFile/2140/2153">code</a>
-      </div>
-    </article>
-
-    <article class="card" data-type="conf">
-      <span class="ttl">Selective Encryption of H.264/AVC based on Block Weight Model<span class="badge">ICCT 2018</span></span>
-      <span class="authors"><b>Mengdie Huang</b>, Cheng Yang, Yuan Zhang.</span>
-      <span class="venue">In Proceedings of the 18th IEEE International Conference on Communication Technology (ICCT), 2018</span>
-      <div class="links">
-        <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&amp;arnumber=8599959">paper</a>
-        <a href="slides/基于块参考比重模型的H.264视频加密.pdf">paper (Chinese)</a>
-        <a href="slides/ICCT-249-Presentation.pdf">slides</a>
-        <a href="https://ieeexplore.ieee.org/document/8599959">code</a>
-      </div>
-    </article>
-
-    <article class="card" data-type="conf">
-      <span class="ttl">An Effective Scheme for Provable Data Possession<span class="badge">ICCA 2016</span></span>
-      <span class="authors">Shanyue Bu, <b>Mengdie Huang</b>, Kun Yu.</span>
-      <span class="venue">In Proceedings of the International Conference on Intelligent Control and Computer Application (ICCA), 2016</span>
-      <div class="links">
-        <a href="https://www.atlantis-press.com/proceedings/icca-16/25847740">paper</a>
-        <a href="https://www.atlantis-press.com/proceedings/icca-16/25847740">slides</a>
-        <a href="https://www.atlantis-press.com/proceedings/icca-16/25847740">code</a>
-      </div>
-    </article>
-  </div>
-
-  <!-- ---- Under Review ---- -->
-  <div class="pane" id="pane-rev" role="tabpanel" aria-labelledby="tab-rev" hidden>
-    <article class="card"><span class="ttl">Local Knowledge for Global Impact: Targeted Evasion Attack Against Vertical Federated Learning</span></article>
-    <article class="card"><span class="ttl">CARE: Robust Transformer-based Network Intrusion Detection via Consistency-aware Attention-Representation Enhancement</span></article>
-    <article class="card"><span class="ttl">GRAFT: Adversarially Robust Transfer Learning for Graphs Under Structural Data Scarcity</span></article>
-  </div>
-
-  <!-- ---- Manuscripts ---- -->
-  <div class="pane" id="pane-man" role="tabpanel" aria-labelledby="tab-man" hidden>
-    <article class="card"><span class="ttl">Robust Downstream Adaptation of Vision Foundation Models</span></article>
-    <article class="card"><span class="ttl">Membership Inference Attack against Large Vision Language Model</span></article>
-    <article class="card"><span class="ttl">Analysis of Adversarial Robustness in Graph Neural Networks</span></article>
-    <article class="card"><span class="ttl">Analysis of Adversarial Robustness in Multimodal Models</span></article>
-  </div>
-</section>
-
-<!-- ================= PROJECTS ================= -->
-<section id="projects" class="sec wrap reveal">
-  <h2 class="sec-title">Projects</h2>
-
-  <article class="card">
-    <span class="ttl">Detection of GenAI Generated Malware Variants and Sandbox Evasion using GenAI</span>
-    <span class="sub">March 2023 &ndash; March 2024 &middot; Member &middot; Purdue University</span>
-    <span class="venue">Sponsor: Cisco Systems, Inc.</span>
-  </article>
-
-  <article class="card">
-    <span class="ttl">Pro-Active Attack Management for Edge Computing Security</span>
-    <span class="sub">Nov 2022 &ndash; Dec 2023 &middot; Member &middot; Purdue University</span>
-    <span class="venue">Sponsor: Cisco Systems, Inc.</span>
-  </article>
-
-  <article class="card">
-    <span class="ttl">Development and Application Demonstration of Cloud Aggregation System based on Streaming Media Technology</span>
-    <span class="sub">Sep 2017 &ndash; July 2018 &middot; Member &middot; Communication University of China</span>
-    <span class="venue">Sponsor: National Science and Technology Support Program</span>
-  </article>
-
-  <article class="card">
-    <span class="ttl">Universal and Efficient 4K Video Protection Technology Supporting Coding Standard Extension</span>
-    <span class="sub">Jun 2018 &ndash; Jun 2019 &middot; <b>Leader</b> &middot; Communication University of China</span>
-    <span class="venue">Sponsor: National College Students Innovation and Entrepreneurship Training Program</span>
-  </article>
-
-  <article class="card">
-    <span class="ttl">Data Possession Proof in Cloud Computing Environment</span>
-    <span class="sub">Jun 2014 &ndash; Jun 2016 &middot; <b>Leader</b> &middot; Huai'an University</span>
-    <span class="venue">Sponsor: Jiangsu College Students Innovation and Entrepreneurship Training Program</span>
-  </article>
-</section>
-
-<!-- ================= EMPLOYMENT ================= -->
-<section id="employment" class="sec wrap reveal">
-  <h2 class="sec-title">Employment</h2>
-  <ul class="tl">
-    <li>
-      <span class="hd">PostDoctoral Research Associate<span class="when">&middot; West Lafayette, US &middot; July 2025 &ndash; Present</span></span>
-      <span class="ln">Advised by Professor <a href="https://www.cs.purdue.edu/homes/bertino/">Elisa Bertino</a> and Professor <a href="https://www.cs.purdue.edu/homes/ninghui/">Ninghui Li</a></span>
-      <span class="ln">Department of Computer Science, Purdue University</span>
-    </li>
-    <li>
-      <span class="hd">Visiting Scholar<span class="when">&middot; West Lafayette, US &middot; Sep 2022 &ndash; June 2025</span></span>
-      <span class="ln">Advised by Professor <a href="https://www.cs.purdue.edu/homes/bertino/">Elisa Bertino</a></span>
-      <span class="ln">Department of Computer Science, Purdue University</span>
-    </li>
-    <li>
-      <span class="hd">Research Assistant<span class="when">&middot; Xi'an, China &middot; Sep 2019 &ndash; Aug 2022</span></span>
-      <span class="ln">For Professor <a href="https://web.xidian.edu.cn/xfchen/en/index.html">Xiaofeng Chen</a></span>
-      <span class="ln">School of Cyber Engineering, Xidian University</span>
-    </li>
-    <li>
-      <span class="hd">Teaching Assistant<span class="when">&middot; Xi'an, China &middot; Jul 2021 &ndash; Jul 2022</span></span>
-      <span class="ln">For Professor <a href="https://kutylowski.im.pwr.wroc.pl/">Miroslaw Kutylowski</a> &middot; <em>Distributed Computing</em></span>
-      <span class="ln">School of Cyber Engineering, Xidian University</span>
-      <span class="ln">Department of Foundations of Computer Science, Wroclaw University of Technology</span>
-    </li>
-    <li>
-      <span class="hd">Teaching Assistant<span class="when">&middot; Xi'an, China &middot; Sep 2020 &ndash; Jan 2021</span></span>
-      <span class="ln">For Professor <a href="https://web.xidian.edu.cn/jfwang/en/index.html">Jianfeng Wang</a> &middot; <em>Probability Theory and Mathematical Statistics</em></span>
-      <span class="ln">School of Cyber Engineering, Xidian University</span>
-    </li>
-    <li>
-      <span class="hd">Internship<span class="when">&middot; Beijing, China &middot; May 2019 &ndash; Jul 2019</span></span>
-      <span class="ln"><a href="http://www.abs.ac.cn">Academy of Broadcasting Science</a>, <a href="https://en.wikipedia.org/wiki/National_Radio_and_Television_Administration">National Radio and Television Administration</a></span>
-    </li>
-    <li>
-      <span class="hd">Internship<span class="when">&middot; Beijing, China &middot; Aug 2018 &ndash; Sep 2018</span></span>
-      <span class="ln">Commercialization Department, <a href="https://en.wikipedia.org/wiki/ByteDance">ByteDance Ltd</a></span>
-    </li>
-  </ul>
-</section>
-
-<!-- ================= EDUCATION ================= -->
-<section id="education" class="sec wrap reveal">
-  <h2 class="sec-title">Education</h2>
-  <ul class="tl">
-    <li>
-      <span class="hd">Purdue University<span class="when">&middot; West Lafayette, US &middot; Sep 2022 &ndash; June 2025</span></span>
-      <span class="ln">Visiting Ph.D. student in Computer Science</span>
-      <span class="ln">Advisor: Professor <a href="https://www.cs.purdue.edu/homes/bertino/">Elisa Bertino</a></span>
-    </li>
-    <li>
-      <span class="hd">Xidian University<span class="when">&middot; Xi'an, China &middot; Sep 2019 &ndash; June 2025</span></span>
-      <span class="ln"><img src="image/diploma-icon.png" alt="">Ph.D. in Cyberspace Security</span>
-      <span class="ln">Advisor: Professor <a href="https://web.xidian.edu.cn/xfchen/en/index.html">Xiaofeng Chen</a></span>
-    </li>
-    <li>
-      <span class="hd">Communication University of China<span class="when">&middot; Beijing, China &middot; Sep 2017 &ndash; June 2019</span></span>
-      <span class="ln"><img src="image/diploma-icon.png" alt="">Master in Electronics and Communication Engineering</span>
-      <span class="ln">Advisor: Professor <a href="https://ices.cuc.edu.cn/2019/0918/c5332a135657/pagem.htm">Cheng Yang</a></span>
-      <span class="ln"><img src="image/diploma-icon.png" alt="">Bachelor in Radio and Television Editing</span>
-    </li>
-    <li>
-      <span class="hd">Huai'an University<span class="when">&middot; Huai'an, China &middot; Sep 2013 &ndash; June 2017</span></span>
-      <span class="ln"><img src="image/diploma-icon.png" alt="">Bachelor in Communication Engineering</span>
-      <span class="ln">Advisor: Professor <a href="https://gd.hyit.edu.cn/zszq/dsjj/dzxx_jsjxy_/hrl.htm">Ronglin Hu</a></span>
-    </li>
-  </ul>
-</section>
-
-<!-- ================= SERVICES ================= -->
-<section id="services" class="sec wrap reveal">
-  <h2 class="sec-title">Services</h2>
-
-  <div class="svc">
-    <h4>Journal Reviewer</h4>
-    <div class="chips">
-      <a class="chip starred" href="https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=8858" title="IEEE Transactions on Dependable and Secure Computing &mdash; 2025 Awarded Peer Reviewer">TDSC <span class="yr">2025&ndash;</span><span class="sr-only"> (IEEE Transactions on Dependable and Secure Computing)</span></a>
-      <a class="chip" href="https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=90" title="IEEE Transactions on Networking">TNET <span class="yr">2025&ndash;</span><span class="sr-only"> (IEEE Transactions on Networking)</span></a>
-      <a class="chip" href="https://dl.acm.org/journal/tpds" title="IEEE Transactions on Parallel and Distributed Systems">TPDS <span class="yr">2025&ndash;</span><span class="sr-only"> (IEEE Transactions on Parallel and Distributed Systems)</span></a>
-      <a class="chip" href="https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=10206" title="IEEE Transactions on Information Forensics &amp; Security">TIFS <span class="yr">2024&ndash;</span><span class="sr-only"> (IEEE Transactions on Information Forensics &amp; Security)</span></a>
-      <a class="chip" href="https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=5962385" title="IEEE Transactions on Neural Networks and Learning Systems">TNNLS <span class="yr">2024&ndash;</span><span class="sr-only"> (IEEE Transactions on Neural Networks and Learning Systems)</span></a>
-      <a class="chip" href="https://dl.acm.org/journal/tomm" title="ACM Transactions on Multimedia Computing, Communications, and Applications">TOMM <span class="yr">2024&ndash;</span><span class="sr-only"> (ACM Transactions on Multimedia Computing, Communications, and Applications)</span></a>
-      <a class="chip" href="https://www.sciencedirect.com/journal/computers-and-electrical-engineering">Computers and Electrical Engineering <span class="yr">2024&ndash;</span></a>
-      <a class="chip" href="https://www.cai.sk/ojs/index.php/cai" title="Computing and Informatics">CAI <span class="yr">2024&ndash;2027</span><span class="sr-only"> (Computing and Informatics)</span></a>
-      <a class="chip" href="http://www.ajoai.org/reviewers" title="American Journal of Artificial Intelligence">AJAI <span class="yr">2024&ndash;</span><span class="sr-only"> (American Journal of Artificial Intelligence)</span></a>
-      <a class="chip" href="https://dl.acm.org/journal/csur">ACM Computing Surveys <span class="yr">2023&ndash;</span></a>
-      <a class="chip starred" href="https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=69" title="IEEE Transactions on Knowledge and Data Engineering &mdash; 2025 Awarded Peer Reviewer">TKDE <span class="yr">2022&ndash;</span><span class="sr-only"> (IEEE Transactions on Knowledge and Data Engineering)</span></a>
-      <a class="chip" href="https://link.springer.com/journal/11235" title="Telecommunication Systems">TELS <span class="yr">2021&ndash;</span><span class="sr-only"> (Telecommunication Systems)</span></a>
-      <a class="chip" href="https://www.sciencedirect.com/journal/computer-standards-and-interfaces" title="Computer Standards &amp; Interfaces">CSI <span class="yr">2021&ndash;</span><span class="sr-only"> (Computer Standards &amp; Interfaces)</span></a>
-      <a class="chip" href="https://www.tandfonline.com/journals/ccos20">Connection Science <span class="yr">2020&ndash;</span></a>
-      <a class="chip" href="https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=76" title="IEEE Transactions on Circuits and Systems for Video Technology">TCSVT <span class="yr">2019&ndash;</span><span class="sr-only"> (IEEE Transactions on Circuits and Systems for Video Technology)</span></a>
-    </div>
-    <p style="margin-top:9px;font-size:12.5px;color:var(--cool)">&#9733; Awarded Peer Reviewer (2025)</p>
-  </div>
-
-  <div class="svc">
-    <h4>Conference PC Member</h4>
-    <div class="chips">
-      <a class="chip" href="https://www.cloud-conf.net/icpads2026/index.html" title="IEEE International Conference on Parallel and Distributed Systems">ICPADS <span class="yr">2026</span><span class="sr-only"> (IEEE International Conference on Parallel and Distributed Systems)</span></a>
-    </div>
-  </div>
-
-  <div class="svc">
-    <h4>Artifact Evaluation Committee Member</h4>
-    <div class="chips">
-      <a class="chip" href="https://www.ndss-symposium.org/ndss2026/" title="Network and Distributed System Security Symposium">NDSS <span class="yr">2026</span><span class="sr-only"> (Network and Distributed System Security Symposium)</span></a>
-      <a class="chip" href="https://www.sigsac.org/ccs/CCS2025/" title="ACM Conference on Computer and Communications Security">CCS <span class="yr">2025</span><span class="sr-only"> (ACM Conference on Computer and Communications Security)</span></a>
-    </div>
-  </div>
-
-  <div class="svc">
-    <h4>Conference Sub-Reviewer</h4>
-    <div class="chips">
-      <a class="chip" href="https://www.usenix.org/conference/usenixsecurity26" title="USENIX Security Symposium">USENIX Security <span class="yr">2026</span><span class="sr-only"> (USENIX Security Symposium)</span></a>
-      <a class="chip" href="https://sp2026.ieee-security.org/" title="IEEE Symposium on Security and Privacy">IEEE S&amp;P <span class="yr">2025, 2026</span><span class="sr-only"> (IEEE Symposium on Security and Privacy)</span></a>
-      <a class="chip" href="https://www.sigsac.org/ccs/CCS2025/" title="ACM Conference on Computer and Communications Security">CCS <span class="yr">2025</span><span class="sr-only"> (ACM Conference on Computer and Communications Security)</span></a>
-    </div>
-  </div>
-
-  <div class="svc">
-    <h4>Conference Reviewer</h4>
-    <div class="chips">
-      <a class="chip" href="https://www.acsac.org" title="Annual Computer Security Applications Conference">ACSAC <span class="yr">2024</span><span class="sr-only"> (Annual Computer Security Applications Conference)</span></a>
-      <a class="chip" href="https://esorics2025.sciencesconf.org/" title="European Symposium on Research in Computer Security">ESORICS <span class="yr">2021, 2024, 2025</span><span class="sr-only"> (European Symposium on Research in Computer Security)</span></a>
-      <a class="chip" href="https://www.codaspy.org/2025/" title="ACM Conference on Data and Application Security and Privacy">CODASPY <span class="yr">2023, 2024, 2025</span><span class="sr-only"> (ACM Conference on Data and Application Security and Privacy)</span></a>
-      <a class="chip" href="https://dspp2025.xidian.edu.cn/" title="International Conference on Data Security and Privacy Protection">DSPP <span class="yr">2024, 2025</span><span class="sr-only"> (International Conference on Data Security and Privacy Protection)</span></a>
-      <a class="chip" href="https://link.springer.com/book/10.1007/978-3-031-20096-0" title="International Conference on Machine Learning for Cyber Security">ML4CS <span class="yr">2022</span><span class="sr-only"> (International Conference on Machine Learning for Cyber Security)</span></a>
-      <a class="chip" href="https://isc2022.petra.ac.id" title="Information Security Conference">ISC <span class="yr">2022</span><span class="sr-only"> (Information Security Conference)</span></a>
-      <a class="chip" href="https://link.springer.com/book/10.1007/978-3-030-88052-1" title="International Conference on Information and Communications Security">ICICS <span class="yr">2021</span><span class="sr-only"> (International Conference on Information and Communications Security)</span></a>
-    </div>
-  </div>
-</section>
-
-<!-- ================= OTHERS ================= -->
-<section id="others" class="sec wrap reveal">
-  <h2 class="sec-title">Others</h2>
-  <div class="grid2">
-    <article class="card">
-      <span class="ttl">Hometown</span>
-      <span class="sub">I am from <a href="https://en.wikipedia.org/wiki/Nanjing">Nanjing</a>, Jiangsu Province, which is a city in eastern China and the ancient capital of six dynasties.</span>
-    </article>
-    <article class="card">
-      <span class="ttl">Sport</span>
-      <span class="sub">My favorite sport at the moment is swimming. I am familiar with the breaststroke and am learning freestyle. I also practiced badminton, aerobics and Latin dance.</span>
-    </article>
-    <article class="card">
-      <span class="ttl">Music</span>
-      <span class="sub">I like R&amp;B music. The artists I often listen to are David Tao, Jay Chou, and Leehom Wang.</span>
-    </article>
-    <article class="card">
-      <span class="ttl">Food</span>
-      <span class="sub">My favorite food is taro and coconut.</span>
-    </article>
+<section class="sec wrap reveal">
+  <h2 class="sec-title">Explore</h2>
+  <div class="quick">
+    <a class="qcard" href="publications.html">
+      <span class="qt">Publications <span class="arrow">&#8594;</span></span>
+      <span class="qd">5 journal and 7 conference papers, 2 books, 4 papers under review.</span>
+    </a>
+    <a class="qcard" href="mentoring.html">
+      <span class="qt">Mentoring <span class="arrow">&#8594;</span></span>
+      <span class="qd">7 Ph.D., graduate and undergraduate students &mdash; 6 of them co-authors.</span>
+    </a>
+    <a class="qcard" href="teaching.html">
+      <span class="qt">Teaching &amp; Talks <span class="arrow">&#8594;</span></span>
+      <span class="qd">3 invited talks, 2 teaching assistantships, 1 reading group.</span>
+    </a>
+    <a class="qcard" href="research.html">
+      <span class="qt">Research &amp; Grants <span class="arrow">&#8594;</span></span>
+      <span class="qd">4 research thrusts, 3 proposals co-written, $150,000 awarded.</span>
+    </a>
+    <a class="qcard" href="experience.html">
+      <span class="qt">Experience <span class="arrow">&#8594;</span></span>
+      <span class="qd">Appointments at Purdue, Xidian, and industry; degrees and advisors.</span>
+    </a>
+    <a class="qcard" href="service.html">
+      <span class="qt">Service <span class="arrow">&#8594;</span></span>
+      <span class="qd">Reviewer for 15 journals, PC and artifact evaluation for CCS, NDSS, ICPADS.</span>
+    </a>
   </div>
 </section>
 
 </main>
 
-<!-- ================= FOOTER ================= -->
+<nav class="pagenav wrap" aria-label="Page navigation">
+  <a class="nxt" href="publications.html"><span class="dir">Next &#8594;</span><span class="to">Publications</span></a>
+</nav>
+
 <footer class="footer">
   <div class="wrap footer-in">
     <div class="logos">
@@ -843,117 +170,6 @@ html.js .reveal.in{opacity:1;transform:none}
 </footer>
 
 <button id="totop" title="Back to top" aria-label="Back to top">&#8593;</button>
-
-<script>
-(function(){
-  "use strict";
-  var nav      = document.getElementById('topnav');
-  var navwrap  = nav.querySelector('.navwrap');
-  var prog     = document.getElementById('prog');
-  var totop    = document.getElementById('totop');
-  var navLinks = Array.prototype.slice.call(navwrap.querySelectorAll('a[href^="#"]'));
-  var sections = navLinks.map(function(a){ return document.getElementById(a.getAttribute('href').slice(1)); })
-                         .filter(Boolean);
-  var navH     = nav.offsetHeight;
-  var current  = null;
-
-  /* ---- scroll progress + sticky shadow + back-to-top + scrollspy ---- */
-  function onScroll(){
-    var y   = window.pageYOffset || document.documentElement.scrollTop;
-    var max = document.documentElement.scrollHeight - window.innerHeight;
-    prog.style.width = (max > 0 ? Math.min(y / max, 1) * 100 : 0) + '%';
-
-    nav.classList.toggle('stuck', y > 4);
-    totop.classList.toggle('show', y > 520);
-
-    /* the active section is the last one whose top has passed the nav baseline */
-    var line = y + navH + 40;
-    var active = sections[0];
-    for (var i = 0; i < sections.length; i++){
-      if (sections[i].offsetTop <= line) active = sections[i];
-    }
-    /* pin the last section once the page is scrolled to the very bottom */
-    if (max - y < 4) active = sections[sections.length - 1];
-
-    if (active !== current){
-      current = active;
-      navLinks.forEach(function(a){
-        var on = a.getAttribute('href') === '#' + active.id;
-        a.classList.toggle('active', on);
-        if (on && navwrap.scrollWidth > navwrap.clientWidth){
-          /* keep the active item visible in the horizontally scrolling nav */
-          var l = a.offsetLeft, r = l + a.offsetWidth;
-          if (l < navwrap.scrollLeft + 12) navwrap.scrollTo({left: l - 12, behavior: 'smooth'});
-          else if (r > navwrap.scrollLeft + navwrap.clientWidth - 12)
-            navwrap.scrollTo({left: r - navwrap.clientWidth + 12, behavior: 'smooth'});
-        }
-      });
-    }
-  }
-
-  var ticking = false;
-  function schedule(){
-    if (ticking) return;
-    ticking = true;
-    requestAnimationFrame(function(){ ticking = false; onScroll(); });
-  }
-  window.addEventListener('scroll', schedule, {passive:true});
-  window.addEventListener('resize', function(){ navH = nav.offsetHeight; schedule(); });
-
-  totop.addEventListener('click', function(){
-    window.scrollTo({top:0, behavior:'smooth'});
-    history.replaceState(null, '', location.pathname + location.search);
-  });
-
-  /* ---- reveal sections on first entry ---- */
-  var revealables = document.querySelectorAll('.reveal');
-  if ('IntersectionObserver' in window){
-    var io = new IntersectionObserver(function(entries){
-      entries.forEach(function(e){
-        if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
-      });
-    }, {rootMargin: '0px 0px -8% 0px', threshold: 0.04});
-    revealables.forEach(function(el){ io.observe(el); });
-  } else {
-    revealables.forEach(function(el){ el.classList.add('in'); });
-  }
-
-  /* ---- publication tabs ---- */
-  var tabs  = Array.prototype.slice.call(document.querySelectorAll('.tab'));
-  var panes = tabs.map(function(t){ return document.getElementById(t.getAttribute('aria-controls')); });
-  tabs.forEach(function(tab, i){
-    tab.addEventListener('click', function(){
-      tabs.forEach(function(t, j){
-        var on = (j === i);
-        t.setAttribute('aria-selected', on ? 'true' : 'false');
-        panes[j].hidden = !on;
-      });
-      schedule();
-    });
-  });
-
-  /* ---- journal / conference / thesis filter ---- */
-  var filts = Array.prototype.slice.call(document.querySelectorAll('.filt'));
-  var pubCards = Array.prototype.slice.call(document.querySelectorAll('#pane-pub .card'));
-  filts.forEach(function(btn){
-    btn.addEventListener('click', function(){
-      var f = btn.dataset.f;
-      filts.forEach(function(b){ b.setAttribute('aria-pressed', b === btn ? 'true' : 'false'); });
-      pubCards.forEach(function(c){
-        var show = (f === 'all') || (c.dataset.type === f);
-        c.dataset.hidden = show ? '0' : '1';
-      });
-      schedule();
-    });
-  });
-
-  /* ---- land on the right section when arriving with a #hash ---- */
-  if (location.hash){
-    var t = document.getElementById(location.hash.slice(1));
-    if (t) setTimeout(function(){ t.scrollIntoView(); schedule(); }, 0);
-  }
-  onScroll();
-})();
-</script>
+<script src="assets/site.js" defer></script>
 </body>
 </html>
