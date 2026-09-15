@@ -14,9 +14,10 @@
   --card-bg:#FFFFFF;
   --border:#E8E0CD;
   --nav-h:52px;
-  --maxw:920px;
-  /* width of the body text column; every panel matches the cards */
-  --content:calc(var(--maxw) - 40px);
+  /* --content is THE column everything aligns to: cards, panels, nav.
+     --maxw is that column plus the 20px side gutters. */
+  --content:920px;
+  --maxw:960px;
   color-scheme: light;
 }
 
@@ -50,7 +51,7 @@ p{margin:0 0 .85em}
 }
 .topnav.stuck{box-shadow:0 2px 16px rgba(28,28,30,.07);border-bottom-color:var(--gold)}
 .navwrap{
-  max-width:var(--maxw);margin:0 auto;padding:0 14px;
+  max-width:var(--maxw);margin:0 auto;padding:0 9px;
   height:var(--nav-h);
   display:flex;align-items:center;gap:1px;
   overflow-x:auto;overscroll-behavior-x:contain;
@@ -86,7 +87,7 @@ p{margin:0 0 .85em}
 
 /* ---------- Section frame ---------- */
 section{scroll-margin-top:calc(var(--nav-h) + 14px)}
-.sec{padding:34px 0 8px}
+.sec{padding-top:34px;padding-bottom:8px}   /* longhands: keep .wrap's side gutters */
 .sec-title{
   display:flex;align-items:center;gap:12px;
   margin:0 0 18px;
@@ -96,10 +97,6 @@ section{scroll-margin-top:calc(var(--nav-h) + 14px)}
 .sec-title::before{
   content:"";flex:0 0 auto;width:4px;height:20px;border-radius:2px;
   background:linear-gradient(var(--gold),var(--rush));
-}
-.sec-title::after{
-  content:"";flex:1 1 auto;height:1px;
-  background:linear-gradient(90deg,var(--border),transparent);
 }
 
 /* ---------- Reveal on scroll ---------- */
@@ -116,11 +113,6 @@ html.js .reveal.in{opacity:1;transform:none}
   background:
     radial-gradient(1000px 320px at 88% -30%, rgba(218,170,0,.13), transparent 62%),
     linear-gradient(160deg, var(--surface2) 0%, var(--surface) 55%, #fff 100%);
-}
-.hero-in::after{
-  content:"";position:absolute;left:0;right:0;bottom:0;height:2px;
-  background:linear-gradient(90deg,var(--gold),var(--rush),var(--gold));
-  opacity:.65;
 }
 .hero-txt{flex:1 1 auto;min-width:0}
 .hero-pic{flex:0 0 auto}
@@ -266,9 +258,7 @@ html.js .reveal.in{opacity:1;transform:none}
 .svc{margin-bottom:22px}
 .svc h4{
   margin:0 0 9px;font-size:14px;font-weight:600;color:var(--ink);
-  display:flex;align-items:center;gap:8px;
 }
-.svc h4::after{content:"";flex:1;height:1px;background:var(--border)}
 .chips{display:flex;flex-wrap:wrap;gap:7px}
 .chip{
   display:inline-flex;align-items:baseline;gap:6px;
@@ -300,10 +290,6 @@ html.js .reveal.in{opacity:1;transform:none}
   position:relative;overflow:hidden;
   max-width:var(--content);margin:0 auto;
   background:linear-gradient(180deg,var(--surface),var(--surface2));
-}
-.fpanel::before{
-  content:"";position:absolute;left:0;right:0;top:0;height:2px;
-  background:linear-gradient(90deg,var(--gold),var(--rush),var(--gold));opacity:.65;
 }
 .footer-in{
   display:flex;flex-wrap:wrap;gap:22px;align-items:center;justify-content:space-between;
@@ -346,7 +332,7 @@ html.js .reveal.in{opacity:1;transform:none}
 }
 @media (max-width:420px){
   .wrap{padding:0 16px}
-  .hero,.pagehead,.footer{padding-left:14px;padding-right:14px}
+  .hero,.pagehead,.footer{padding-left:16px;padding-right:16px}
   .hero-in{padding:20px 16px 18px}
   .pagehead-in{padding:18px 16px 16px}
   .footer-in{padding:18px 16px 14px}
@@ -386,10 +372,6 @@ html.js .reveal.in{opacity:1;transform:none}
   background:
     radial-gradient(760px 240px at 84% -40%, rgba(218,170,0,.12), transparent 60%),
     linear-gradient(160deg, var(--surface2) 0%, var(--surface) 58%, #fff 100%);
-}
-.pagehead-in::after{
-  content:"";position:absolute;left:0;right:0;bottom:0;height:2px;
-  background:linear-gradient(90deg,var(--gold),var(--rush),var(--gold));opacity:.65;
 }
 .pagehead h1{
   margin:0 0 6px;font-family:'Source Serif 4',Georgia,serif;
