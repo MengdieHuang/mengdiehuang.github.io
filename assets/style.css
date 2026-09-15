@@ -112,11 +112,10 @@ html.js .reveal.in{opacity:1;transform:none}
   position:relative;overflow:hidden;
   max-width:var(--content);margin:0 auto;
   display:flex;gap:30px;align-items:flex-start;
-  padding:30px 26px 28px;
+  padding:30px 24px 28px;
   background:
     radial-gradient(1000px 320px at 88% -30%, rgba(218,170,0,.13), transparent 62%),
     linear-gradient(160deg, var(--surface2) 0%, var(--surface) 55%, #fff 100%);
-  border:1px solid var(--border);border-radius:12px;
 }
 .hero-in::after{
   content:"";position:absolute;left:0;right:0;bottom:0;height:2px;
@@ -298,10 +297,13 @@ html.js .reveal.in{opacity:1;transform:none}
 /* ---------- Footer ---------- */
 .footer{margin-top:46px;padding:0 20px}
 .fpanel{
+  position:relative;overflow:hidden;
   max-width:var(--content);margin:0 auto;
   background:linear-gradient(180deg,var(--surface),var(--surface2));
-  border:1px solid var(--border);border-top:2px solid var(--gold);
-  border-radius:12px;overflow:hidden;
+}
+.fpanel::before{
+  content:"";position:absolute;left:0;right:0;top:0;height:2px;
+  background:linear-gradient(90deg,var(--gold),var(--rush),var(--gold));opacity:.65;
 }
 .footer-in{
   display:flex;flex-wrap:wrap;gap:22px;align-items:center;justify-content:space-between;
@@ -380,11 +382,10 @@ html.js .reveal.in{opacity:1;transform:none}
 .pagehead-in{
   position:relative;overflow:hidden;
   max-width:var(--content);margin:0 auto;
-  padding:26px 26px 24px;
+  padding:26px 24px 24px;
   background:
     radial-gradient(760px 240px at 84% -40%, rgba(218,170,0,.12), transparent 60%),
     linear-gradient(160deg, var(--surface2) 0%, var(--surface) 58%, #fff 100%);
-  border:1px solid var(--border);border-radius:12px;
 }
 .pagehead-in::after{
   content:"";position:absolute;left:0;right:0;bottom:0;height:2px;
@@ -554,9 +555,9 @@ html.js .reveal.in{opacity:1;transform:none}
 
 /* ---------- Author-mark legend ---------- */
 .legend{
-  margin:0 0 18px;padding:10px 14px;border-radius:7px;
-  background:var(--surface);border:1px dashed var(--border);
-  font-size:12.5px;color:var(--cool);line-height:1.75;
+  margin:0 0 14px;
+  text-align:right;
+  font-size:12.5px;color:var(--cool);line-height:1.7;
 }
 .legend b{color:var(--aged);font-weight:600}
 sup.mk{color:var(--aged);font-weight:700;font-size:.78em;letter-spacing:.02em}
