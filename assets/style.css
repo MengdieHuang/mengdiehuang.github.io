@@ -129,11 +129,11 @@ html.js .reveal.in{opacity:1;transform:none}
 .hero-pic img:hover{transform:translateY(-4px) scale(1.015);box-shadow:0 0 0 2px var(--rush), 0 18px 40px rgba(143,111,62,.28)}
 .hero h1{
   margin:0;
-  font-size:33px;font-weight:700;letter-spacing:-.03em;line-height:1.2;
+  font-size:32px;font-weight:400;letter-spacing:normal;line-height:1.3;
 }
 .hero h1 a{color:var(--ink)}
 .hero h1 a:hover{text-decoration:none}
-.name-zh{font-size:17px;color:var(--steel);margin:2px 0 0}
+.name-zh{font-size:21px;color:var(--ink);margin:3px 0 0}
 .icon-btn{
   display:inline-flex;align-items:center;justify-content:center;
   width:26px;height:26px;border-radius:50%;vertical-align:6px;margin-left:9px;
@@ -338,6 +338,7 @@ html.js .reveal.in{opacity:1;transform:none}
   .hero-txt{text-align:left;width:100%}
   .hero-pic img{width:150px;height:188px}
   .hero h1{font-size:27px}
+  .name-zh{font-size:18px}
   .meta{font-size:14px}
   .footer-in{flex-direction:column;align-items:flex-start;gap:16px}
   .sec-title{font-size:19px}
