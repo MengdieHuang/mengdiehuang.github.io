@@ -76,14 +76,6 @@ p{margin:0 0 .85em}
 }
 .navwrap a:hover::after,.navwrap a.active::after{transform:scaleX(1)}
 .navwrap a.active{color:var(--aged);font-weight:600}
-.navwrap .nav-cv{
-  margin-left:auto;
-  border:0;background:var(--gold);color:var(--on-gold);
-  font-weight:600;letter-spacing:.03em;padding:7px 15px;
-}
-.navwrap .nav-cv::after{display:none}
-.navwrap .nav-cv:hover{background:var(--rush);color:var(--on-gold)}
-.navwrap .nav-cv.active{background:var(--rush);color:var(--on-gold)}
 /* scroll progress, pinned to the nav's own baseline */
 #prog{
   position:absolute;left:0;bottom:-1px;height:2px;width:0;
@@ -400,7 +392,7 @@ html.js .reveal.in{opacity:1;transform:none}
 
 /* ---------- Brand in nav (sub-pages) ---------- */
 .navwrap .brand{
-  font-size:15px;font-weight:700;letter-spacing:-.01em;color:var(--ink);
+  font-size:15px;font-weight:400;color:var(--ink);
   padding:8px 12px 8px 2px;margin-right:6px;
   border-right:1px solid var(--border);border-radius:0;
 }
