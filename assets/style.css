@@ -214,11 +214,13 @@ html.js .reveal.in{opacity:1;transform:none}
 /* ---------- Badges & links ---------- */
 /* Floated right so a long title wraps beside them instead of pushing
    them onto a line of their own. */
-.card .badges{
+.card .badges,
+.grant .badges{
   float:right;display:flex;flex-wrap:wrap;justify-content:flex-end;
   gap:6px;margin:1px 0 3px 14px;max-width:58%;
 }
-.card .badges .badge{margin-left:0;vertical-align:baseline}
+.card .badges .badge,
+.grant .badges .badge{margin-left:0;vertical-align:baseline}
 /* variant: badges share the author line, pushed to the right edge */
 .authors-row{
   display:flex;align-items:center;justify-content:space-between;
@@ -393,7 +395,8 @@ html.js .reveal.in{opacity:1;transform:none}
 }
 @media (max-width:520px){
   /* too narrow to wrap text beside them - sit them above the title instead */
-  .card .badges{float:none;max-width:100%;margin:0 0 5px}
+  .card .badges,
+  .grant .badges{float:none;max-width:100%;margin:0 0 5px}
 }
 @media (max-width:420px){
   .wrap{padding:0 16px}
@@ -545,24 +548,9 @@ html.js .reveal.in{opacity:1;transform:none}
 }
 .grant:hover::before{transform:scaleY(1)}
 .grant:hover{transform:translateY(-2px);box-shadow:0 9px 24px rgba(143,111,62,.14);border-color:var(--gold)}
-/* outcome of a proposal, shown inline after the title */
-.grant .status{
-  display:inline-block;padding:2px 9px;border-radius:4px;
-  margin-left:9px;vertical-align:2px;white-space:nowrap;
-  font-size:11.5px;font-weight:600;letter-spacing:.03em;text-transform:uppercase;
-  background:#fff;color:var(--steel);border:1px dashed var(--border);
-}
-.grant .gt{display:block;font-weight:600;font-size:15px;line-height:1.5;margin-bottom:4px}
+.grant .gt{display:flow-root;font-weight:600;font-size:15px;line-height:1.5;margin-bottom:4px}
 .grant .gm{display:block;font-size:13.5px;line-height:1.62;color:var(--ink)}
 .grant .gm b{font-weight:600}
-.amount{
-  display:inline-flex;align-items:center;gap:5px;margin-top:9px;
-  padding:4px 12px;border-radius:999px;
-  background:linear-gradient(135deg,var(--rush),var(--field));
-  color:#3d2f00;font-weight:700;font-size:13.5px;
-  box-shadow:0 2px 10px rgba(218,170,0,.32);
-  font-variant-numeric:tabular-nums;
-}
 
 /* ---------- Author-mark legend ---------- */
 .legend{
