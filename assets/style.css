@@ -452,7 +452,7 @@ html.js .reveal.in{opacity:1;transform:none}
 .quick{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:11px}
 .qcard{
   display:block;position:relative;overflow:hidden;
-  background:var(--surface);border:1px solid var(--border);border-radius:9px;
+  background:var(--card-bg);border:1px solid var(--border);border-radius:9px;
   padding:15px 16px;color:var(--ink);
   transition:transform .26s cubic-bezier(.22,1,.36,1), box-shadow .26s ease, border-color .26s ease;
 }
@@ -474,7 +474,7 @@ html.js .reveal.in{opacity:1;transform:none}
 /* ---------- Research thrusts ---------- */
 .thrusts{display:grid;grid-template-columns:repeat(auto-fit,minmax(285px,1fr));gap:12px}
 .thrust{
-  position:relative;background:var(--surface);border:1px solid var(--border);
+  position:relative;background:var(--card-bg);border:1px solid var(--border);
   border-radius:9px;padding:16px 17px 15px;
   transition:transform .26s cubic-bezier(.22,1,.36,1), box-shadow .26s ease, border-color .26s ease;
 }
@@ -491,7 +491,7 @@ html.js .reveal.in{opacity:1;transform:none}
 /* ---------- Mentoring ---------- */
 .mentee{
   position:relative;display:flex;gap:14px;align-items:flex-start;
-  background:var(--surface);border:1px solid var(--border);border-radius:9px;
+  background:var(--card-bg);border:1px solid var(--border);border-radius:9px;
   padding:14px 16px 14px 15px;margin-bottom:11px;
   transition:transform .26s cubic-bezier(.22,1,.36,1), box-shadow .26s ease, border-color .26s ease;
 }
@@ -522,7 +522,7 @@ html.js .reveal.in{opacity:1;transform:none}
 
 /* ---------- Talks ---------- */
 .talk{
-  position:relative;background:var(--surface);border:1px solid var(--border);
+  position:relative;background:var(--card-bg);border:1px solid var(--border);
   border-left:3px solid var(--gold);border-radius:0 8px 8px 0;
   padding:13px 16px;margin-bottom:11px;
   transition:transform .25s ease, box-shadow .25s ease, border-left-color .25s ease;
@@ -534,7 +534,7 @@ html.js .reveal.in{opacity:1;transform:none}
 
 /* ---------- Grants ---------- */
 .grant{
-  position:relative;background:var(--surface);border:1px solid var(--border);
+  position:relative;background:var(--card-bg);border:1px solid var(--border);
   border-radius:9px;padding:15px 16px;margin-bottom:11px;overflow:hidden;
   transition:transform .26s cubic-bezier(.22,1,.36,1), box-shadow .26s ease, border-color .26s ease;
 }
