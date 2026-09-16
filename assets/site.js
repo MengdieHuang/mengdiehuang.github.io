@@ -138,3 +138,15 @@
   }
   onScroll();
 })();
+
+/* Outcomes counts expand the matching citation in place, so a project card can
+   show what it produced without sending the reader to another page. */
+document.querySelectorAll('.reflink').forEach(function(btn){
+  var box = document.getElementById(btn.getAttribute('aria-controls'));
+  if (!box) return;
+  btn.addEventListener('click', function(){
+    var open = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', String(!open));
+    box.hidden = open;
+  });
+});

@@ -243,6 +243,27 @@ html.js .reveal.in{opacity:1;transform:none}
 .venue-row .venue,.venue-row .td,.venue-row .sub{flex:1 1 auto;min-width:0}
 .venue-row .links{flex:0 0 auto;margin-top:0}
 .links{margin-top:6px;display:flex;flex-wrap:wrap;gap:6px}
+
+/* ---------- Outcomes: inline citation disclosure ---------- */
+/* A count in an Outcomes line is a button, styled as a dotted link; clicking it
+   expands the full citation below the card body instead of leaving the page. */
+.reflink{
+  font:inherit;color:var(--aged-deep);background:none;border:0;padding:0;
+  cursor:pointer;border-bottom:1px dotted var(--field);
+}
+.reflink:hover,.reflink:focus-visible{color:var(--ink);border-bottom-style:solid}
+.reflink[aria-expanded="true"]{color:var(--ink);border-bottom-style:solid}
+.reflink::after{content:" \25BE";font-size:11px;letter-spacing:0}
+.reflink[aria-expanded="true"]::after{content:" \25B4"}
+.refbox{
+  margin:8px 0 2px;padding:10px 13px;
+  background:var(--surface2);border-left:3px solid var(--gold);border-radius:0 6px 6px 0;
+}
+.refbox .rt{display:block;font-weight:600;font-size:13.5px;line-height:1.45;color:var(--ink)}
+.refbox .ra{display:block;font-size:13px;line-height:1.5;margin-top:2px;color:var(--ink)}
+.refbox .rv,.refbox .venue{font-size:13px;color:var(--steel)}
+.refbox .rv{display:block;margin-top:2px}
+.refbox .venue-row{margin-top:3px}
 .links a{
   font-size:12.5px;padding:2.5px 9px;border-radius:4px;
   border:1px solid var(--border);background:#fff;color:var(--aged);
