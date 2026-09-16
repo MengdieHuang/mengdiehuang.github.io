@@ -550,6 +550,12 @@ html.js .reveal.in{opacity:1;transform:none}
   font-size:11.5px;font-weight:600;letter-spacing:.03em;text-transform:uppercase;
   background:var(--surface2);color:var(--aged-deep);border:1px solid var(--gold);
 }
+/* outcome of a proposal, shown beside the role */
+.grant .status{
+  display:inline-block;padding:2px 9px;border-radius:4px;margin:0 0 7px 7px;
+  font-size:11.5px;font-weight:600;letter-spacing:.03em;text-transform:uppercase;
+  background:#fff;color:var(--steel);border:1px dashed var(--border);
+}
 .grant .gt{display:block;font-weight:600;font-size:15px;line-height:1.45;margin-bottom:4px}
 .grant .gm{display:block;font-size:13.5px;color:var(--ink)}
 .amount{
