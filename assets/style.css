@@ -238,7 +238,7 @@ html.js .reveal.in{opacity:1;transform:none}
   display:flex;align-items:center;justify-content:space-between;
   gap:10px 16px;flex-wrap:wrap;
 }
-.venue-row .venue{flex:1 1 auto;min-width:0}
+.venue-row .venue,.venue-row .td{flex:1 1 auto;min-width:0}
 .venue-row .links{flex:0 0 auto;margin-top:0}
 .links{margin-top:6px;display:flex;flex-wrap:wrap;gap:6px}
 .links a{
