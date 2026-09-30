@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/style.css?v=116">
+<link rel="stylesheet" href="../assets/style.css?v=117">
 </head>
 <body>
 <script>document.documentElement.className='js';</script>
@@ -64,6 +64,62 @@
     </div>
   </div>
 </section>
+<section id="representative" class="sec wrap reveal">
+  <h2 class="sec-title">Representative Publications</h2>
+  <article class="rep">
+    <a class="rep-fig" href="../image/research/trixfer.webp" target="_blank" rel="noopener"><img src="../image/research/trixfer.webp" alt="Workflow of the TriXfer attack in downstream adaptation" width="1188" height="784" loading="lazy"></a>
+    <div class="rep-txt">
+      <span class="badge">TDSC 2026</span>
+      <h3>TriXfer: Triple-Cross Transfer Attack on Vision Transformer&ndash;Adapted Downstream Classifiers</h3>
+      <p>Adversarial vulnerabilities in pretrained Vision Transformers can propagate to the downstream classifiers
+      built on them. TriXfer is the first untargeted triple-cross transfer attack: adversarial examples crafted on
+      clean surrogate data transfer across model architectures, datasets, and label spaces at once, even when both
+      the pretrained ViT and the downstream classifier are black boxes. Experiments across supervised,
+      self-supervised, and vision-language backbones reveal persistent inherited vulnerabilities.</p>
+      <div class="links"><a href="../publication/2026-TDSC-TriXfer.pdf">paper</a></div>
+    </div>
+  </article>
+  <article class="rep">
+    <a class="rep-fig" href="../image/research/card.webp" target="_blank" rel="noopener"><img src="../image/research/card.webp" alt="Architecture of CARD" width="1200" height="519" loading="lazy"></a>
+    <div class="rep-txt">
+      <span class="badge">TDSC 2025</span>
+      <h3>CARD: Robustness-Preserving Transfer Learning for Network Intrusion Detection via Contrastive Adversarial Representation Distillation</h3>
+      <p>Adversarially training robust network intrusion detectors demands abundant labeled data and large models,
+      while standard fine-tuning and distillation transfer accuracy but not robustness. CARD transfers both
+      robustness and performance from a robust source model to a target task that differs in data domain, model
+      architecture, or both. With only 5% of the training data, it achieves 17.67% and 8.38% higher adversarial
+      robust accuracy than adversarial fine-tuning and distillation.</p>
+      <div class="links"><a href="../publication/2025-TDSC-CARD.pdf">paper</a></div>
+    </div>
+  </article>
+  <article class="rep">
+    <a class="rep-fig" href="../image/research/mars.webp" target="_blank" rel="noopener"><img src="../image/research/mars.webp" alt="Certified radius obtained through MARS" width="1200" height="584" loading="lazy"></a>
+    <div class="rep-txt">
+      <span class="badge">TOPS 2025</span>
+      <h3>Dimensional Robustness Certification for Deep Neural Networks in Network Intrusion Detection Systems</h3>
+      <p>Certified defenses give provable robustness guarantees, but existing ones target homogeneous image
+      features and fit poorly to heterogeneous network traffic. MARS (Multi-order Adaptive Randomized Smoothing)
+      certifies deep network intrusion detectors, enlarging the &ell;<sub>2</sub> certified radius by 12.23% and
+      improving detection under evasion attacks and natural corruptions. Its dimension-wise certified radii also
+      reveal how robustness differs across traffic features. A shorter version received the Best Paper Award at
+      TrustCom 2024.</p>
+      <div class="links"><a href="../publication/2025-TOPS-DimCertifyNIDS.pdf">paper</a></div>
+    </div>
+  </article>
+  <article class="rep">
+    <a class="rep-fig" href="../image/research/larepmixup.webp" target="_blank" rel="noopener"><img src="../image/research/larepmixup.webp" alt="Framework of Latent Representation Mixup (LarepMixup) training" width="1200" height="435" loading="lazy"></a>
+    <div class="rep-txt">
+      <span class="badge">AsiaCCS 2023</span>
+      <h3>Boost Off/On-Manifold Adversarial Robustness for Deep Learning with Latent Representation Mixup</h3>
+      <p>Adversarial training yields attack-specific robustness that generalizes poorly to unseen attacks, and mixup
+      has rarely been studied in latent space or against on-manifold attacks. LarepMixup interpolates disentangled
+      latent representations in two modes, convex mixing and binary-mask mixing, to synthesize semantic samples,
+      then trains with soft-label cross-entropy to refine the decision boundary. On CIFAR-10, SVHN, and
+      ImageNet-Mixed10, it yields models robust to both off- and on-manifold adversarial attacks.</p>
+      <div class="links"><a href="../publication/2023-AsiaCCS-LarepMixup.pdf">paper</a></div>
+    </div>
+  </article>
+</section>
 </main>
 
 <footer class="footer">
@@ -89,6 +145,6 @@
 </footer>
 
 <button id="totop" title="Back to top" aria-label="Back to top">&#8593;</button>
-<script src="../assets/site.js?v=116" defer></script>
+<script src="../assets/site.js?v=117" defer></script>
 </body>
 </html>

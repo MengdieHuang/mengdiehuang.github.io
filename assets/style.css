@@ -513,6 +513,26 @@ html.js .reveal.in{opacity:1;transform:none}
 .thrust h3{margin:0 0 6px;font-size:15px;font-weight:600;line-height:1.4}
 .thrust p{margin:0;font-size:13.5px;color:var(--ink);line-height:1.58}
 
+/* ---------- Representative publications ---------- */
+/* Overview figure on the left in a fixed 16:10 frame, so figures of any
+   shape line up; clicking it opens the full-size image. */
+.rep{
+  display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:18px;align-items:center;
+  background:var(--card-bg);border:1px solid var(--border);border-radius:9px;
+  padding:14px 18px 14px 14px;margin-bottom:12px;
+  transition:transform .26s cubic-bezier(.22,1,.36,1), box-shadow .26s ease, border-color .26s ease;
+}
+.rep:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(143,111,62,.13);border-color:var(--gold)}
+.rep-fig{
+  position:relative;display:block;aspect-ratio:16/10;cursor:zoom-in;
+  background:#fff;border:1px solid var(--border);border-radius:6px;
+}
+.rep-fig img{position:absolute;inset:8px;width:calc(100% - 16px);height:calc(100% - 16px);object-fit:contain}
+.rep-txt .badge{margin-left:0;vertical-align:baseline}
+.rep-txt h3{margin:6px 0 6px;font-size:15px;font-weight:600;line-height:1.45;color:var(--ink)}
+.rep-txt p{margin:0;font-size:13.5px;line-height:1.6;color:var(--ink)}
+.rep-txt .links{margin-top:9px}
+
 /* ---------- Mentoring ---------- */
 .mentee-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px;margin-bottom:11px}
 .mentee-grid .mentee{margin-bottom:0}
@@ -583,4 +603,5 @@ sup.mk{color:var(--aged);font-weight:700;font-size:.78em;letter-spacing:.02em}
   .pagehead h1{font-size:24px}
   .pagehead-in{padding:15px 18px 14px}
   .mentee-grid{grid-template-columns:1fr}
+  .rep{grid-template-columns:1fr;gap:12px;padding:12px}
 }
