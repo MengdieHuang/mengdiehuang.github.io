@@ -513,6 +513,8 @@ html.js .reveal.in{opacity:1;transform:none}
 .thrust p{margin:0;font-size:13.5px;color:var(--ink);line-height:1.58}
 
 /* ---------- Mentoring ---------- */
+.mentee-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px;margin-bottom:11px}
+.mentee-grid .mentee{margin-bottom:0}
 .mentee{
   position:relative;display:flex;gap:14px;align-items:flex-start;
   background:var(--card-bg);border:1px solid var(--border);border-radius:9px;
@@ -590,6 +592,7 @@ sup.mk{color:var(--aged);font-weight:700;font-size:.78em;letter-spacing:.02em}
 @media (max-width:720px){
   .pagehead h1{font-size:24px}
   .pagehead-in{padding:15px 18px 14px}
+  .mentee-grid{grid-template-columns:1fr}
   .mentee{gap:11px}
   .ava{width:36px;height:36px;font-size:12.5px}
 }
