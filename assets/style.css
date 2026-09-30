@@ -524,6 +524,8 @@ html.js .reveal.in{opacity:1;transform:none}
 .mentee:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(143,111,62,.13);border-color:var(--gold)}
 .mentee .mbody{flex:1 1 auto;min-width:0}
 .mentee .mname{font-weight:600;font-size:15px;color:var(--ink)}
+.mentee .mname a{color:var(--ink)}
+.mentee .mname a:hover{color:var(--aged)}
 .mentee .mrole{font-size:13px;color:var(--ink);display:block;margin:1px 0 4px}
 .mentee .mres{font-size:13.5px;color:var(--ink)}
 .mentee .mout{display:block;margin-top:5px;font-size:13.5px;color:var(--ink)}
