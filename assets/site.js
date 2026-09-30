@@ -140,13 +140,16 @@
 })();
 
 /* Outcomes counts expand the matching citation in place, so a project card can
-   show what it produced without sending the reader to another page. */
+   show what it produced without sending the reader to another page. A count
+   covering several papers lists all their ids in aria-controls. */
 document.querySelectorAll('.reflink').forEach(function(btn){
-  var box = document.getElementById(btn.getAttribute('aria-controls'));
-  if (!box) return;
+  var boxes = btn.getAttribute('aria-controls').split(/\s+/)
+    .map(function(id){ return document.getElementById(id); })
+    .filter(Boolean);
+  if (!boxes.length) return;
   btn.addEventListener('click', function(){
     var open = btn.getAttribute('aria-expanded') === 'true';
     btn.setAttribute('aria-expanded', String(!open));
-    box.hidden = open;
+    boxes.forEach(function(box){ box.hidden = open; });
   });
 });

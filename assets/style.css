@@ -522,24 +522,11 @@ html.js .reveal.in{opacity:1;transform:none}
   transition:transform .26s cubic-bezier(.22,1,.36,1), box-shadow .26s ease, border-color .26s ease;
 }
 .mentee:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(143,111,62,.13);border-color:var(--gold)}
-.ava{
-  flex:0 0 auto;width:42px;height:42px;border-radius:50%;
-  display:flex;align-items:center;justify-content:center;
-  background:linear-gradient(135deg,var(--dust),var(--gold));
-  color:#57421c;font-weight:700;font-size:14px;letter-spacing:.01em;
-  border:2px solid #fff;box-shadow:0 0 0 1px var(--gold);
-}
 .mentee .mbody{flex:1 1 auto;min-width:0}
 .mentee .mname{font-weight:600;font-size:15px;color:var(--ink)}
 .mentee .mrole{font-size:13px;color:var(--ink);display:block;margin:1px 0 4px}
 .mentee .mres{font-size:13.5px;color:var(--ink)}
-.mentee .mout{margin-top:7px;display:flex;flex-wrap:wrap;gap:6px}
-.mentee .mout a{
-  font-size:12px;padding:2.5px 9px;border-radius:4px;
-  border:1px solid var(--gold);background:var(--dust);color:#6a5228;font-weight:500;
-  transition:all .2s ease;
-}
-.mentee .mout a:hover{background:var(--gold);color:var(--on-gold);text-decoration:none}
+.mentee .mout{display:block;margin-top:5px;font-size:13.5px;color:var(--ink)}
 .now{
   display:inline-block;margin-left:7px;padding:1px 8px;border-radius:999px;
   font-size:11px;font-weight:600;letter-spacing:.02em;
@@ -593,6 +580,4 @@ sup.mk{color:var(--aged);font-weight:700;font-size:.78em;letter-spacing:.02em}
   .pagehead h1{font-size:24px}
   .pagehead-in{padding:15px 18px 14px}
   .mentee-grid{grid-template-columns:1fr}
-  .mentee{gap:11px}
-  .ava{width:36px;height:36px;font-size:12.5px}
 }
