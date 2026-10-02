@@ -492,11 +492,8 @@ html.js .reveal.in{opacity:1;transform:none}
 .qcard .qd{font-size:13px;color:var(--ink);line-height:1.5}
 
 /* ---------- Research thrusts ---------- */
-/* Framework figure has a transparent background, so its frame supplies the white. */
-.areas-fig{
-  display:block;max-width:720px;margin:0 auto 16px;padding:10px;cursor:zoom-in;
-  background:#fff;border:1px solid var(--border);border-radius:9px;
-}
+/* Framework figure has a transparent background; it sits directly on the white page. */
+.areas-fig{display:block;max-width:720px;margin:0 auto 16px;cursor:zoom-in}
 .areas-fig img{display:block;width:100%;height:auto}
 .thrusts{display:grid;grid-template-columns:repeat(auto-fit,minmax(285px,1fr));gap:12px}
 .thrust{
@@ -526,6 +523,16 @@ html.js .reveal.in{opacity:1;transform:none}
 }
 .subareas dd{margin:2px 0 10px;font-size:13px;line-height:1.56;color:var(--ink)}
 .subareas dd:last-child{margin-bottom:0}
+/* Venue-year links under each sub-area; manuscripts under review are plain text. */
+.subareas .papers{display:flex;flex-wrap:wrap;gap:5px;margin-top:6px}
+.subareas .papers a,.subareas .papers .ur{
+  padding:1.5px 8px;border-radius:4px;font-size:11.5px;font-weight:600;white-space:nowrap;
+}
+.subareas .papers a{background:var(--dust);color:var(--aged-deep)}
+.subareas .papers a:hover{background:var(--gold);color:var(--on-gold);text-decoration:none}
+.subareas .papers a.starred::after{content:" \2605";color:var(--rush)}
+.subareas .papers a.starred:hover::after{color:var(--on-gold)}
+.subareas .papers .ur{border:1px dashed var(--gold);color:var(--steel);font-weight:500}
 
 /* ---------- Representative publications ---------- */
 /* Overview figure on the left in a fixed 16:10 frame, so figures of any
@@ -537,10 +544,7 @@ html.js .reveal.in{opacity:1;transform:none}
   transition:transform .26s cubic-bezier(.22,1,.36,1), box-shadow .26s ease, border-color .26s ease;
 }
 .rep:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(143,111,62,.13);border-color:var(--gold)}
-.rep-fig{
-  position:relative;display:block;aspect-ratio:16/10;cursor:zoom-in;
-  background:#fff;border:1px solid var(--border);border-radius:6px;
-}
+.rep-fig{position:relative;display:block;aspect-ratio:16/10;cursor:zoom-in;background:#fff}
 .rep-fig img{position:absolute;inset:8px;width:calc(100% - 16px);height:calc(100% - 16px);object-fit:contain}
 .rep-txt .badge{margin-left:0;vertical-align:baseline}
 .rep-txt h3{margin:6px 0 6px;font-size:15px;font-weight:600;line-height:1.45;color:var(--ink)}
