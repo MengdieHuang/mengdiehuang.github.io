@@ -493,7 +493,7 @@ html.js .reveal.in{opacity:1;transform:none}
 
 /* ---------- Research thrusts ---------- */
 /* Framework figure has a transparent background; it sits directly on the white page. */
-.areas-fig{display:block;max-width:720px;margin:0 auto 16px;cursor:zoom-in}
+.areas-fig{display:block;max-width:640px;margin:0 auto 16px;cursor:zoom-in}
 .areas-fig img{display:block;width:100%;height:auto}
 .thrusts{display:grid;grid-template-columns:repeat(auto-fit,minmax(285px,1fr));gap:12px}
 .thrust{
