@@ -317,11 +317,6 @@ html.js .reveal.in{opacity:1;transform:none}
 
 /* ---------- Timeline ---------- */
 .tl{list-style:none;margin:0;padding:0 0 0 26px;position:relative}
-.tl::before{
-  content:"";position:absolute;left:5px;top:8px;bottom:12px;width:2px;border-radius:2px;
-  background:linear-gradient(var(--rush),var(--gold) 40%,var(--dust));
-}
-#teaching .tl::before{display:none}
 .tl>li{position:relative;margin-bottom:20px}
 .tl>li:last-child{margin-bottom:6px}
 .tl>li::before{
@@ -497,6 +492,12 @@ html.js .reveal.in{opacity:1;transform:none}
 .qcard .qd{font-size:13px;color:var(--ink);line-height:1.5}
 
 /* ---------- Research thrusts ---------- */
+/* Framework figure has a transparent background, so its frame supplies the white. */
+.areas-fig{
+  display:block;margin-bottom:14px;padding:12px;cursor:zoom-in;
+  background:#fff;border:1px solid var(--border);border-radius:9px;
+}
+.areas-fig img{display:block;width:100%;height:auto}
 .thrusts{display:grid;grid-template-columns:repeat(auto-fit,minmax(285px,1fr));gap:12px}
 .thrust{
   position:relative;background:var(--card-bg);border:1px solid var(--border);
@@ -512,6 +513,7 @@ html.js .reveal.in{opacity:1;transform:none}
 }
 .thrust h3{margin:0 0 6px;font-size:15px;font-weight:600;line-height:1.4}
 .thrust p{margin:0;font-size:13.5px;color:var(--ink);line-height:1.58}
+.thrust p.sub{margin:-2px 0 8px;font-size:13px;color:var(--steel)}
 
 /* ---------- Representative publications ---------- */
 /* Overview figure on the left in a fixed 16:10 frame, so figures of any

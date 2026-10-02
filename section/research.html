@@ -4,12 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Research &middot; Mengdie Huang</title>
-<meta name="description" content="Mengdie Huang (Maggie), Postdoctoral Research Associate at Purdue University. Four research thrusts toward resilient, trustworthy AI architectures.">
+<meta name="description" content="Mengdie Huang (Maggie), Postdoctoral Research Associate at Purdue University. Robust AI as a foundation for trustworthy AI: adversarial robustness of general-purpose AI models, and robust AI-driven security systems.">
 <meta name="author" content="Mengdie Huang">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/style.css?v=117">
+<link rel="stylesheet" href="../assets/style.css?v=119">
 </head>
 <body>
 <script>document.documentElement.className='js';</script>
@@ -30,37 +30,34 @@
 <section class="pagehead">
   <div class="wrap pagehead-in">
     <h1>Research</h1>
-    <p>My overarching goal is to build resilient, trustworthy AI architectures. I pursue it along four thrusts.</p>
+    <p>My research builds robust AI as a foundation for trustworthy AI. I pursue it in two directions: the adversarial robustness of general-purpose AI models, and robust AI in security systems for network intrusion detection and IoT.</p>
   </div>
 </section>
 
 <main>
 <section id="areas" class="sec wrap reveal">
   <h2 class="sec-title">Research Areas</h2>
+  <a class="areas-fig" href="../image/research/research-direction-framework.png" target="_blank" rel="noopener"><img src="../image/research/research-direction-framework.png" alt="Research framework. Robust AI, a foundation for trustworthy AI, in two directions. General-purpose AI models: adversarial robustness of deep neural networks across image, graph, tabular, text and multimodal data, through adversarial attack, adversarial learning and robustness transfer. AI-driven security systems: robust AI in network intrusion detection and IoT security, covering intrusion classification, concept drift and early detection, through adversarial evasion, adversarial defense and robustness certification." width="4459" height="2195"></a>
   <div class="thrusts">
     <div class="thrust">
       <span class="tn">1</span>
-      <h3>Certified Robustness and Vulnerability Assessment</h3>
-      <p>Scalable certification for provable adversarial robustness guarantees, and realizable
-      evasion attacks that expose vulnerabilities across network and image domains.</p>
+      <h3>General-Purpose AI Models</h3>
+      <p class="sub">Adversarial robustness of deep neural networks</p>
+      <p>How deep models break, how to make them robust, and how robustness carries over when pretrained
+      models are adapted, across image, graph, tabular, text, and multimodal data. This covers adversarial
+      attacks (transfer attacks, federated evasion, model stealing, membership inference), adversarial
+      learning (adversarial and mixup training, certified robustness), and robustness transfer (transfer
+      learning, distillation, foundation-model fine-tuning, instruction tuning).</p>
     </div>
     <div class="thrust">
       <span class="tn">2</span>
-      <h3>Robust Transfer Learning and Downstream Adaptation</h3>
-      <p>Parameter-efficient training and representation distillation for robust downstream
-      adaptation of foundation models against cross-domain threats.</p>
-    </div>
-    <div class="thrust">
-      <span class="tn">3</span>
-      <h3>Security of Multimodal Foundation Models</h3>
-      <p>Hardening vision-language models against adversarial attacks and data extraction,
-      with a focus on membership inference and robust VLM adaptation.</p>
-    </div>
-    <div class="thrust">
-      <span class="tn">4</span>
-      <h3>Adversarial Robustness in Distributed AI</h3>
-      <p>Securing federated and decentralized learning against evasion attacks, and developing
-      self-evolving defense mechanisms for distributed architectures.</p>
+      <h3>AI-Driven Security Systems</h3>
+      <p class="sub">Robust AI in network intrusion detection and IoT security</p>
+      <p>Here the deep model is itself the defense, facing attackers who must keep their malicious traffic
+      working. Across intrusion classification, concept drift, and early detection of multi-stage IoT attacks,
+      this covers adversarial and realizable evasion of detectors, defenses built on representation and
+      consistency learning, and robustness certification through randomized smoothing tailored to
+      heterogeneous traffic features.</p>
     </div>
   </div>
 </section>
@@ -171,6 +168,6 @@
 </footer>
 
 <button id="totop" title="Back to top" aria-label="Back to top">&#8593;</button>
-<script src="../assets/site.js?v=117" defer></script>
+<script src="../assets/site.js?v=119" defer></script>
 </body>
 </html>
