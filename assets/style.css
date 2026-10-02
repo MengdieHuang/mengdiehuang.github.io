@@ -541,8 +541,11 @@ html.js .reveal.in{opacity:1;transform:none}
   display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:18px;align-items:center;
   background:var(--card-bg);border:1px solid var(--border);border-radius:9px;
   padding:14px 18px 14px 14px;margin-bottom:12px;
+  scroll-margin-top:calc(var(--nav-h) + 14px);
   transition:transform .26s cubic-bezier(.22,1,.36,1), box-shadow .26s ease, border-color .26s ease;
 }
+/* Reached from a paper link in the Research Areas cards. */
+.rep:target{border-color:var(--gold);box-shadow:0 0 0 3px rgba(203,186,150,.35)}
 .rep:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(143,111,62,.13);border-color:var(--gold)}
 .rep-fig{position:relative;display:block;aspect-ratio:16/10;cursor:zoom-in;background:#fff}
 .rep-fig img{position:absolute;inset:8px;width:calc(100% - 16px);height:calc(100% - 16px);object-fit:contain}
