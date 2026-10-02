@@ -494,7 +494,7 @@ html.js .reveal.in{opacity:1;transform:none}
 /* ---------- Research thrusts ---------- */
 /* Framework figure has a transparent background, so its frame supplies the white. */
 .areas-fig{
-  display:block;margin-bottom:14px;padding:12px;cursor:zoom-in;
+  display:block;max-width:720px;margin:0 auto 16px;padding:10px;cursor:zoom-in;
   background:#fff;border:1px solid var(--border);border-radius:9px;
 }
 .areas-fig img{display:block;width:100%;height:auto}
@@ -514,6 +514,18 @@ html.js .reveal.in{opacity:1;transform:none}
 .thrust h3{margin:0 0 6px;font-size:15px;font-weight:600;line-height:1.4}
 .thrust p{margin:0;font-size:13.5px;color:var(--ink);line-height:1.58}
 .thrust p.sub{margin:-2px 0 8px;font-size:13px;color:var(--steel)}
+.thrust .scope{display:flex;flex-wrap:wrap;gap:5px;margin:0 0 10px}
+.thrust .scope span{
+  padding:1.5px 9px;border-radius:999px;font-size:11.5px;font-weight:500;
+  background:var(--surface2);border:1px solid var(--border);color:var(--aged-deep);
+}
+.subareas{margin:12px 0 0}
+.subareas dt{
+  padding-top:9px;border-top:1px solid var(--border);
+  font-size:13.5px;font-weight:600;color:var(--ink);
+}
+.subareas dd{margin:2px 0 10px;font-size:13px;line-height:1.56;color:var(--ink)}
+.subareas dd:last-child{margin-bottom:0}
 
 /* ---------- Representative publications ---------- */
 /* Overview figure on the left in a fixed 16:10 frame, so figures of any

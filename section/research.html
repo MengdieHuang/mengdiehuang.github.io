@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/style.css?v=119">
+<link rel="stylesheet" href="../assets/style.css?v=120">
 </head>
 <body>
 <script>document.documentElement.className='js';</script>
@@ -43,21 +43,45 @@
       <span class="tn">1</span>
       <h3>General-Purpose AI Models</h3>
       <p class="sub">Adversarial robustness of deep neural networks</p>
+      <div class="scope"><span>Image</span><span>Graph</span><span>Tabular</span><span>Text</span><span>Multimodal</span></div>
       <p>How deep models break, how to make them robust, and how robustness carries over when pretrained
-      models are adapted, across image, graph, tabular, text, and multimodal data. This covers adversarial
-      attacks (transfer attacks, federated evasion, model stealing, membership inference), adversarial
-      learning (adversarial and mixup training, certified robustness), and robustness transfer (transfer
-      learning, distillation, foundation-model fine-tuning, instruction tuning).</p>
+      models are adapted.</p>
+      <dl class="subareas">
+        <dt>Adversarial Attack</dt>
+        <dd>Attacks under realistic access: transfer attacks that cross architectures, datasets, and label
+        spaces at once, evasion in vertical federated learning, model stealing, and membership inference
+        against large vision-language models.</dd>
+        <dt>Adversarial Learning</dt>
+        <dd>Training models that stay robust: adversarial training, latent-space mixup that defends against
+        both off- and on-manifold attacks, and certified robustness through bounding activation functions
+        for neural network verification.</dd>
+        <dt>Robustness Transfer</dt>
+        <dd>Keeping robustness when pretrained models are adapted downstream: robustness-preserving transfer
+        learning and distillation, robust fine-tuning of vision foundation models, robust transfer for graphs
+        under data scarcity, and instruction tuning.</dd>
+      </dl>
     </div>
     <div class="thrust">
       <span class="tn">2</span>
       <h3>AI-Driven Security Systems</h3>
       <p class="sub">Robust AI in network intrusion detection and IoT security</p>
+      <div class="scope"><span>Intrusion classification</span><span>Concept drift</span><span>Early detection</span></div>
       <p>Here the deep model is itself the defense, facing attackers who must keep their malicious traffic
-      working. Across intrusion classification, concept drift, and early detection of multi-stage IoT attacks,
-      this covers adversarial and realizable evasion of detectors, defenses built on representation and
-      consistency learning, and robustness certification through randomized smoothing tailored to
-      heterogeneous traffic features.</p>
+      working, on heterogeneous, protocol-constrained traffic features.</p>
+      <dl class="subareas">
+        <dt>Adversarial Evasion</dt>
+        <dd>How attackers slip past deep intrusion detectors: adversarial perturbations of traffic features,
+        multi-stage attacks against IoT devices, and realizable evasion that keeps malicious traffic
+        functional.</dd>
+        <dt>Adversarial Defense</dt>
+        <dd>Detectors that hold up under attack: representation learning that transfers robustness to new
+        networks with little labeled data, consistency learning for Transformer-based detectors, and
+        self-evolving early defense against multi-stage IoT attacks.</dd>
+        <dt>Robustness Certification</dt>
+        <dd>Provable guarantees for intrusion detectors: randomized smoothing with dimension-wise certified
+        radii for heterogeneous traffic, covering both evasion attacks and natural corruptions such as
+        latency and packet loss.</dd>
+      </dl>
     </div>
   </div>
 </section>
@@ -168,6 +192,6 @@
 </footer>
 
 <button id="totop" title="Back to top" aria-label="Back to top">&#8593;</button>
-<script src="../assets/site.js?v=119" defer></script>
+<script src="../assets/site.js?v=120" defer></script>
 </body>
 </html>
