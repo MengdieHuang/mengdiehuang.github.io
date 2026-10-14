@@ -39,7 +39,7 @@
 <main>
 <section id="footprint" class="sec wrap reveal">
   <h2 class="sec-title">Footprint</h2>
-  <div id="footprint-map" class="footprint-map" role="region" aria-label="Map of the places I have lived and travelled to; hover over or tap a point for details: lived in Nanjing, Huai'an, Beijing and Xi'an in China, then West Lafayette, Indiana, US; trips to Chongqing, Guangzhou, Melbourne, New York, Philadelphia, Washington, D.C., Boston, Honolulu and Atlanta."></div>
+  <div id="footprint-map" class="footprint-map" role="region" aria-label="Map of the places I have lived and travelled to; hover over or tap a point for details: lived in Nanjing, Huai'an, Beijing and Xi'an in China, then West Lafayette, Indiana, US; trips to Chongqing, Guangzhou, Melbourne, New York, Philadelphia, Washington, D.C., Boston, Knoxville, the Great Smoky Mountains, Honolulu and Atlanta."></div>
   <ul class="fp-legend">
     <li><span class="fp-dot" data-type="hometown"></span>Hometown</li>
     <li><span class="fp-dot" data-type="current"></span>Current</li>
@@ -113,14 +113,18 @@
     dc:        {short:"Washington, D.C.", name:"Washington, D.C., US",           ll:[38.9072, -77.0369 + 360]},
     boston:    {short:"Boston",           name:"Boston, Massachusetts, US",      ll:[42.3601, -71.0589 + 360]},
     atlanta:   {short:"Atlanta",          name:"Atlanta, Georgia, US",           ll:[33.7490, -84.3880 + 360]},
-    honolulu:  {short:"Honolulu",         name:"Honolulu, Hawaii, US",           ll:[21.3069, -157.8583 + 360]}
+    honolulu:  {short:"Honolulu",         name:"Honolulu, Hawaii, US",           ll:[21.3069, -157.8583 + 360]},
+    knoxville: {short:"Knoxville",        name:"Knoxville, Tennessee, US",       ll:[35.9606, -83.9207 + 360]},
+    smokies:   {short:"Great Smoky Mountains", name:"Great Smoky Mountains, Tennessee, US", ll:[35.6853, -83.5368 + 360]}
   };
-  /* Trips in order. Each route starts where I set out from; every leg is drawn as a line.
+  /* Trips in order. Each route starts where I set out from; every leg is drawn as a line,
+     and each stop's details name only the stop before it.
      Places without a "name" (where I lived) are not given a trip marker. */
   var trips = [
     {type:"business", when:"Oct 2018", what:"ICCT 2018",            route:["beijing","chongqing"]},
     {type:"business", when:"Nov 2021",                              route:["xian","guangzhou"]},
     {type:"business", when:"Jul 2023", what:"AsiaCCS 2023",         route:["wl","melbourne"]},
+    {type:"other",    when:"Oct 2023",                              route:["wl","knoxville","smokies"]},
     {type:"other",    when:"Dec 2023 &ndash; Jan 2024",             route:["wl","nyc","philly","dc","nyc","boston","wl"]},
     {type:"other",    when:"May 2024",                              route:["wl","honolulu"]},
     {type:"business", when:"Aug 2024", what:"USENIX Security 2024", route:["wl","philly"]},
@@ -178,27 +182,30 @@
   /* Details: place and time on the first line, what happened below. */
   function tip(title, p){ return '<b>' + title + '</b> &middot; ' + p.when + '<br>' + p.what; }
   var LABEL = {business:"Business", other:"Other"};
-  function note(t){
-    var r = t.route.map(function(id){ return P[id].short; });
-    var how = r.length === 2 ? 'from ' + r[0] : r.join(' &rarr; ');
-    return LABEL[t.type] + (t.what ? ', ' + t.what : '') + ' (' + how + ')';
+  /* Each visit says only where I came from: the previous stop on that trip. */
+  function note(v){
+    var from = v.from.map(function(id){ return P[id].short; }).join(' and ');
+    return LABEL[v.t.type] + (v.t.what ? ', ' + v.t.what : '') + ' (from ' + from + ')';
   }
   var visits = {}, order = [];
   trips.forEach(function(t){
-    t.route.forEach(function(id){
-      if (!P[id].name) return;
+    for (var k = 1; k < t.route.length; k++){
+      var id = t.route[k], prev = t.route[k-1];
+      if (!P[id].name) continue;
       if (!visits[id]){ visits[id] = []; order.push(id); }
-      if (visits[id].indexOf(t) < 0) visits[id].push(t);
-    });
+      var v = visits[id].filter(function(x){ return x.t === t; })[0];
+      if (!v){ v = {t:t, from:[]}; visits[id].push(v); }
+      if (v.from.indexOf(prev) < 0) v.from.push(prev);
+    }
   });
   order.forEach(function(id){
     var vs = visits[id];
     /* A place reached on any business trip takes the business colour. */
-    var type = vs.some(function(t){ return t.type === 'business'; }) ? 'business' : 'other';
+    var type = vs.some(function(v){ return v.t.type === 'business'; }) ? 'business' : 'other';
     /* One visit: time sits after the place name. Several: one dated line per visit. */
     var html = vs.length === 1
-      ? tip(P[id].name, {when:vs[0].when, what:note(vs[0])})
-      : '<b>' + P[id].name + '</b><br>' + vs.map(function(t){ return t.when + ' &middot; ' + note(t); }).join('<br>');
+      ? tip(P[id].name, {when:vs[0].t.when, what:note(vs[0])})
+      : '<b>' + P[id].name + '</b><br>' + vs.map(function(v){ return v.t.when + ' &middot; ' + note(v); }).join('<br>');
     marker(P[id].ll, TYPES[type], html);
   });
   stops.forEach(function(s, i){
