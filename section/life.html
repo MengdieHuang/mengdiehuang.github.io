@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/style.css?v=130">
+<link rel="stylesheet" href="../assets/style.css?v=131">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
 </head>
 <body>
@@ -44,7 +44,7 @@
     <li><span class="fp-dot" data-type="hometown"></span>Hometown</li>
     <li><span class="fp-dot" data-type="current"></span>Current</li>
     <li><span class="fp-dot" data-type="study"></span>Study</li>
-    <li><span class="fp-dot" data-type="business"></span>Business travel</li>
+    <li><span class="fp-dot" data-type="business"></span>Business</li>
     <li><span class="fp-dot" data-type="other"></span>Other</li>
   </ul>
 </section>
@@ -122,7 +122,8 @@
     var t = TYPES[d.dataset.type];
     if (t){ d.style.background = t.fillColor; d.style.borderColor = t.color; }
   });
-  var map = L.map(el, {scrollWheelZoom:false, worldCopyJump:false, attributionControl:true});
+  var map = L.map(el, {scrollWheelZoom:false, worldCopyJump:false, attributionControl:true,
+                       zoomSnap:0.25, zoomDelta:0.5});   /* fractional zoom lets the first view fit the points snugly */
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 12,
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -160,12 +161,23 @@
   stops.forEach(function(s, i){
     marker(s.ll, TYPES[s.type], tip((i+1) + '. ' + s.name, s));
   });
-  map.fitBounds(L.latLngBounds(stops.concat(trips).map(function(p){ return p.ll; })), {padding:[36,36]});
+  /* Move the legend into the map's bottom-right corner, above the attribution. */
+  var legendEl = document.querySelector('.fp-legend');
+  if (legendEl){
+    var legend = L.control({position:'bottomright'});
+    legend.onAdd = function(){ L.DomEvent.disableClickPropagation(legendEl); return legendEl; };
+    legend.addTo(map);
+  }
+  function fitAll(){
+    map.fitBounds(L.latLngBounds(stops.concat(trips).map(function(p){ return p.ll; })),
+                  {paddingTopLeft:[20,24], paddingBottomRight:[20,16]});
+  }
+  fitAll();
   /* The section fades in; recompute size once it is laid out. */
-  window.addEventListener('load', function(){ map.invalidateSize(); });
+  window.addEventListener('load', function(){ map.invalidateSize(); fitAll(); });
 })();
 </script>
 <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<script src="../assets/site.js?v=130" defer></script>
+<script src="../assets/site.js?v=131" defer></script>
 </body>
 </html>
