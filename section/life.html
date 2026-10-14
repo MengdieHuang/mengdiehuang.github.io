@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/style.css?v=127">
+<link rel="stylesheet" href="../assets/style.css?v=128">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
 </head>
 <body>
@@ -37,6 +37,10 @@
 </section>
 
 <main>
+<section id="footprint" class="sec wrap reveal">
+  <h2 class="sec-title">Footprint</h2>
+  <div id="footprint-map" class="footprint-map" role="region" aria-label="Map of the places I have lived; hover over or tap a point for details: Nanjing, Huai'an, Beijing and Xi'an in China, then West Lafayette, Indiana, US."></div>
+</section>
 <section id="sport" class="sec sec-tight wrap reveal">
   <h2 class="sec-title">Sport</h2>
   <p>My favorite sport at the moment is swimming. I am familiar with the breaststroke and am learning freestyle. I also practiced badminton, aerobics and Latin dance.</p>
@@ -48,10 +52,6 @@
 <section id="food" class="sec sec-tight wrap reveal">
   <h2 class="sec-title">Food</h2>
   <p>My favorite food is taro and coconut.</p>
-</section>
-<section id="footprint" class="sec wrap reveal">
-  <h2 class="sec-title">Footprint</h2>
-  <div id="footprint-map" class="footprint-map" role="region" aria-label="Map of the places I have lived; select a point for details: Nanjing, Huai'an, Beijing and Xi'an in China, then West Lafayette, Indiana, US."></div>
 </section>
 </main>
 
@@ -101,9 +101,13 @@
   var path = stops.map(function(s){ return s.ll; });
   L.polyline(path, {color:'#C2983D', weight:2.5, opacity:.85, dashArray:'6 6'}).addTo(map);
   stops.forEach(function(s, i){
-    L.circleMarker(s.ll, {radius:7, color:'#846B33', weight:2, fillColor:'#CBBA96', fillOpacity:1})
-      .bindTooltip((i+1) + '. ' + s.name, {direction:'top', offset:[0,-6]})
-      .bindPopup('<b>' + s.name + '</b><br>' + s.when + '<br>' + s.what)
+    /* hometown: blue; where I am now: jujube red; other stops: gold */
+    var style = i === 0                ? {radius:8, color:'#1F3F6E', weight:2, fillColor:'#2F64A8', fillOpacity:1}
+              : i === stops.length - 1 ? {radius:8, color:'#5E1416', weight:2, fillColor:'#8B1E22', fillOpacity:1}
+              :                          {radius:7, color:'#846B33', weight:2, fillColor:'#CBBA96', fillOpacity:1};
+    L.circleMarker(s.ll, style)
+      .bindTooltip('<b>' + (i+1) + '. ' + s.name + '</b><br>' + s.when + '<br>' + s.what,
+                   {direction:'top', offset:[0,-6], className:'fp-tip'})
       .addTo(map);
   });
   map.fitBounds(L.latLngBounds(path), {padding:[36,36]});
@@ -112,6 +116,6 @@
 })();
 </script>
 <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<script src="../assets/site.js?v=127" defer></script>
+<script src="../assets/site.js?v=128" defer></script>
 </body>
 </html>
