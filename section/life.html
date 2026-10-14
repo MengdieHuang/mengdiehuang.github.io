@@ -112,11 +112,11 @@
   /* Marker colours by category: one family (same saturation and lightness, hue only).
      The legend dots under the map take their colours from here too. */
   var TYPES = {
-    hometown: {radius:8, color:'#5D2F74', weight:2, fillColor:'#9F60BE', fillOpacity:1},
-    current:  {radius:8, color:'#742F34', weight:2, fillColor:'#BE6066', fillOpacity:1},
-    study:    {radius:7, color:'#745E2F', weight:2, fillColor:'#BEA060', fillOpacity:1},
-    business: {radius:7, color:'#2F4F74', weight:2, fillColor:'#608CBE', fillOpacity:1},
-    other:    {radius:7, color:'#2F7438', weight:2, fillColor:'#60BE6C', fillOpacity:1}
+    hometown: {radius:8, color:'#6F358D', weight:2, fillColor:'#AE6ECF', fillOpacity:1},
+    current:  {radius:8, color:'#8D353B', weight:2, fillColor:'#CF6E74', fillOpacity:1},
+    study:    {radius:7, color:'#8D7135', weight:2, fillColor:'#CFB06E', fillOpacity:1},
+    business: {radius:7, color:'#355E8D', weight:2, fillColor:'#6E9BCF', fillOpacity:1},
+    other:    {radius:7, color:'#358D41', weight:2, fillColor:'#6ECF7B', fillOpacity:1}
   };
   Array.prototype.forEach.call(document.querySelectorAll('.fp-dot[data-type]'), function(d){
     var t = TYPES[d.dataset.type];
@@ -133,14 +133,32 @@
   trips.forEach(function(t){
     if (t.from) L.polyline([t.from, t.ll], {color:TYPES[t.type].fillColor, weight:1.5, opacity:.8, dashArray:'2 5'}).addTo(map);
   });
+  /* Grow a marker a little while the pointer is over it, then ease back. */
+  var still = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function animateRadius(m, to){
+    cancelAnimationFrame(m._fpAnim);
+    var from = m.getRadius(), t0 = null;
+    if (still){ m.setRadius(to); return; }
+    (function step(ts){
+      if (t0 === null) t0 = ts;
+      var k = Math.min(1, (ts - t0) / 160), e = 1 - Math.pow(1 - k, 3);
+      m.setRadius(from + (to - from) * e);
+      if (k < 1) m._fpAnim = requestAnimationFrame(step);
+    })(performance.now());
+  }
+  function marker(ll, style, html){
+    var m = L.circleMarker(ll, style)
+      .bindTooltip(html, {direction:'top', offset:[0,-8], className:'fp-tip'});
+    m.on('mouseover', function(){ m.bringToFront(); animateRadius(m, style.radius * 1.5); });
+    m.on('mouseout',  function(){ animateRadius(m, style.radius); });
+    return m.addTo(map);
+  }
   function tip(title, p){ return '<b>' + title + '</b><br>' + p.when + '<br>' + p.what; }
   trips.forEach(function(t){
-    L.circleMarker(t.ll, TYPES[t.type])
-      .bindTooltip(tip(t.name, t), {direction:'top', offset:[0,-6], className:'fp-tip'}).addTo(map);
+    marker(t.ll, TYPES[t.type], tip(t.name, t));
   });
   stops.forEach(function(s, i){
-    L.circleMarker(s.ll, TYPES[s.type])
-      .bindTooltip(tip((i+1) + '. ' + s.name, s), {direction:'top', offset:[0,-6], className:'fp-tip'}).addTo(map);
+    marker(s.ll, TYPES[s.type], tip((i+1) + '. ' + s.name, s));
   });
   map.fitBounds(L.latLngBounds(stops.concat(trips).map(function(p){ return p.ll; })), {padding:[36,36]});
   /* The section fades in; recompute size once it is laid out. */
