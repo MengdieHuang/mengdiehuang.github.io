@@ -85,7 +85,7 @@ p{margin:0 0 .85em}
 
 /* ---------- Section frame ---------- */
 section{scroll-margin-top:calc(var(--nav-h) + 14px)}
-.sec{padding-top:34px;padding-bottom:8px}   /* longhands: keep .wrap's side gutters */
+.sec{padding-top:24px;padding-bottom:8px}   /* longhands: keep .wrap's side gutters */
 .sec-tight{padding-top:16px}   /* short sections, e.g. on the Life page */
 .sec-tight .sec-title{margin-bottom:10px}
 .sec-title{
@@ -655,7 +655,6 @@ sup.mk{color:var(--aged);font-weight:700;font-size:.78em;letter-spacing:.02em}
 .pub-brief a{color:var(--ink)}
 .pub-brief a:hover{color:var(--aged)}
 .pub-brief .award{font-size:12px;font-weight:600;color:var(--rush);white-space:nowrap}
-.more{margin:10px 0 0;font-size:14px}
 @media (max-width:520px){.pub-brief li{grid-template-columns:1fr;gap:2px;padding:6px 0}}
 
 /* ---------- Service page: full names as a list ---------- */
@@ -670,4 +669,3 @@ sup.mk{color:var(--aged);font-weight:700;font-size:.78em;letter-spacing:.02em}
 .pub-brief .pb-authors a:hover{color:var(--aged)}
 .pub-brief .pb-venue{color:var(--steel);font-style:italic}
 .pub-brief li{padding:7px 0}
-.pb-note{margin:8px 0 0;font-size:13px;color:var(--steel)}
