@@ -107,7 +107,7 @@
     wl:        {short:"West Lafayette",   ll:[40.4259, -86.9081 + 360]},
     chongqing: {short:"Chongqing",        name:"Chongqing, China",               ll:[29.5630, 106.5516]},
     guangzhou: {short:"Guangzhou",        name:"Guangzhou, Guangdong, China",    ll:[23.1291, 113.2644]},
-    melbourne: {short:"Melbourne",        name:"Melbourne, Victoria, Australia", ll:[-37.8136, 144.9631]},
+    melbourne: {short:"Melbourne",        name:"Melbourne, Victoria, Australia", ll:[-37.8136, 144.9631], offView:true},
     nyc:       {short:"New York",         name:"New York City, New York, US",    ll:[40.7128, -74.0060 + 360]},
     philly:    {short:"Philadelphia",     name:"Philadelphia, Pennsylvania, US", ll:[39.9526, -75.1652 + 360]},
     dc:        {short:"Washington, D.C.", name:"Washington, D.C., US",           ll:[38.9072, -77.0369 + 360]},
@@ -211,9 +211,11 @@
     legend.onAdd = function(){ L.DomEvent.disableClickPropagation(legendEl); return legendEl; };
     legend.addTo(map);
   }
+  /* The first view frames every point except those marked offView (far south), so it sits higher. */
   function fitAll(){
     map.fitBounds(L.latLngBounds(stops.map(function(p){ return p.ll; })
-                    .concat(order.map(function(id){ return P[id].ll; }))),
+                    .concat(order.filter(function(id){ return !P[id].offView; })
+                                 .map(function(id){ return P[id].ll; }))),
                   {paddingTopLeft:[16,18], paddingBottomRight:[16,12]});
   }
   fitAll();
