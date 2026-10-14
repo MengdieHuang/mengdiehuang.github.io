@@ -112,8 +112,8 @@
   /* Marker colours by category: one family (same saturation and lightness, hue only).
      The legend dots under the map take their colours from here too. */
   var TYPES = {
-    hometown: {radius:8, color:'#6F358D', weight:2, fillColor:'#AE6ECF', fillOpacity:1},
-    current:  {radius:8, color:'#8D353B', weight:2, fillColor:'#CF6E74', fillOpacity:1},
+    hometown: {radius:7, color:'#6F358D', weight:2, fillColor:'#AE6ECF', fillOpacity:1},
+    current:  {radius:7, color:'#8D353B', weight:2, fillColor:'#CF6E74', fillOpacity:1},
     study:    {radius:7, color:'#8D7135', weight:2, fillColor:'#CFB06E', fillOpacity:1},
     business: {radius:7, color:'#355E8D', weight:2, fillColor:'#6E9BCF', fillOpacity:1},
     other:    {radius:7, color:'#358D41', weight:2, fillColor:'#6ECF7B', fillOpacity:1}
@@ -131,7 +131,7 @@
   L.polyline(stops.map(function(s){ return s.ll; }),
              {color:TYPES.study.fillColor, weight:2.5, opacity:.85, dashArray:'6 6'}).addTo(map);
   trips.forEach(function(t){
-    if (t.from) L.polyline([t.from, t.ll], {color:TYPES[t.type].fillColor, weight:1.5, opacity:.8, dashArray:'2 5'}).addTo(map);
+    if (t.from) L.polyline([t.from, t.ll], {color:TYPES[t.type].fillColor, weight:2.5, opacity:.85, dashArray:'6 6'}).addTo(map);
   });
   /* Grow a marker a little while the pointer is over it, then ease back. */
   var still = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
