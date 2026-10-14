@@ -4,12 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Beyond Research &middot; Mengdie Huang</title>
-<meta name="description" content="Mengdie Huang (Maggie), Postdoctoral Research Associate at Purdue University. Life beyond research: hometown, sport, music and food.">
+<meta name="description" content="Mengdie Huang (Maggie), Postdoctoral Research Associate at Purdue University. Life beyond research: hometown, sport, music, food and the places I have lived.">
 <meta name="author" content="Mengdie Huang">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/style.css?v=124">
+<link rel="stylesheet" href="../assets/style.css?v=126">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
 </head>
 <body>
 <script>document.documentElement.className='js';</script>
@@ -52,6 +53,32 @@
   <h2 class="sec-title">Food</h2>
   <p>My favorite food is taro and coconut.</p>
 </section>
+<section id="footprint" class="sec wrap reveal">
+  <h2 class="sec-title">Footprint</h2>
+  <div id="footprint-map" class="footprint-map" role="img" aria-label="Map of the places I have lived: Nanjing, Huai'an, Beijing and Xi'an in China, then West Lafayette, Indiana, US."></div>
+  <ul class="tl footprint-list">
+    <li>
+      <span class="hd">Nanjing, Jiangsu, China<span class="when">&middot; Before 2013</span></span>
+      <span class="ln">Hometown</span>
+    </li>
+    <li>
+      <span class="hd">Huai'an, Jiangsu, China<span class="when">&middot; 2013 &ndash; 2017</span></span>
+      <span class="ln">Bachelor's study, Huai'an University</span>
+    </li>
+    <li>
+      <span class="hd">Beijing, China<span class="when">&middot; 2017 &ndash; 2019</span></span>
+      <span class="ln">Master's study, Communication University of China</span>
+    </li>
+    <li>
+      <span class="hd">Xi'an, Shaanxi, China<span class="when">&middot; 2019 &ndash; 2022</span></span>
+      <span class="ln">Ph.D. study, Xidian University</span>
+    </li>
+    <li>
+      <span class="hd">West Lafayette, Indiana, US<span class="when">&middot; 2022 &ndash; Present</span></span>
+      <span class="ln">Visiting Ph.D. student (2022 &ndash; 2025), then Postdoctoral Research Associate (2025 &ndash; Present), Purdue University</span>
+    </li>
+  </ul>
+</section>
 </main>
 
 <footer class="footer">
@@ -72,11 +99,45 @@
       <a href="https://x.com/MaggieHuang2" target="_blank" rel="noopener" title="X"><img src="../image/twitter-icon.jpg" alt="X"></a>
     </div>
   </div>
-  <div class="copy">&copy; 2026 Mengdie Huang (Maggie). Last updated: Sep 2026.</div>
+  <div class="copy">&copy; 2026 Mengdie Huang (Maggie). Last updated: Sep 2026.<span class="visits" id="busuanzi_container_site_uv" style="display:none"> &middot; Visitors: <span id="busuanzi_value_site_uv"></span></span></div>
   </div>
 </footer>
 
 <button id="totop" title="Back to top" aria-label="Back to top">&#8593;</button>
-<script src="../assets/site.js?v=124" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script>
+(function(){
+  "use strict";
+  var el = document.getElementById('footprint-map');
+  if (!el || !window.L) return;
+  /* Chronological stops. West Lafayette's longitude is shifted by +360 so the path
+     crosses the Pacific instead of wrapping westward around the globe. */
+  var stops = [
+    {name:"Nanjing, Jiangsu, China",     when:"Before 2013", what:"Hometown",                         ll:[32.0603, 118.7969]},
+    {name:"Huai'an, Jiangsu, China",     when:"2013 &ndash; 2017", what:"Bachelor's, Huai'an University", ll:[33.6104, 119.0153]},
+    {name:"Beijing, China",              when:"2017 &ndash; 2019", what:"Master's, Communication University of China", ll:[39.9042, 116.4074]},
+    {name:"Xi'an, Shaanxi, China",       when:"2019 &ndash; 2022", what:"Ph.D., Xidian University",     ll:[34.3416, 108.9398]},
+    {name:"West Lafayette, Indiana, US", when:"2022 &ndash; Present", what:"Visiting Ph.D. (2022&ndash;2025), Postdoc (2025&ndash;), Purdue University", ll:[40.4259, -86.9081 + 360]}
+  ];
+  var map = L.map(el, {scrollWheelZoom:false, worldCopyJump:false, attributionControl:true});
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 12,
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+  }).addTo(map);
+  var path = stops.map(function(s){ return s.ll; });
+  L.polyline(path, {color:'#C2983D', weight:2.5, opacity:.85, dashArray:'6 6'}).addTo(map);
+  stops.forEach(function(s, i){
+    L.circleMarker(s.ll, {radius:7, color:'#846B33', weight:2, fillColor:'#CBBA96', fillOpacity:1})
+      .bindTooltip((i+1) + '. ' + s.name, {direction:'top', offset:[0,-6]})
+      .bindPopup('<b>' + s.name + '</b><br>' + s.when + '<br>' + s.what)
+      .addTo(map);
+  });
+  map.fitBounds(L.latLngBounds(path), {padding:[36,36]});
+  /* The section fades in; recompute size once it is laid out. */
+  window.addEventListener('load', function(){ map.invalidateSize(); });
+})();
+</script>
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="../assets/site.js?v=126" defer></script>
 </body>
 </html>

@@ -385,6 +385,8 @@ html.js .reveal.in{opacity:1;transform:none}
   background:linear-gradient(180deg,var(--surface),var(--dust));
 }
 
+.copy .visits{white-space:nowrap;font-variant-numeric:tabular-nums}
+
 /* ---------- Back to top ---------- */
 #totop{
   position:fixed;right:20px;bottom:calc(20px + env(safe-area-inset-bottom,0px));z-index:45;
@@ -626,3 +628,8 @@ sup.mk{color:var(--aged);font-weight:700;font-size:.78em;letter-spacing:.02em}
   .mentee-grid{grid-template-columns:1fr}
   .rep{grid-template-columns:1fr;gap:12px;padding:12px}
 }
+
+/* ---------- Life: footprint map ---------- */
+.footprint-map{height:380px;border-radius:9px;margin-bottom:18px;background:var(--surface2);z-index:0}
+.footprint-map .leaflet-popup-content{font-family:inherit;font-size:13px;line-height:1.5}
+@media (max-width:520px){.footprint-map{height:300px}}
