@@ -206,6 +206,8 @@ html.js .reveal.in{opacity:1;transform:none}
   position:relative;padding:6px 0 6px 19px;
   line-height:1.55;font-weight:500;color:var(--ink);
 }
+.plainlist.life li{font-weight:400}
+.plainlist.life b{font-weight:600}
 .plainlist li::before{
   content:"";position:absolute;left:3px;top:.95em;
   width:5px;height:5px;border-radius:50%;background:var(--gold);
