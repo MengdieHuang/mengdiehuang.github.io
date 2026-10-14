@@ -676,3 +676,10 @@ sup.mk{color:var(--aged);font-weight:700;font-size:.78em;letter-spacing:.02em}
 .songs a{color:var(--ink)}
 .songs a:hover{color:var(--aged)}
 .songs .by{color:var(--steel)}
+
+/* ---------- Home: brief education & employment ---------- */
+.edu-brief li{font-weight:400;padding:5px 0 5px 19px}
+.edu-brief .t{display:block;font-weight:600;color:var(--ink)}
+.edu-brief .m{display:block;font-size:13.5px;color:var(--steel)}
+.songs .icon-btn{width:22px;height:22px;vertical-align:middle;margin-left:8px}
+.songs .icon-btn img{height:12px}
