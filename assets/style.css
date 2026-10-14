@@ -664,3 +664,10 @@ sup.mk{color:var(--aged);font-weight:700;font-size:.78em;letter-spacing:.02em}
 .svc-list a:hover{color:var(--aged)}
 .svc-list .yr{margin-left:4px;font-size:13px;color:var(--steel);font-variant-numeric:tabular-nums}
 .svc-list .award{margin-left:6px;font-size:12px;font-weight:600;color:var(--rush);white-space:nowrap}
+.pub-brief .pb-authors,.pub-brief .pb-venue{display:block;font-size:13.5px;line-height:1.5}
+.pub-brief .pb-authors{color:var(--ink);margin-top:2px}
+.pub-brief .pb-authors a{color:var(--ink)}
+.pub-brief .pb-authors a:hover{color:var(--aged)}
+.pub-brief .pb-venue{color:var(--steel);font-style:italic}
+.pub-brief li{padding:7px 0}
+.pb-note{margin:8px 0 0;font-size:13px;color:var(--steel)}
