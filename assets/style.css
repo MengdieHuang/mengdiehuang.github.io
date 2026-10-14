@@ -642,7 +642,7 @@ sup.mk{color:var(--aged);font-weight:700;font-size:.78em;letter-spacing:.02em}
 .fp-legend li{display:inline-flex;align-items:center;gap:7px}
 .fp-dot{width:11px;height:11px;border-radius:50%;border:2px solid var(--gold);box-sizing:border-box;background:var(--dust)}
 .footprint-map .fp-tip{
-  width:max-content;max-width:260px;white-space:normal;
+  width:max-content;max-width:300px;white-space:normal;
   font-family:inherit;font-size:12.5px;line-height:1.5;color:var(--ink);
 }
 @media (max-width:520px){.footprint-map{height:300px}}

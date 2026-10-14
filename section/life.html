@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/style.css?v=131">
+<link rel="stylesheet" href="../assets/style.css?v=132">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
 </head>
 <body>
@@ -175,12 +175,13 @@
     m.on('mouseout',  function(){ animateRadius(m, style.radius); });
     return m.addTo(map);
   }
-  function tip(title, p){ return '<b>' + title + '</b><br>' + p.when + '<br>' + p.what; }
+  /* Details: place and time on the first line, what happened below. */
+  function tip(title, p){ return '<b>' + title + '</b> &middot; ' + p.when + '<br>' + p.what; }
   var LABEL = {business:"Business", other:"Other"};
   function note(t){
     var r = t.route.map(function(id){ return P[id].short; });
     var how = r.length === 2 ? 'from ' + r[0] : r.join(' &rarr; ');
-    return t.when + ' &middot; ' + LABEL[t.type] + (t.what ? ', ' + t.what : '') + ' (' + how + ')';
+    return LABEL[t.type] + (t.what ? ', ' + t.what : '') + ' (' + how + ')';
   }
   var visits = {}, order = [];
   trips.forEach(function(t){
@@ -194,7 +195,11 @@
     var vs = visits[id];
     /* A place reached on any business trip takes the business colour. */
     var type = vs.some(function(t){ return t.type === 'business'; }) ? 'business' : 'other';
-    marker(P[id].ll, TYPES[type], '<b>' + P[id].name + '</b><br>' + vs.map(note).join('<br>'));
+    /* One visit: time sits after the place name. Several: one dated line per visit. */
+    var html = vs.length === 1
+      ? tip(P[id].name, {when:vs[0].when, what:note(vs[0])})
+      : '<b>' + P[id].name + '</b><br>' + vs.map(function(t){ return t.when + ' &middot; ' + note(t); }).join('<br>');
+    marker(P[id].ll, TYPES[type], html);
   });
   stops.forEach(function(s, i){
     marker(s.ll, TYPES[s.type], tip((i+1) + '. ' + s.name, s));
@@ -217,6 +222,6 @@
 })();
 </script>
 <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<script src="../assets/site.js?v=131" defer></script>
+<script src="../assets/site.js?v=132" defer></script>
 </body>
 </html>
