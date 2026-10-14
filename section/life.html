@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/style.css?v=128">
+<link rel="stylesheet" href="../assets/style.css?v=130">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
 </head>
 <body>
@@ -39,7 +39,14 @@
 <main>
 <section id="footprint" class="sec wrap reveal">
   <h2 class="sec-title">Footprint</h2>
-  <div id="footprint-map" class="footprint-map" role="region" aria-label="Map of the places I have lived; hover over or tap a point for details: Nanjing, Huai'an, Beijing and Xi'an in China, then West Lafayette, Indiana, US."></div>
+  <div id="footprint-map" class="footprint-map" role="region" aria-label="Map of the places I have lived and travelled to; hover over or tap a point for details: lived in Nanjing, Huai'an, Beijing and Xi'an in China, then West Lafayette, Indiana, US; business travel to Chongqing, Guangzhou, Melbourne and Atlanta."></div>
+  <ul class="fp-legend">
+    <li><span class="fp-dot" data-type="hometown"></span>Hometown</li>
+    <li><span class="fp-dot" data-type="current"></span>Current</li>
+    <li><span class="fp-dot" data-type="study"></span>Study</li>
+    <li><span class="fp-dot" data-type="business"></span>Business travel</li>
+    <li><span class="fp-dot" data-type="other"></span>Other</li>
+  </ul>
 </section>
 <section id="sport" class="sec sec-tight wrap reveal">
   <h2 class="sec-title">Sport</h2>
@@ -87,35 +94,60 @@
   /* Chronological stops. West Lafayette's longitude is shifted by +360 so the path
      crosses the Pacific instead of wrapping westward around the globe. */
   var stops = [
-    {name:"Nanjing, Jiangsu, China",     when:"Before 2013", what:"Hometown",                         ll:[32.0603, 118.7969]},
-    {name:"Huai'an, Jiangsu, China",     when:"2013 &ndash; 2017", what:"Bachelor's study, Huai'an University", ll:[33.6104, 119.0153]},
-    {name:"Beijing, China",              when:"2017 &ndash; 2019", what:"Master's study, Communication University of China", ll:[39.9042, 116.4074]},
-    {name:"Xi'an, Shaanxi, China",       when:"2019 &ndash; 2022", what:"Ph.D. study, Xidian University",     ll:[34.3416, 108.9398]},
-    {name:"West Lafayette, Indiana, US", when:"2022 &ndash; Present", what:"Visiting Ph.D. student (2022 &ndash; 2025), then Postdoctoral Research Associate (2025 &ndash; Present), Purdue University", ll:[40.4259, -86.9081 + 360]}
+    {type:"hometown", name:"Nanjing, Jiangsu, China",     when:"Before 2013", what:"Hometown",                         ll:[32.0603, 118.7969]},
+    {type:"study", name:"Huai'an, Jiangsu, China",     when:"2013 &ndash; 2017", what:"Bachelor's study, Huai'an University", ll:[33.6104, 119.0153]},
+    {type:"study", name:"Beijing, China",              when:"2017 &ndash; 2019", what:"Master's study, Communication University of China", ll:[39.9042, 116.4074]},
+    {type:"study", name:"Xi'an, Shaanxi, China",       when:"2019 &ndash; 2022", what:"Ph.D. study, Xidian University",     ll:[34.3416, 108.9398]},
+    {type:"current", name:"West Lafayette, Indiana, US", when:"2022 &ndash; Present", what:"Visiting Ph.D. student (2022 &ndash; 2025), then Postdoctoral Research Associate (2025 &ndash; Present), Purdue University", ll:[40.4259, -86.9081 + 360]}
   ];
+  /* Trips, drawn as points; "from" adds a thin line from the place I set out from.
+     American longitudes are shifted by +360 for the same reason as above. */
+  var BEIJING = [39.9042, 116.4074], XIAN = [34.3416, 108.9398], WL = [40.4259, -86.9081 + 360];
+  var trips = [
+    {type:"business", name:"Chongqing, China",            when:"Oct 2018", what:"Business travel from Beijing, ICCT 2018", ll:[29.5630, 106.5516], from:BEIJING},
+    {type:"business", name:"Guangzhou, Guangdong, China", when:"Nov 2021", what:"Business travel from Xi'an",          ll:[23.1291, 113.2644], from:XIAN},
+    {type:"business", name:"Melbourne, Victoria, Australia", when:"Jul 2023", what:"Business travel from West Lafayette, AsiaCCS 2023", ll:[-37.8136, 144.9631], from:WL},
+    {type:"business", name:"Atlanta, Georgia, US",        when:"Sep 2026", what:"Business travel from West Lafayette", ll:[33.7490, -84.3880 + 360], from:WL}
+  ];
+  /* Marker colours by category: one family (same saturation and lightness, hue only).
+     The legend dots under the map take their colours from here too. */
+  var TYPES = {
+    hometown: {radius:8, color:'#5D2F74', weight:2, fillColor:'#9F60BE', fillOpacity:1},
+    current:  {radius:8, color:'#742F34', weight:2, fillColor:'#BE6066', fillOpacity:1},
+    study:    {radius:7, color:'#745E2F', weight:2, fillColor:'#BEA060', fillOpacity:1},
+    business: {radius:7, color:'#2F4F74', weight:2, fillColor:'#608CBE', fillOpacity:1},
+    other:    {radius:7, color:'#2F7438', weight:2, fillColor:'#60BE6C', fillOpacity:1}
+  };
+  Array.prototype.forEach.call(document.querySelectorAll('.fp-dot[data-type]'), function(d){
+    var t = TYPES[d.dataset.type];
+    if (t){ d.style.background = t.fillColor; d.style.borderColor = t.color; }
+  });
   var map = L.map(el, {scrollWheelZoom:false, worldCopyJump:false, attributionControl:true});
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 12,
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
   }).addTo(map);
-  var path = stops.map(function(s){ return s.ll; });
-  L.polyline(path, {color:'#C2983D', weight:2.5, opacity:.85, dashArray:'6 6'}).addTo(map);
-  stops.forEach(function(s, i){
-    /* hometown: blue; where I am now: jujube red; other stops: gold */
-    var style = i === 0                ? {radius:8, color:'#1F3F6E', weight:2, fillColor:'#2F64A8', fillOpacity:1}
-              : i === stops.length - 1 ? {radius:8, color:'#5E1416', weight:2, fillColor:'#8B1E22', fillOpacity:1}
-              :                          {radius:7, color:'#846B33', weight:2, fillColor:'#CBBA96', fillOpacity:1};
-    L.circleMarker(s.ll, style)
-      .bindTooltip('<b>' + (i+1) + '. ' + s.name + '</b><br>' + s.when + '<br>' + s.what,
-                   {direction:'top', offset:[0,-6], className:'fp-tip'})
-      .addTo(map);
+  /* The dashed route links the places I lived, in order. */
+  L.polyline(stops.map(function(s){ return s.ll; }),
+             {color:TYPES.study.fillColor, weight:2.5, opacity:.85, dashArray:'6 6'}).addTo(map);
+  trips.forEach(function(t){
+    if (t.from) L.polyline([t.from, t.ll], {color:TYPES[t.type].fillColor, weight:1.5, opacity:.8, dashArray:'2 5'}).addTo(map);
   });
-  map.fitBounds(L.latLngBounds(path), {padding:[36,36]});
+  function tip(title, p){ return '<b>' + title + '</b><br>' + p.when + '<br>' + p.what; }
+  trips.forEach(function(t){
+    L.circleMarker(t.ll, TYPES[t.type])
+      .bindTooltip(tip(t.name, t), {direction:'top', offset:[0,-6], className:'fp-tip'}).addTo(map);
+  });
+  stops.forEach(function(s, i){
+    L.circleMarker(s.ll, TYPES[s.type])
+      .bindTooltip(tip((i+1) + '. ' + s.name, s), {direction:'top', offset:[0,-6], className:'fp-tip'}).addTo(map);
+  });
+  map.fitBounds(L.latLngBounds(stops.concat(trips).map(function(p){ return p.ll; })), {padding:[36,36]});
   /* The section fades in; recompute size once it is laid out. */
   window.addEventListener('load', function(){ map.invalidateSize(); });
 })();
 </script>
 <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<script src="../assets/site.js?v=128" defer></script>
+<script src="../assets/site.js?v=130" defer></script>
 </body>
 </html>
