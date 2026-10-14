@@ -86,6 +86,8 @@ p{margin:0 0 .85em}
 /* ---------- Section frame ---------- */
 section{scroll-margin-top:calc(var(--nav-h) + 14px)}
 .sec{padding-top:34px;padding-bottom:8px}   /* longhands: keep .wrap's side gutters */
+.sec-tight{padding-top:16px}   /* short sections, e.g. on the Life page */
+.sec-tight .sec-title{margin-bottom:10px}
 .sec-title{
   display:flex;align-items:center;gap:12px;
   margin:0 0 18px;
