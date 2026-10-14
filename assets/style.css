@@ -669,3 +669,10 @@ sup.mk{color:var(--aged);font-weight:700;font-size:.78em;letter-spacing:.02em}
 .pub-brief .pb-authors a:hover{color:var(--aged)}
 .pub-brief .pb-venue{color:var(--steel);font-style:italic}
 .pub-brief li{padding:7px 0}
+
+/* ---------- Life: favourite songs ---------- */
+.songs-title{margin:4px 0 2px;font-size:14px;font-weight:600;color:var(--ink)}
+.songs li{font-weight:400;padding:3px 0 3px 19px}
+.songs a{color:var(--ink)}
+.songs a:hover{color:var(--aged)}
+.songs .by{color:var(--steel)}
