@@ -55,29 +55,7 @@
 </section>
 <section id="footprint" class="sec wrap reveal">
   <h2 class="sec-title">Footprint</h2>
-  <div id="footprint-map" class="footprint-map" role="img" aria-label="Map of the places I have lived: Nanjing, Huai'an, Beijing and Xi'an in China, then West Lafayette, Indiana, US."></div>
-  <ul class="tl footprint-list">
-    <li>
-      <span class="hd">Nanjing, Jiangsu, China<span class="when">&middot; Before 2013</span></span>
-      <span class="ln">Hometown</span>
-    </li>
-    <li>
-      <span class="hd">Huai'an, Jiangsu, China<span class="when">&middot; 2013 &ndash; 2017</span></span>
-      <span class="ln">Bachelor's study, Huai'an University</span>
-    </li>
-    <li>
-      <span class="hd">Beijing, China<span class="when">&middot; 2017 &ndash; 2019</span></span>
-      <span class="ln">Master's study, Communication University of China</span>
-    </li>
-    <li>
-      <span class="hd">Xi'an, Shaanxi, China<span class="when">&middot; 2019 &ndash; 2022</span></span>
-      <span class="ln">Ph.D. study, Xidian University</span>
-    </li>
-    <li>
-      <span class="hd">West Lafayette, Indiana, US<span class="when">&middot; 2022 &ndash; Present</span></span>
-      <span class="ln">Visiting Ph.D. student (2022 &ndash; 2025), then Postdoctoral Research Associate (2025 &ndash; Present), Purdue University</span>
-    </li>
-  </ul>
+  <div id="footprint-map" class="footprint-map" role="region" aria-label="Map of the places I have lived; select a point for details: Nanjing, Huai'an, Beijing and Xi'an in China, then West Lafayette, Indiana, US."></div>
 </section>
 </main>
 
@@ -114,10 +92,10 @@
      crosses the Pacific instead of wrapping westward around the globe. */
   var stops = [
     {name:"Nanjing, Jiangsu, China",     when:"Before 2013", what:"Hometown",                         ll:[32.0603, 118.7969]},
-    {name:"Huai'an, Jiangsu, China",     when:"2013 &ndash; 2017", what:"Bachelor's, Huai'an University", ll:[33.6104, 119.0153]},
-    {name:"Beijing, China",              when:"2017 &ndash; 2019", what:"Master's, Communication University of China", ll:[39.9042, 116.4074]},
-    {name:"Xi'an, Shaanxi, China",       when:"2019 &ndash; 2022", what:"Ph.D., Xidian University",     ll:[34.3416, 108.9398]},
-    {name:"West Lafayette, Indiana, US", when:"2022 &ndash; Present", what:"Visiting Ph.D. (2022&ndash;2025), Postdoc (2025&ndash;), Purdue University", ll:[40.4259, -86.9081 + 360]}
+    {name:"Huai'an, Jiangsu, China",     when:"2013 &ndash; 2017", what:"Bachelor's study, Huai'an University", ll:[33.6104, 119.0153]},
+    {name:"Beijing, China",              when:"2017 &ndash; 2019", what:"Master's study, Communication University of China", ll:[39.9042, 116.4074]},
+    {name:"Xi'an, Shaanxi, China",       when:"2019 &ndash; 2022", what:"Ph.D. study, Xidian University",     ll:[34.3416, 108.9398]},
+    {name:"West Lafayette, Indiana, US", when:"2022 &ndash; Present", what:"Visiting Ph.D. student (2022 &ndash; 2025), then Postdoctoral Research Associate (2025 &ndash; Present), Purdue University", ll:[40.4259, -86.9081 + 360]}
   ];
   var map = L.map(el, {scrollWheelZoom:false, worldCopyJump:false, attributionControl:true});
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
