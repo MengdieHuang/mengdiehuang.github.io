@@ -39,7 +39,7 @@
 <main>
 <section id="footprint" class="sec wrap reveal">
   <h2 class="sec-title">Footprint</h2>
-  <div id="footprint-map" class="footprint-map" role="region" aria-label="Map of the places I have lived and travelled to; hover over or tap a point for details: lived in Nanjing, Huai'an, Beijing and Xi'an in China, then West Lafayette, Indiana, US; trips to Chongqing, Guangzhou, Melbourne, New York, Philadelphia, Washington, D.C., Boston and Atlanta."></div>
+  <div id="footprint-map" class="footprint-map" role="region" aria-label="Map of the places I have lived and travelled to; hover over or tap a point for details: lived in Nanjing, Huai'an, Beijing and Xi'an in China, then West Lafayette, Indiana, US; trips to Chongqing, Guangzhou, Melbourne, New York, Philadelphia, Washington, D.C., Boston, Honolulu and Atlanta."></div>
   <ul class="fp-legend">
     <li><span class="fp-dot" data-type="hometown"></span>Hometown</li>
     <li><span class="fp-dot" data-type="current"></span>Current</li>
@@ -112,7 +112,8 @@
     philly:    {short:"Philadelphia",     name:"Philadelphia, Pennsylvania, US", ll:[39.9526, -75.1652 + 360]},
     dc:        {short:"Washington, D.C.", name:"Washington, D.C., US",           ll:[38.9072, -77.0369 + 360]},
     boston:    {short:"Boston",           name:"Boston, Massachusetts, US",      ll:[42.3601, -71.0589 + 360]},
-    atlanta:   {short:"Atlanta",          name:"Atlanta, Georgia, US",           ll:[33.7490, -84.3880 + 360]}
+    atlanta:   {short:"Atlanta",          name:"Atlanta, Georgia, US",           ll:[33.7490, -84.3880 + 360]},
+    honolulu:  {short:"Honolulu",         name:"Honolulu, Hawaii, US",           ll:[21.3069, -157.8583 + 360]}
   };
   /* Trips in order. Each route starts where I set out from; every leg is drawn as a line.
      Places without a "name" (where I lived) are not given a trip marker. */
@@ -121,6 +122,7 @@
     {type:"business", when:"Nov 2021",                              route:["xian","guangzhou"]},
     {type:"business", when:"Jul 2023", what:"AsiaCCS 2023",         route:["wl","melbourne"]},
     {type:"other",    when:"Dec 2023 &ndash; Jan 2024",             route:["wl","nyc","philly","dc","nyc","boston","wl"]},
+    {type:"other",    when:"May 2024",                              route:["wl","honolulu"]},
     {type:"business", when:"Aug 2024", what:"USENIX Security 2024", route:["wl","philly"]},
     {type:"other",    when:"May 2025",                              route:["wl","atlanta"]},
     {type:"business", when:"Sep 2026", what:"ACM AI Summit",        route:["wl","atlanta"]}
@@ -139,7 +141,7 @@
     if (t){ d.style.background = t.fillColor; d.style.borderColor = t.color; }
   });
   var map = L.map(el, {scrollWheelZoom:false, worldCopyJump:false, attributionControl:true,
-                       zoomSnap:0.25, zoomDelta:0.5});   /* fractional zoom lets the first view fit the points snugly */
+                       zoomSnap:0, zoomDelta:0.5});   /* unsnapped zoom lets the first view fit the points exactly */
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 12,
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -207,7 +209,7 @@
   function fitAll(){
     map.fitBounds(L.latLngBounds(stops.map(function(p){ return p.ll; })
                     .concat(order.map(function(id){ return P[id].ll; }))),
-                  {paddingTopLeft:[20,24], paddingBottomRight:[20,16]});
+                  {paddingTopLeft:[16,18], paddingBottomRight:[16,12]});
   }
   fitAll();
   /* The section fades in; recompute size once it is laid out. */
