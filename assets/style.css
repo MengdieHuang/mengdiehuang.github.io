@@ -115,7 +115,7 @@ html.js .reveal.in{opacity:1;transform:none}
 }
 .hero-txt{flex:1 1 auto;min-width:0}
 .hero + main > .sec:first-child{padding-top:20px}   /* less air between the contact block and About me */
-.hero-pic{flex:0 0 auto}
+.hero-pic{flex:0 0 auto;margin-top:-14px}   /* sit higher, so the banner below it is shorter */
 .hero-pic img{
   width:178px;height:222px;object-fit:cover;border-radius:10px;
   box-shadow:0 12px 30px rgba(143,111,62,.20);
@@ -406,6 +406,7 @@ html.js .reveal.in{opacity:1;transform:none}
 @media (max-width:720px){
   .hero-in{flex-direction:column-reverse;align-items:center;text-align:center;gap:18px;padding:24px 20px 22px}
   .hero-txt{text-align:left;width:100%}
+  .hero-pic{margin-top:0}
   .hero-pic img{width:150px;height:188px}
   .hero h1{font-size:27px}
   .name-zh{font-size:18px}
@@ -656,3 +657,10 @@ sup.mk{color:var(--aged);font-weight:700;font-size:.78em;letter-spacing:.02em}
 .pub-brief .award{font-size:12px;font-weight:600;color:var(--rush);white-space:nowrap}
 .more{margin:10px 0 0;font-size:14px}
 @media (max-width:520px){.pub-brief li{grid-template-columns:1fr;gap:2px;padding:6px 0}}
+
+/* ---------- Service page: full names as a list ---------- */
+.svc-list li{font-weight:400;padding:4px 0 4px 19px}
+.svc-list a{color:var(--ink)}
+.svc-list a:hover{color:var(--aged)}
+.svc-list .yr{margin-left:4px;font-size:13px;color:var(--steel);font-variant-numeric:tabular-nums}
+.svc-list .award{margin-left:6px;font-size:12px;font-weight:600;color:var(--rush);white-space:nowrap}
