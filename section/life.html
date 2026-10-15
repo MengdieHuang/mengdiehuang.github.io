@@ -152,10 +152,10 @@
   });
   var map = L.map(el, {scrollWheelZoom:false, worldCopyJump:false, attributionControl:true,
                        zoomSnap:0, zoomDelta:0.5});   /* unsnapped zoom lets the first view fit the points exactly */
-  /* Esri World Shaded Relief: soft coloured terrain with no place names. */
-  L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Shaded_Relief/MapServer/tile/{z}/{y}/{x}', {
+  /* Esri World Street Map: standard colours, with place names in English. */
+  L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {
     maxZoom: 12,
-    attribution: 'Tiles &copy; <a href="https://www.esri.com/">Esri</a> &mdash; Source: Esri'
+    attribution: 'Tiles &copy; <a href="https://www.esri.com/">Esri</a> &mdash; Source: Esri, HERE, Garmin, USGS, &copy; OpenStreetMap contributors'
   }).addTo(map);
   /* The dashed route links the places I lived, in order. */
   L.polyline(stops.map(function(s){ return s.ll; }),
