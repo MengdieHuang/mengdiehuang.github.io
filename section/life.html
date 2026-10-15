@@ -39,7 +39,7 @@
 <main>
 <section id="footprint" class="sec wrap reveal">
   <h2 class="sec-title">Footprint</h2>
-  <div id="footprint-map" class="footprint-map" role="region" aria-label="Map of the places I have lived and travelled to; hover over or tap a point for details: lived in Nanjing, Huai'an, Beijing and Xi'an in China, then West Lafayette, Indiana, US; trips to Chongqing, Guangzhou, Melbourne, New York, Philadelphia, Washington, D.C., Boston, Knoxville, the Great Smoky Mountains, Honolulu and Atlanta."></div>
+  <div id="footprint-map" class="footprint-map" role="region" aria-label="Map of the places I have lived and travelled to; hover over or tap a point for details: lived in Nanjing, Huai'an, Beijing and Xi'an in China, then West Lafayette, Indiana, US; trips to Chongqing, Shanghai, Nanjing, Guangzhou, Melbourne, New York, Philadelphia, Washington, D.C., Boston, Chicago, Knoxville, the Great Smoky Mountains, Honolulu and Atlanta."></div>
   <ul class="fp-legend">
     <li><span class="fp-dot" data-type="hometown"></span>Hometown</li>
     <li><span class="fp-dot" data-type="current"></span>Current</li>
@@ -106,7 +106,9 @@
   ];
   /* Places visited on trips. American longitudes are shifted by +360 for the same reason as above. */
   var P = {
+    nanjing:   {short:"Nanjing",          ll:[32.0603, 118.7969], stopName:"Nanjing, Jiangsu, China"},
     beijing:   {short:"Beijing",          ll:[39.9042, 116.4074]},
+    shanghai:  {short:"Shanghai",         name:"Shanghai, China",                ll:[31.2304, 121.4737]},
     xian:      {short:"Xi'an",            ll:[34.3416, 108.9398]},
     wl:        {short:"West Lafayette",   ll:[40.4259, -86.9081 + 360]},
     chongqing: {short:"Chongqing",        name:"Chongqing, China",               ll:[29.5630, 106.5516]},
@@ -117,6 +119,7 @@
     dc:        {short:"Washington, D.C.", name:"Washington, D.C., US",           ll:[38.9072, -77.0369 + 360]},
     boston:    {short:"Boston",           name:"Boston, Massachusetts, US",      ll:[42.3601, -71.0589 + 360]},
     atlanta:   {short:"Atlanta",          name:"Atlanta, Georgia, US",           ll:[33.7490, -84.3880 + 360]},
+    chicago:   {short:"Chicago",          name:"Chicago, Illinois, US",          ll:[41.8781, -87.6298 + 360]},
     honolulu:  {short:"Honolulu",         name:"Honolulu, Hawaii, US",           ll:[21.3069, -157.8583 + 360]},
     knoxville: {short:"Knoxville",        name:"Knoxville, Tennessee, US",       ll:[35.9606, -83.9207 + 360]},
     smokies:   {short:"Great Smoky Mountains", name:"Great Smoky Mountains, Tennessee, US", ll:[35.6853, -83.5368 + 360]}
@@ -126,9 +129,12 @@
      Places without a "name" (where I lived) are not given a trip marker. */
   var trips = [
     {type:"business", when:"Oct 2018", what:"ICCT 2018",            route:["beijing","chongqing"]},
+    {type:"business", when:"Oct 2018",                              route:["beijing","shanghai"]},
+    {type:"business", when:"Nov 2019",                              route:["xian","nanjing"]},
     {type:"business", when:"Nov 2021",                              route:["xian","guangzhou"]},
+    {type:"other",    when:"2022 &ndash; Present",                  route:["wl","chicago"]},
     {type:"business", when:"Jul 2023", what:"AsiaCCS 2023",         route:["wl","melbourne"]},
-    {type:"other",    when:"Oct 2023",                              route:["wl","knoxville","smokies"]},
+    {type:"other",    when:"Oct 2023",                              route:["wl","knoxville","smokies"], fromStart:true},
     {type:"other",    when:"Dec 2023 &ndash; Jan 2024",             route:["wl","nyc","philly","dc","nyc","boston","wl"]},
     {type:"other",    when:"May 2024",                              route:["wl","honolulu"]},
     {type:"business", when:"Aug 2024", what:"USENIX Security 2024", route:["wl","philly"]},
@@ -194,8 +200,9 @@
   var visits = {}, order = [];
   trips.forEach(function(t){
     for (var k = 1; k < t.route.length; k++){
-      var id = t.route[k], prev = t.route[k-1];
-      if (!P[id].name) continue;
+      /* fromStart: every stop of this trip names where the trip began, not the stop before it. */
+      var id = t.route[k], prev = t.fromStart ? t.route[0] : t.route[k-1];
+      if (!P[id].name && !P[id].stopName) continue;
       if (!visits[id]){ visits[id] = []; order.push(id); }
       var v = visits[id].filter(function(x){ return x.t === t; })[0];
       if (!v){ v = {t:t, from:[]}; visits[id].push(v); }
@@ -203,6 +210,7 @@
     }
   });
   order.forEach(function(id){
+    if (P[id].stopName) return;   /* shown on the lived-place marker instead */
     var vs = visits[id];
     /* A place reached on any business trip takes the business colour. */
     var type = vs.some(function(v){ return v.t.type === 'business'; }) ? 'business' : 'other';
@@ -212,8 +220,14 @@
       : '<b>' + P[id].name + '</b><br>' + vs.map(function(v){ return v.t.when + ' &middot; ' + note(v); }).join('<br>');
     marker(P[id].ll, TYPES[type], html);
   });
-  stops.forEach(function(s, i){
-    marker(s.ll, TYPES[s.type], tip((i+1) + '. ' + s.name, s));
+  stops.forEach(function(s){
+    var html = tip(s.name, s);
+    for (var id in P){
+      if (P[id].stopName === s.name && visits[id]){
+        html += '<br>' + visits[id].map(function(v){ return v.t.when + ' &middot; ' + note(v); }).join('<br>');
+      }
+    }
+    marker(s.ll, TYPES[s.type], html);
   });
   /* Move the legend into the map's bottom-right corner, above the attribution. */
   var legendEl = document.querySelector('.fp-legend');
@@ -225,7 +239,7 @@
   /* The first view frames every point except those marked offView (far south), so it sits higher. */
   function fitAll(){
     map.fitBounds(L.latLngBounds(stops.map(function(p){ return p.ll; })
-                    .concat(order.filter(function(id){ return !P[id].offView; })
+                    .concat(order.filter(function(id){ return !P[id].offView && !P[id].stopName; })
                                  .map(function(id){ return P[id].ll; }))),
                   {paddingTopLeft:[16,18], paddingBottomRight:[16,12]});
   }
